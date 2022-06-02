@@ -1,21 +1,145 @@
-import { Box, Button, Container, Heading, Image, Text } from '@chakra-ui/react';
-import React from 'react';
+import {
+  Box,
+  Button,
+  Heading,
+  Text,
+  IconButton,
+  useBreakpointValue,
+} from '@chakra-ui/react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
+const settings = {
+  dots: true,
+  arrows: false,
+  fade: true,
+  infinite: true,
+  autoplay: true,
+  speed: 500,
+  autoplaySpeed: 5000,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+};
 
 function Hero() {
   const navigate = useNavigate();
+  const [slider, setSlider] = useState(null);
+
+  // These are the breakpoints which changes the position of the
+  // buttons as the screen size changes
+  const top = useBreakpointValue({ base: '90%', md: '50%' });
+  const side = useBreakpointValue({ base: '20%', md: '30px' });
+
+  const cards = [
+    '/images/hero.webp',
+    '/images/hero2.webp',
+    '/images/hero3.webp',
+  ];
   return (
-    <Box w="100%" h="50vh" mt="-2rem" position="relative" zIndex="10">
-      <Box position="absolute" zIndex={-1} w="100%" h="100%">
-        <Image w="100px" src="/images/hero.webp" alt="Babyfie" />
+    <Box
+      w="100%"
+      h="600px"
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+    >
+      <Box
+        position={'relative'}
+        w={'full'}
+        h={'600px'}
+        overflow={'hidden'}
+        px="0"
+        py="0"
+      >
+        <IconButton
+          aria-label="left-arrow"
+          borderRadius="full"
+          bg="brand.500"
+          position={'absolute'}
+          top={top}
+          left={side}
+          transform={'translate(0%,-50%)'}
+          zIndex={'2'}
+          _hover={{ background: 'brand.600', color: '#fff' }}
+          onClick={() => slider?.slickPrev()}
+        >
+          <BiLeftArrowAlt style={{ width: '30px', height: '30px' }} />
+        </IconButton>
+
+        <IconButton
+          aria-label="right-arrow"
+          borderRadius="full"
+          bg="brand.500"
+          position={'absolute'}
+          top={top}
+          right={side}
+          zIndex={'2'}
+          transform={'translate(0%,-50%)'}
+          _hover={{ background: 'brand.600', color: '#fff' }}
+          onClick={() => slider?.slickNext()}
+        >
+          <BiRightArrowAlt style={{ width: '30px', height: '30px' }} />
+        </IconButton>
+        <Slider {...settings} ref={(slider) => setSlider(slider)}>
+          {cards.map((url, index) => (
+            <Box
+              key={index}
+              h={'600px'}
+              position={'relative'}
+              backgroundPosition={'center'}
+              backgroundRepeat={'no-repeat'}
+              backgroundSize={'cover'}
+              backgroundImage={`url(${url})`}
+            />
+          ))}
+        </Slider>
       </Box>
-      <Container position="relative" zIndex="100">
-        <Heading as="h1">Most comfortable baby cribs</Heading>
-        <Text>Have a look and choose a unique crib for your child</Text>
-        <Button size="md" onClick={() => navigate('/products')}>
+      <Box
+        className="glass"
+        position="absolute"
+        zIndex={3}
+        bgColor="rgba(0,0,0,0.14)"
+        boxShadow={'0 0 30px #000'}
+        borderRadius={'1rem'}
+        p="1rem"
+        display="flex"
+        flexDirection={'column'}
+        alignItems={'center'}
+      >
+        <Heading
+          fontSize={['1.8rem', '3rem']}
+          mb="0.8rem"
+          as="h1"
+          color={'#fff'}
+          w={'100%'}
+          textAlign={'center'}
+        >
+          Most comfortable baby cribs
+        </Heading>
+        <Text
+          fontSize={['1.4rem', '2rem']}
+          mb="0.8rem"
+          color={'#fff'}
+          w={'100%'}
+          textAlign={'center'}
+        >
+          Have a look and choose a unique crib for your child
+        </Text>
+        <Button
+          bg="brand.300"
+          transitionDuration=".8s"
+          _hover={{ background: 'brand.500', color: '#fff' }}
+          size="lg"
+          mb="0.8rem"
+          onClick={() => navigate('/products')}
+        >
           Our Products
         </Button>
-      </Container>
+      </Box>
     </Box>
   );
 }

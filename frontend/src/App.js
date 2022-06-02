@@ -42,7 +42,7 @@ function App() {
       <Navbar toggle={toggle} />
       <ScrollToTop />
       <ToastContainer position="top-center" limit={1} />
-      <Box minH="33.5rem" my="2rem">
+      <main>
         <Routes>
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<TermsConditions />} />
@@ -95,7 +95,7 @@ function App() {
           />
           <Route path="/" element={<HomePage />} />
         </Routes>
-      </Box>
+      </main>
       <Footer />
     </Router>
   );

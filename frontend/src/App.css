@@ -5,14 +5,17 @@
 }
 
 :root {
-  --crem: #fff0bc;
-  --bleu: #c9ebff;
-  --indigo: #d4b0ff;
-  --dark-indigo: #8f72b3;
-  --dark-bleu: #96a8b3;
-  --dark-crem: #e6c346;
-  --bg-green: #a2cfaa;
+  --crem: hsl(47, 100%, 87%);
+  --bleu: hsl(202, 100%, 89%);
+  --indigo: hsl(267, 100%, 85%);
+  --dark-indigo: hsl(267, 30%, 57%);
+  --dark-bleu: hsl(202, 65%, 59%);
+  --dark-crem: hsl(47, 76%, 59%);
+  --bg-green: hsl(131, 32%, 72%);
   --logo-font: 'Sacramento', cursive;
+}
+main {
+  flex: 1;
 }
 
 .logo {
@@ -37,8 +40,8 @@
 }
 
 .checkout-steps > div.active {
-  border-bottom: 0.2rem solid hsl(283, 87%, 41%);
-  color: hsl(283, 87%, 41%);
+  border-bottom: 0.2rem solid #8f72b3;
+  color: #8f72b3;
 }
 
 .icon,
@@ -70,4 +73,91 @@
   100% {
     text-shadow: 0 0 5px #1877f2, 0 0 10px #1459b3, 0 0 15px #179bff;
   }
+}
+
+.glass {
+  backdrop-filter: blur(8.1px);
+  -webkit-backdrop-filter: blur(8.1px);
+}
+
+@media screen and (max-width: 600px) {
+  .glass {
+    backdrop-filter: blur(3.1px);
+    -webkit-backdrop-filter: blur(3.1px);
+  }
+}
+.slick-slider .slick-dots li button::before,
+.slick-slider .slick-dots li.slick-active button::before {
+  color: #c9ebff;
+  font-size: 15px;
+}
+.slick-slider .slick-dots {
+  position: absolute;
+  bottom: 30px;
+  display: block;
+  width: 100%;
+  padding: 10;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.buttonEffect {
+  background: linear-gradient(
+    90deg,
+    var(--dark-bleu),
+    var(--indigo),
+    var(--crem),
+    var(--dark-bleu)
+  );
+  background-size: 300%;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #000;
+  width: 9em;
+  height: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+}
+
+.buttonEffect:hover {
+  animation: ani 8s linear infinite;
+  border: none;
+}
+
+@keyframes ani {
+  0% {
+    background-position: 0%;
+  }
+
+  100% {
+    background-position: 400%;
+  }
+}
+
+.buttonEffect:before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  z-index: -1;
+  background: linear-gradient(
+    90deg,
+    var(--dark-bleu),
+    var(--indigo),
+    var(--crem),
+    var(--dark-bleu)
+  );
+  background-size: 400%;
+  border-radius: 35px;
+  transition: 1s;
+}
+
+.buttonEffect:hover::before {
+  filter: blur(20px);
 }

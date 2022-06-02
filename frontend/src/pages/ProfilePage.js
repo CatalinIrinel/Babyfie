@@ -59,7 +59,7 @@ function ProfilePage() {
   };
   return (
     <>
-      <Box display="flex" flexDirection="column" alignItems="center" mx="3rem">
+      <Box display="flex" flexDirection="column" alignItems="center" my="3rem">
         <Helmet>
           <title>User Profile</title>
         </Helmet>

@@ -5,7 +5,14 @@ import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
-    <Box display="flex" flexDirection="column" justifyContent="center" w="100%">
+    <Box
+      display="flex"
+      flexDirection="column"
+      justifyContent="center"
+      w="100%"
+      position={'relative'}
+      bottom={'0'}
+    >
       <Flex bg="brand.200" justifyContent="space-evenly">
         <UnorderedList listStyleType="none" color="#000" py="1.5rem">
           <ListItem>
