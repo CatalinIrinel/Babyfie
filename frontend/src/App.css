@@ -138,26 +138,7 @@ main {
   }
 }
 
-.buttonEffect:before {
-  content: '';
-  position: absolute;
-  top: -5px;
-  left: -5px;
-  right: -5px;
-  bottom: -5px;
-  z-index: -1;
-  background: linear-gradient(
-    90deg,
-    var(--dark-bleu),
-    var(--indigo),
-    var(--crem),
-    var(--dark-bleu)
-  );
-  background-size: 400%;
-  border-radius: 35px;
-  transition: 1s;
-}
-
-.buttonEffect:hover::before {
-  filter: blur(20px);
+.links {
+  color: var(--dark-indigo);
+  text-decoration: underline;
 }

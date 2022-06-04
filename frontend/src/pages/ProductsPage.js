@@ -38,21 +38,32 @@ function ProductsPage() {
     fetchData();
   }, []);
   return (
-    <Box paddingY="2rem" paddingX="4rem" display="flex" justifyContent="center">
+    <Box
+      paddingY="2rem"
+      paddingX="4rem"
+      display="flex"
+      alignItems={'center'}
+      flexDirection={'column'}
+    >
       <Helmet>
         <title>Produsele - Babyfie</title>
       </Helmet>
-      <Heading as="h1">Products Page</Heading>
+      <Heading as="h1" mb="3rem">
+        Products Page
+      </Heading>
       {loading ? (
         <LoadingBox />
       ) : error ? (
-        <MessageBox variant="danger">{error}</MessageBox>
+        <MessageBox status="error">{error}</MessageBox>
       ) : (
-        <Box>
+        <Box
+          w={'full'}
+          display="flex"
+          justifyContent={'space-evenly'}
+          flexWrap={'wrap'}
+        >
           {products.map((product) => (
-            <Box key={product.slug}>
-              <Product product={product} />
-            </Box>
+            <Product product={product} />
           ))}
         </Box>
       )}

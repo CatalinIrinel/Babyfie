@@ -1,6 +1,8 @@
 import {
   Box,
+  Button,
   Heading,
+  IconButton,
   Table,
   TableContainer,
   Tbody,
@@ -11,6 +13,7 @@ import {
 } from '@chakra-ui/react';
 import axios from 'axios';
 import React, { useContext, useEffect, useReducer } from 'react';
+import { BiEdit, BiTrash } from 'react-icons/bi';
 import { Link, useLocation } from 'react-router-dom';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
@@ -31,16 +34,18 @@ const reducer = (state, action) => {
       };
     case 'FETCH_FAIL':
       return { ...state, loading: false, error: action.payload };
+
     default:
       return state;
   }
 };
 function ProductListPage() {
-  const [{ loading, products, pages, error }, dispatch] = useReducer(reducer, {
-    loading: true,
-    error: '',
-  });
-  const { search, pathname } = useLocation();
+  const [{ loading, error, products, pages, loadingCreate }, dispatch] =
+    useReducer(reducer, {
+      loading: true,
+      error: '',
+    });
+  const { search } = useLocation();
   const sp = new URLSearchParams(search);
   const page = sp.get('page') || 1;
 
@@ -59,13 +64,26 @@ function ProductListPage() {
     };
     fetchData();
   }, [page, userInfo]);
+
   return (
-    <Box>
+    <Box
+      mx="3rem"
+      my="4rem"
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+    >
       <Heading as="h1">Products</Heading>
+      <Box>
+        <Link to="/admin/product-create">
+          <Button type="button">Add Product</Button>
+        </Link>
+      </Box>
+      {loadingCreate && <LoadingBox></LoadingBox>}
       {loading ? (
         <LoadingBox />
       ) : error ? (
-        <MessageBox variant="danger">{error}</MessageBox>
+        <MessageBox status="error">{error}</MessageBox>
       ) : (
         <TableContainer>
           <Table variant="simple">
@@ -87,6 +105,10 @@ function ProductListPage() {
                   <Td>{product.price}</Td>
                   <Td>{product.category}</Td>
                   <Td>{product.brand}</Td>
+                  <Td>
+                    <IconButton icon={<BiEdit />} />{' '}
+                    <IconButton icon={<BiTrash />} />
+                  </Td>
                 </Tr>
               ))}
             </Tbody>

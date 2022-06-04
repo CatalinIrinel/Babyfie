@@ -1,8 +1,13 @@
-import { Alert } from '@chakra-ui/react';
+import { Alert, AlertIcon } from '@chakra-ui/react';
 import React from 'react';
 
 function MessageBox(props) {
-  return <Alert variant={props.variant || 'info'}>{props.children}</Alert>;
+  return (
+    <Alert status={props.status || 'info'}>
+      <AlertIcon />
+      {props.children}
+    </Alert>
+  );
 }
 
 export default MessageBox;

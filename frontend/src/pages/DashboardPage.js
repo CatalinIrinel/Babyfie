@@ -53,7 +53,7 @@ function DashboardPage() {
       {loading ? (
         <LoadingBox />
       ) : error ? (
-        <MessageBox variant="danger">{error}</MessageBox>
+        <MessageBox status="error">{error}</MessageBox>
       ) : (
         <Flex w="100%" maxW="1100px" flexDirection="column">
           <Heading as="h1" mb="1rem">
@@ -121,7 +121,7 @@ function DashboardPage() {
           <Box my="2rem">
             <Heading as="h2">Sales</Heading>
             {summary.dailyOrders.length === 0 ? (
-              <MessageBox>No Sales</MessageBox>
+              <MessageBox status="warning">No Sales</MessageBox>
             ) : (
               <Chart
                 width="100%"

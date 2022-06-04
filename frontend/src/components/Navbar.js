@@ -87,7 +87,12 @@ function Navbar({ toggle }) {
             <Link to="/cart">
               <Icon as={RiShoppingCartLine} w={6} h={6} color="brand.600" />
               {cart.cartItems.length > 0 && (
-                <Badge variant="solid" colorScheme="brand.500">
+                <Badge
+                  position={'absolute'}
+                  bg={'red.300'}
+                  borderRadius={'full'}
+                  color={'#fff'}
+                >
                   {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
                 </Badge>
               )}

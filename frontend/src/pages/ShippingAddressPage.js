@@ -63,53 +63,58 @@ export default function ShippingAddressPage() {
         <title>Shipping Adress</title>
       </Helmet>
       <CheckoutSteps step1 step2></CheckoutSteps>
-      <Box mt="5">
+      <Box
+        display={'flex'}
+        alignItems={'center'}
+        flexDirection={'column'}
+        mt="5"
+      >
         <Heading as="h1" my="3">
           Shipping Adress
         </Heading>
         <form onSubmit={submitHandler}>
-          <FormControl className="mb-3" controlId="fullName">
-            <FormLabel>Full Name</FormLabel>
+          <FormControl w={['300px', '500px']}>
+            <FormLabel htmlFor="fullName">Full Name</FormLabel>
             <Input
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
               required
             />
           </FormControl>
-          <FormControl className="mb-3" controlId="address">
-            <FormLabel>Address</FormLabel>
+          <FormControl w={['300px', '500px']}>
+            <FormLabel htmlFor="address">Address</FormLabel>
             <Input
               value={address}
               onChange={(e) => setAddress(e.target.value)}
               required
             />
           </FormControl>
-          <FormControl className="mb-3" controlId="city">
-            <FormLabel>City</FormLabel>
+          <FormControl w={['300px', '500px']}>
+            <FormLabel htmlFor="city">City</FormLabel>
             <Input
               value={city}
               onChange={(e) => setCity(e.target.value)}
               required
             />
           </FormControl>
-          <FormControl className="mb-3" controlId="postalCode">
-            <FormLabel>Postal Code</FormLabel>
+          <FormControl w={['300px', '500px']}>
+            <FormLabel htmlFor="postalCode">Postal Code</FormLabel>
             <Input
               value={postalCode}
               onChange={(e) => setPostalCode(e.target.value)}
               required
             />
           </FormControl>
-          <FormControl className="mb-3" controlId="country">
-            <FormLabel>Country</FormLabel>
+          <FormControl w={['300px', '500px']}>
+            <FormLabel htmlFor="country">Country</FormLabel>
             <Input
               value={country}
               onChange={(e) => setCountry(e.target.value)}
               required
             />
           </FormControl>
-          <Box mb="3">
-            <Button variant="primary" type="submit">
+          <Box mt="3">
+            <Button bg={'brand.500'} variant="solid" type="submit">
               Continue
             </Button>
           </Box>

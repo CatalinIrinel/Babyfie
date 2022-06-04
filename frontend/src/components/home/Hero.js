@@ -105,7 +105,8 @@ function Hero() {
         bgColor="rgba(0,0,0,0.14)"
         boxShadow={'0 0 30px #000'}
         borderRadius={'1rem'}
-        p="1rem"
+        px="4rem"
+        py="2rem"
         display="flex"
         flexDirection={'column'}
         alignItems={'center'}
@@ -134,7 +135,6 @@ function Hero() {
           transitionDuration=".8s"
           _hover={{ background: 'brand.500', color: '#fff' }}
           size="lg"
-          mb="0.8rem"
           onClick={() => navigate('/products')}
         >
           Our Products

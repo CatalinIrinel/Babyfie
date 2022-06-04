@@ -1,7 +1,6 @@
 import {
   Box,
   Button,
-  Container,
   Flex,
   Heading,
   Image,
@@ -12,13 +11,13 @@ import {
 import axios from 'axios';
 import React, { useContext } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Store } from '../Store';
 import MessageBox from '../components/MessageBox';
 import { DeleteIcon } from '@chakra-ui/icons';
+import { BiMinusCircle, BiPlusCircle } from 'react-icons/bi';
 
 function CartPage() {
-  const navigate = useNavigate();
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const {
     cart: { cartItems },
@@ -45,39 +44,49 @@ function CartPage() {
     });
   };
 
-  const checkOutHandler = () => {
-    navigate('/signin?redirect=/shipping');
-  };
   return (
-    <Flex mx="3rem" my="4rem" flexDirection="column" alignItems="center">
+    <Flex
+      minH="500px"
+      mx="3rem"
+      my="4rem"
+      flexDirection="column"
+      alignItems="center"
+    >
       <Helmet>
         <title>Cos de cumparaturi - Babyfie</title>
       </Helmet>
       <Heading as="h1">Cosul de cumparaturi</Heading>
-      <Box w="100%">
-        <Flex alignItems="center">
-          <Container>
+      <Box w="100%" mt="3rem">
+        <Flex alignItems="flex-start" justifyContent={'space-between'}>
+          <Box w="60%">
             {cartItems.length === 0 ? (
-              <MessageBox>
+              <MessageBox status="info">
                 Cosul este gol.&nbsp;
-                <Link style={{ color: '#8f72b3' }} to="/produse">
+                <Link className="links" to="/products">
                   Spor la cumparaturi!
                 </Link>
               </MessageBox>
             ) : (
-              <UnorderedList m="0" listStyleType="none">
+              <UnorderedList w="100%" m="0" listStyleType="none">
                 {cartItems.map((item) => (
-                  <ListItem key={item._id}>
+                  <ListItem mb="1rem" w="100%" key={item._id}>
                     <Flex
                       alignItems="center"
-                      w="fit-content"
+                      w="100%"
                       bg="gray.100"
                       px="2rem"
                       py="1rem"
                       borderRadius="1rem"
                     >
-                      <Box>
-                        <Image src={item.image} alt={item.name} />
+                      <Box display={'flex'} alignItems={'center'}>
+                        <Image
+                          boxSize="100px"
+                          src={item.image}
+                          alt={item.name}
+                          mr={'1rem'}
+                          borderTopLeftRadius={'50%'}
+                          borderTopRightRadius={'50%'}
+                        />
                         <Link to={`/produs/${item.slug}`}>{item.name}</Link>
                       </Box>
                       <Spacer />
@@ -89,7 +98,7 @@ function CartPage() {
                           variant="light"
                           disabled={item.quantity === 1}
                         >
-                          <i className="fas fa-minus-circle"></i>
+                          <BiMinusCircle />
                         </Button>{' '}
                         <span>{item.quantity}</span>{' '}
                         <Button
@@ -99,7 +108,7 @@ function CartPage() {
                           }
                           disabled={item.quantity === item.countInStock}
                         >
-                          <i className="fas fa-plus-circle"></i>
+                          <BiPlusCircle />
                         </Button>
                       </Box>
                       <Spacer />
@@ -117,9 +126,8 @@ function CartPage() {
                 ))}
               </UnorderedList>
             )}
-          </Container>
-          <Spacer />
-          <Container>
+          </Box>
+          <Box>
             <Box
               w="fit-content"
               bg="gray.100"
@@ -138,19 +146,21 @@ function CartPage() {
                 </ListItem>
 
                 <ListItem>
-                  <Button
-                    type="button"
-                    variant="solid"
-                    bg="brand.500"
-                    disabled={cartItems.length === 0}
-                    onClick={() => checkOutHandler}
-                  >
-                    Proceed Checkout
-                  </Button>
+                  <Link to="/login?redirect=/shipping">
+                    <Button
+                      type="button"
+                      variant="solid"
+                      bg="brand.500"
+                      disabled={cartItems.length === 0}
+                      _hover={{ background: 'brand.500' }}
+                    >
+                      Proceed Checkout
+                    </Button>
+                  </Link>
                 </ListItem>
               </UnorderedList>
             </Box>
-          </Container>
+          </Box>
         </Flex>
       </Box>
     </Flex>

@@ -70,42 +70,38 @@ function RegisterPage() {
           <Heading as="h1"> Creaza contul tau Babyfie</Heading>
         </Box>
         <form onSubmit={submitHandler}>
-          <FormControl mb="2rem">
-            <FormLabel htmlFor="name">Nume Complet: *</FormLabel>
+          <FormControl isRequired mb="2rem">
+            <FormLabel htmlFor="name">Nume Complet:</FormLabel>
             <Input
               w="300px"
               type="text"
-              required
               onChange={(e) => setName(e.target.value)}
             />
           </FormControl>
 
-          <FormControl mb="2rem">
-            <FormLabel htmlFor="email">Email: *</FormLabel>
+          <FormControl isRequired mb="2rem">
+            <FormLabel htmlFor="email">Email:</FormLabel>
             <Input
               w="300px"
               type="email"
-              required
               onChange={(e) => setEmail(e.target.value)}
             />
           </FormControl>
 
-          <FormControl mb="2rem">
-            <FormLabel htmlFor="password">Parola: *</FormLabel>
+          <FormControl isRequired mb="2rem">
+            <FormLabel htmlFor="password">Parola:</FormLabel>
             <Input
               w="300px"
               type="password"
-              required
               onChange={(e) => setPassword(e.target.value)}
             />
           </FormControl>
 
-          <FormControl mb="2rem">
-            <FormLabel htmlFor="password">Confirma Parola: *</FormLabel>
+          <FormControl isRequired mb="2rem">
+            <FormLabel htmlFor="password">Confirma Parola:</FormLabel>
             <Input
               w="300px"
               type="password"
-              required
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
           </FormControl>
@@ -127,7 +123,10 @@ function RegisterPage() {
 
           <Box display="flex" justifyContent="center">
             Ai deja cont babyfie?&nbsp;
-            <Link to={`/login?redirect=${redirect}`}> Logheaza-te aici</Link>
+            <Link className="links" to={`/login?redirect=${redirect}`}>
+              {' '}
+              Logheaza-te aici
+            </Link>
           </Box>
         </form>
       </Flex>

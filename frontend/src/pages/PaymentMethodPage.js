@@ -33,13 +33,13 @@ function PaymentMethodPage() {
   };
 
   return (
-    <Box mx="3rem" my="4rem">
+    <Box minH={'500px'} mx="3rem" my="4rem">
       <CheckoutSteps step1 step2 step3></CheckoutSteps>
-      <Box>
+      <Box display={'flex'} alignItems={'center'} flexDirection={'column'}>
         <Helmet>
           <title>Payment Method</title>
         </Helmet>
-        <Heading as="h1" my="3">
+        <Heading as="h1" my="3rem">
           Payment Method
         </Heading>
         <form onSubmit={submitHandler}>
@@ -47,24 +47,28 @@ function PaymentMethodPage() {
             <Radio
               type="radio"
               id="PayPal"
-              label="PayPal"
               value="PayPal"
               checked={paymentMethodName === 'PayPal'}
               onChange={(e) => setPaymentMethod(e.target.value)}
-            />
+            >
+              Pay Pal
+            </Radio>
           </Box>
           <Box className="mb-3">
             <Radio
               type="radio"
               id="Stripe"
-              label="Stripe"
               value="Stripe"
               checked={paymentMethodName === 'Stripe'}
               onChange={(e) => setPaymentMethod(e.target.value)}
-            />
+            >
+              Stripe
+            </Radio>
           </Box>
-          <Box className="mb-3">
-            <Button type="submit">Continue</Button>
+          <Box mt="3">
+            <Button bg={'brand.500'} type="submit">
+              Continue
+            </Button>
           </Box>
         </form>
       </Box>

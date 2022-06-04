@@ -68,7 +68,7 @@ function OrderHistory() {
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (
-        <MessageBox variant="danger">{error}</MessageBox>
+        <MessageBox status="error">{error}</MessageBox>
       ) : (
         <TableContainer>
           <Table>

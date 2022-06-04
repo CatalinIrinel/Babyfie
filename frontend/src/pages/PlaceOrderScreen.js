@@ -12,9 +12,12 @@ import {
   Button,
   Flex,
   Heading,
+  Image,
   ListItem,
+  Text,
   UnorderedList,
 } from '@chakra-ui/react';
+import { LinkIcon } from '@chakra-ui/icons';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -89,109 +92,165 @@ function PlaceOrderScreen() {
       <Helmet>
         <title>Preview Order</title>
       </Helmet>
-      <Heading as="h1" my="3">
+      <Heading as="h1" my="3rem">
         Preview Order
       </Heading>
-      <Flex>
-        <Box md={8}>
-          <Box className="mb-3">
-            <Box>
-              <Heading as="h3">Shipping</Heading>
-              <p>
-                <b>Name: </b> {cart.shippingAddress.fullName} <br />
-                <b>Address: </b> {cart.shippingAddress.address},{' '}
-                {cart.shippingAddress.city},{cart.shippingAddress.postalCode},
-                {cart.shippingAddress.country}
-              </p>
+      <Flex alignItems={'flex-start'} justifyContent={'space-between'}>
+        <Box w="70%" display={'flex'} flexDirection={'column'}>
+          <Box mb="1rem" p="1rem" border={'1px solid #000'}>
+            <Heading mb="1rem" as="h2">
+              Shipping
+            </Heading>
+            <Text mb="3">
+              <strong>Name: </strong> {cart.shippingAddress.fullName} <br />
+              <strong>Address: </strong> {cart.shippingAddress.address},{' '}
+              {cart.shippingAddress.city}, {cart.shippingAddress.postalCode},{' '}
+              {cart.shippingAddress.country}
+            </Text>
+            <Box
+              borderRadius={'1rem'}
+              mb="3"
+              w="fit-content"
+              bg="brand.500"
+              py="1"
+              px="1.5rem"
+              fontWeight={'bold'}
+            >
               <Link to="/shipping">Edit</Link>
             </Box>
           </Box>
 
-          <Box className="mb-3">
-            <Box>
-              <Heading as="h3">Payment</Heading>
-              <p>
-                <b>Method: </b> {cart.paymentMethod} <br />
-              </p>
+          <Box mb="1rem" p="1rem" border={'1px solid #000'}>
+            <Heading mb="1rem" as="h2">
+              Payment
+            </Heading>
+            <Text mb="1rem">
+              <b>Method: </b> {cart.paymentMethod} <br />
+            </Text>
+            <Box
+              borderRadius={'1rem'}
+              mb="3"
+              w="fit-content"
+              bg="brand.500"
+              py="1"
+              px="1.5rem"
+              fontWeight={'bold'}
+            >
               <Link to="/payment">Edit</Link>
             </Box>
           </Box>
 
-          <Box className="mb-3">
-            <Box>
-              <Heading as="h3">Items</Heading>
-              <UnorderedList variant="flush">
-                {cart.cartItems.map((item) => (
-                  <ListItem key={item._id}>
-                    <Box className="align-items-center">
-                      <Box md={6}>
-                        <img
-                          src={item.image}
-                          alt={item.name}
-                          className="img-fluid rounded img-thumbnail"
-                        />
-                        <Link to={`/product/${item.slug}`}>{item.name}</Link>
-                      </Box>
-                      <Box md={3}>
-                        <span>{item.quantity}</span>
-                      </Box>
-                      <Box md={3}>{item.price}&euro;</Box>
+          <Box p="1rem" border={'1px solid #000'}>
+            <Heading mb="1rem" as="h2">
+              Items
+            </Heading>
+            <UnorderedList margin={'0'} listStyleType={'none'} px={'1rem'}>
+              {cart.cartItems.map((item) => (
+                <ListItem key={item._id} mb={'2rem'}>
+                  <Box
+                    display={'flex'}
+                    justifyContent={'space-between'}
+                    alignItems={'center'}
+                    mb="3"
+                  >
+                    <Box w="60%" display={'flex'} alignItems={'center'}>
+                      <Image
+                        boxSize={'80px'}
+                        mr="3"
+                        src={item.image}
+                        alt={item.name}
+                      />
+                      <Link to={`/product/${item.slug}`}>
+                        <Text textDecoration={'underline'}>
+                          <LinkIcon /> {item.name}
+                        </Text>
+                      </Link>
                     </Box>
-                  </ListItem>
-                ))}
-              </UnorderedList>
+                    <Box w="20%">
+                      <span>{item.quantity}</span>
+                    </Box>
+                    <Box w="20%">{item.price} RON</Box>
+                  </Box>
+                </ListItem>
+              ))}
+            </UnorderedList>{' '}
+            <Box
+              borderRadius={'1rem'}
+              mb="3"
+              w="fit-content"
+              bg="brand.500"
+              py="1"
+              px="1.5rem"
+              fontWeight={'bold'}
+            >
               <Link to="/cart">Edit</Link>
             </Box>
           </Box>
         </Box>
-        <Box md={4}>
-          <Box>
-            <Box>
-              <Heading as="h3">Order Summary</Heading>
-              <UnorderedList variant="flush">
-                <ListItem>
-                  <Box>
-                    <Box>Items</Box>
-                    <Box>{cart.itemsPrice.toFixed(2)}&euro;</Box>
-                  </Box>
-                </ListItem>
-                <ListItem>
-                  <Box>
-                    <Box>Shipping</Box>
-                    <Box>{cart.shippingPrice.toFixed(2)}&euro;</Box>
-                  </Box>
-                </ListItem>
-                <ListItem>
-                  <Box>
-                    <Box>Tax</Box>
-                    <Box>{cart.taxPrice.toFixed(2)}&euro;</Box>
-                  </Box>
-                </ListItem>
-                <ListItem>
-                  <Box>
-                    <Box>
-                      <b>Order Total</b>
-                    </Box>
-                    <Box>
-                      <b>{cart.totalPrice.toFixed(2)}&euro;</b>
-                    </Box>
-                  </Box>
-                </ListItem>
-                <ListItem>
-                  <Box className="d-grid">
-                    <Button
-                      type="button"
-                      disabled={cart.cartItems.length === 0}
-                      onClick={placeOrderHandler}
-                    >
-                      Place Order
-                    </Button>
-                  </Box>
-                  {loading && <LoadingBox></LoadingBox>}
-                </ListItem>
-              </UnorderedList>
-            </Box>
-          </Box>
+
+        <Box w="25%" p="1rem" border={'1px solid #000'}>
+          <Heading mb="1rem" as="h2">
+            Order Summary
+          </Heading>
+          <UnorderedList
+            w={'100%'}
+            listStyleType={'none'}
+            margin={'0'}
+            px={'1rem'}
+          >
+            <ListItem
+              display={'flex'}
+              justifyContent={'space-between'}
+              mb={'1rem'}
+              borderBottom={'1px solid gray'}
+            >
+              <Text>Items</Text>
+              <Text>{cart.itemsPrice.toFixed(2)} RON</Text>
+            </ListItem>
+            <ListItem
+              display={'flex'}
+              justifyContent={'space-between'}
+              mb={'1rem'}
+              borderBottom={'1px solid gray'}
+            >
+              <Text>Shipping</Text>
+              <Text>{cart.shippingPrice.toFixed(2)} RON</Text>
+            </ListItem>
+            <ListItem
+              display={'flex'}
+              justifyContent={'space-between'}
+              mb={'1rem'}
+              borderBottom={'1px solid gray'}
+            >
+              <Text>Tax</Text>
+              <Text>{cart.taxPrice.toFixed(2)} RON</Text>
+            </ListItem>
+            <ListItem
+              display={'flex'}
+              justifyContent={'space-between'}
+              mb={'1rem'}
+              borderBottom={'1px solid gray'}
+            >
+              <Text>
+                <strong>Order Total</strong>
+              </Text>
+              <Text>
+                <strong>{cart.totalPrice.toFixed(2)} RON</strong>
+              </Text>
+            </ListItem>
+            <ListItem>
+              <Button
+                type="button"
+                bg={'brand.500'}
+                disabled={cart.cartItems.length === 0}
+                onClick={placeOrderHandler}
+              >
+                Place Order
+              </Button>
+
+              {loading && <LoadingBox></LoadingBox>}
+            </ListItem>
+          </UnorderedList>
         </Box>
       </Flex>
     </Box>

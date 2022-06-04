@@ -62,8 +62,8 @@ function LoginPage() {
           <Heading as="h1">Logeaza-te</Heading>
         </Box>
         <form onSubmit={submitHandler}>
-          <FormControl mb="2rem">
-            <FormLabel htmlFor="email">Email: *</FormLabel>
+          <FormControl isRequired mb="2rem">
+            <FormLabel htmlFor="email">Email:</FormLabel>
             <Input
               w="300px"
               type="email"
@@ -71,8 +71,8 @@ function LoginPage() {
             />
           </FormControl>
 
-          <FormControl mb="2rem">
-            <FormLabel htmlFor="password">Parola: *</FormLabel>
+          <FormControl isRequired mb="2rem">
+            <FormLabel htmlFor="password">Parola:</FormLabel>
             <Input
               w="300px"
               type="password"
@@ -95,7 +95,7 @@ function LoginPage() {
           </Box>
           <Box display="flex" justifyContent="center">
             Client Nou?&nbsp;
-            <Link to={`/register?redirect=${redirect}`}>
+            <Link className="links" to={`/register?redirect=${redirect}`}>
               Creaza-ti contul aici!
             </Link>
           </Box>

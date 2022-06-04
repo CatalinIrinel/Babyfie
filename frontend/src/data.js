@@ -9,8 +9,6 @@ const data = {
       price: 120,
       countInStock: 10,
       brand: 'brand-1',
-      rating: '4.5',
-      numReviews: 10,
       description: 'descrierea produsului 1',
     },
     {
@@ -22,8 +20,6 @@ const data = {
       price: 220,
       countInStock: 33,
       brand: 'brand-2',
-      rating: '1.5',
-      numReviews: 12,
       description: 'descrierea produsului 2',
     },
     {
@@ -35,8 +31,6 @@ const data = {
       price: 150,
       countInStock: 13,
       brand: 'brand-3',
-      rating: '3',
-      numReviews: 40,
       description: 'descrierea produsului 3',
     },
     {
@@ -48,9 +42,33 @@ const data = {
       price: 520,
       countInStock: 0,
       brand: 'brand-4',
-      rating: '5',
-      numReviews: 24,
       description: 'descrierea produsului 4',
+    },
+  ],
+  promise: [
+    {
+      name: 'Safer than ever',
+      description:
+        'We are testing our product to be sure your baby is safe and sound',
+      image: '/images/safe.webp',
+    },
+    {
+      name: 'Designed to last',
+      description:
+        'Durable and stylish products that seamlessly transition from nursery to big kids room',
+      image: '/images/trophy.webp',
+    },
+    {
+      name: "What's not to love",
+      description:
+        'Loved by over 2 million parents and recommended by experts for over 30 years',
+      image: '/images/baby.webp',
+    },
+    {
+      name: "Practicality at it's finest",
+      description:
+        'We are testing our product to be sure your baby is safe and sound',
+      image: '/images/key.webp',
     },
   ],
 };

@@ -12,7 +12,6 @@ import ProductsPage from './pages/ProductsPage';
 import ProductPage from './pages/ProductPage';
 import ContactPage from './pages/ContactPage';
 import AboutPage from './pages/AboutPage';
-import { Box } from '@chakra-ui/react';
 // Toast alerts
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -30,6 +29,9 @@ import PrivacyPolicy from './pages/privacies/PrivacyPolicy';
 import TermsConditions from './pages/privacies/TermsConditions';
 import ShippingPolicy from './pages/privacies/ShippingPolicy';
 import ReturnPolicy from './pages/privacies/ReturnPolicy';
+import CreateProductPage from './pages/CreateProductPage';
+import EditProductPage from './pages/EditProductPage';
+import OrderPage from './pages/OrderPage';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -58,6 +60,15 @@ function App() {
               </ProtRoute>
             }
           />
+
+          <Route
+            path="/order/:id"
+            element={
+              <ProtRoute>
+                <OrderPage />
+              </ProtRoute>
+            }
+          />
           <Route path="/placeorder" element={<PlaceOrderScreen />} />
           <Route path="/payment" element={<PaymentMethodPage />} />
           <Route path="/shipping" element={<ShippingAddressPage />} />
@@ -82,6 +93,22 @@ function App() {
             element={
               <AdminRoute>
                 <DashboardPage />
+              </AdminRoute>
+            }
+          />
+          <Route
+            path="/admin/product/:id"
+            element={
+              <AdminRoute>
+                <EditProductPage />
+              </AdminRoute>
+            }
+          />
+          <Route
+            path="/admin/product-create"
+            element={
+              <AdminRoute>
+                <CreateProductPage />
               </AdminRoute>
             }
           />
