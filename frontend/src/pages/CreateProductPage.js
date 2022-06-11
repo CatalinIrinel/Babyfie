@@ -9,6 +9,7 @@ import {
 import axios from 'axios';
 import React, { useContext, useReducer, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+// import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import LoadingBox from '../components/LoadingBox';
 import { Store } from '../Store';
@@ -40,6 +41,7 @@ const reducer = (state, action) => {
   }
 };
 function CreateProductPage() {
+  // const navigate = useNavigate();
   const [{ error, loadingUpdate }, dispatch] = useReducer(reducer, {
     loading: true,
     error: '',
@@ -75,7 +77,7 @@ function CreateProductPage() {
           headers: { Authorization: `Bearer ${userInfo.token}` },
         }
       );
-      toast.success('product created successfully');
+      toast.success('Product created successfully');
       dispatch({ type: 'CREATE_SUCCESS' });
     } catch (err) {
       toast.error(getError(error));
@@ -108,6 +110,7 @@ function CreateProductPage() {
   };
   return (
     <Box
+      minH={'60vh'}
       mx="3rem"
       my="4rem"
       display="flex"
@@ -201,7 +204,7 @@ function CreateProductPage() {
           />
         </FormControl>
 
-        <Button disabled={loadingUpdate} type="submit">
+        <Button bg={'brand.500'} disabled={loadingUpdate} type="submit">
           Create new product
         </Button>
         {loadingUpdate && <LoadingBox></LoadingBox>}

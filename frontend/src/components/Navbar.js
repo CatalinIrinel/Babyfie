@@ -59,7 +59,7 @@ function Navbar({ toggle }) {
           fontWeight="bold"
         >
           <Link to="/">Acasa</Link>
-          <Link to="/products">Produse</Link>
+          <Link to="/our-products">Produse</Link>
           <Link to="/about">Despre</Link>
           <Link to="/contact">Contact</Link>
         </Box>

@@ -16,6 +16,7 @@
 }
 main {
   flex: 1;
+  background-color: rgba(213, 179, 255, 0.301);
 }
 
 .logo {

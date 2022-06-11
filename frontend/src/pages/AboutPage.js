@@ -4,7 +4,13 @@ import { Helmet } from 'react-helmet-async';
 
 function AboutPage() {
   return (
-    <Box paddingY="2rem" paddingX="4rem" display="flex" justifyContent="center">
+    <Box
+      minH={'60vh'}
+      paddingY="2rem"
+      paddingX="4rem"
+      display="flex"
+      justifyContent="center"
+    >
       <Helmet>
         <title>Despre - Babyfie</title>
       </Helmet>

@@ -58,11 +58,11 @@ function OrderHistory() {
     fetchData();
   }, [userInfo]);
   return (
-    <Box mx="3rem" my="4rem">
+    <Box minH={'60vh'} mx="3rem" py="4rem">
       <Helmet>
         <title>Order History</title>
       </Helmet>
-      <Heading as="h1" my="3">
+      <Heading as="h1" my="2rem">
         Order History
       </Heading>
       {loading ? (
@@ -72,7 +72,7 @@ function OrderHistory() {
       ) : (
         <TableContainer>
           <Table>
-            <Thead>
+            <Thead bg={'brand.300'}>
               <Tr>
                 <Th>ID</Th>
                 <Th>DATE</Th>
@@ -84,7 +84,12 @@ function OrderHistory() {
             </Thead>
             <Tbody>
               {orders.map((order) => (
-                <Tr key={order._id}>
+                <Tr
+                  border={'none'}
+                  borderBottomWidth={'1px'}
+                  borderColor={'#000'}
+                  key={order._id}
+                >
                   <Td>{order._id}</Td>
                   <Td>{order.createdAt.substring(0, 10)}</Td>
                   <Td>{order.totalPrice.toFixed(2)}</Td>

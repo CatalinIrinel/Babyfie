@@ -44,8 +44,9 @@ function DashboardPage() {
   }, [userInfo]);
   return (
     <Box
+      minH={'60vh'}
       mx="3rem"
-      my="4rem"
+      py="4rem"
       display="flex"
       flexDirection="column"
       alignItems="center"
@@ -127,6 +128,7 @@ function DashboardPage() {
                 width="100%"
                 height="400px"
                 chartType="AreaChart"
+                options={{ backgroundColor: 'transparent' }}
                 loader={<div>Loading Chart...</div>}
                 data={[
                   ['Date', 'Sales'],
@@ -145,9 +147,10 @@ function DashboardPage() {
                 width="100%"
                 height="400px"
                 chartType="PieChart"
+                options={{ backgroundColor: 'transparent' }}
                 loader={<div>Loading Chart...</div>}
                 data={[
-                  ['Date', 'Sales'],
+                  ['Date', 'Categories'],
                   ...summary.productCategories.map((x) => [x._id, x.count]),
                 ]}
               ></Chart>

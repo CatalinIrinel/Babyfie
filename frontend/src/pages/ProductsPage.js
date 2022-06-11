@@ -39,6 +39,7 @@ function ProductsPage() {
   }, []);
   return (
     <Box
+      minH={'60vh'}
       paddingY="2rem"
       paddingX="4rem"
       display="flex"
@@ -58,12 +59,13 @@ function ProductsPage() {
       ) : (
         <Box
           w={'full'}
+          maxW={'1100px'}
           display="flex"
           justifyContent={'space-evenly'}
           flexWrap={'wrap'}
         >
           {products.map((product) => (
-            <Product product={product} />
+            <Product key={product.slug} product={product} />
           ))}
         </Box>
       )}

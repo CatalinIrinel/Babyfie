@@ -46,9 +46,9 @@ function CartPage() {
 
   return (
     <Flex
-      minH="500px"
+      minH={'60vh'}
       mx="3rem"
-      my="4rem"
+      py="4rem"
       flexDirection="column"
       alignItems="center"
     >
@@ -130,7 +130,7 @@ function CartPage() {
           <Box>
             <Box
               w="fit-content"
-              bg="gray.100"
+              bg="brand.100"
               px="2rem"
               py="1rem"
               borderRadius="1rem"

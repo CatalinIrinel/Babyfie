@@ -59,7 +59,7 @@ function RegisterPage() {
       <Helmet>
         <title>Inregistrare - Babyfie</title>
       </Helmet>
-      <Flex flexDirection="column" alignItems="center">
+      <Flex minH={'60vh'} flexDirection="column" alignItems="center">
         <Box
           mb="3rem"
           display="flex"

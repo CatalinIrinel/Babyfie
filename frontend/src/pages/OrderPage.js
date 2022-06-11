@@ -143,6 +143,7 @@ function OrderPage() {
     <MessageBox variant="danger">{error}</MessageBox>
   ) : (
     <Box
+      minH={'60vh'}
       mb="3rem"
       display={'flex'}
       flexDirection={'column'}
@@ -241,7 +242,7 @@ function OrderPage() {
                 borderBottom={'1px solid gray'}
               >
                 <Text>Items</Text>
-                <Text>{order.itemsPrice.toFixed(2)}&euro;</Text>
+                <Text>{order.itemsPrice.toFixed(2)} RON</Text>
               </ListItem>
               <ListItem
                 display={'flex'}
@@ -250,7 +251,7 @@ function OrderPage() {
                 borderBottom={'1px solid gray'}
               >
                 <Text>Shipping</Text>
-                <Text>{order.shippingPrice.toFixed(2)}&euro;</Text>
+                <Text>{order.shippingPrice.toFixed(2)} RON</Text>
               </ListItem>
               <ListItem
                 display={'flex'}
@@ -259,7 +260,7 @@ function OrderPage() {
                 borderBottom={'1px solid gray'}
               >
                 <Text>Tax</Text>
-                <Text>{order.taxPrice.toFixed(2)}&euro;</Text>
+                <Text>{order.taxPrice.toFixed(2)} RON</Text>
               </ListItem>
               <ListItem
                 display={'flex'}
@@ -270,7 +271,7 @@ function OrderPage() {
                 <Text>
                   <strong>Order Total</strong>
                 </Text>
-                <Text>{order.totalPrice.toFixed(2)}&euro;</Text>
+                <Text>{order.totalPrice.toFixed(2)} RON</Text>
               </ListItem>
               {/* {!order.isPaid && (
                 <ListItem>

@@ -58,7 +58,7 @@ export default function ShippingAddressPage() {
     navigate('/payment');
   };
   return (
-    <Box mx="3rem" my="4rem">
+    <Box minH={'60vh'} mx="3rem" py="4rem">
       <Helmet>
         <title>Shipping Adress</title>
       </Helmet>
@@ -76,6 +76,7 @@ export default function ShippingAddressPage() {
           <FormControl w={['300px', '500px']}>
             <FormLabel htmlFor="fullName">Full Name</FormLabel>
             <Input
+              borderColor={'#000'}
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
               required
@@ -84,6 +85,7 @@ export default function ShippingAddressPage() {
           <FormControl w={['300px', '500px']}>
             <FormLabel htmlFor="address">Address</FormLabel>
             <Input
+              borderColor={'#000'}
               value={address}
               onChange={(e) => setAddress(e.target.value)}
               required
@@ -92,6 +94,7 @@ export default function ShippingAddressPage() {
           <FormControl w={['300px', '500px']}>
             <FormLabel htmlFor="city">City</FormLabel>
             <Input
+              borderColor={'#000'}
               value={city}
               onChange={(e) => setCity(e.target.value)}
               required
@@ -100,6 +103,7 @@ export default function ShippingAddressPage() {
           <FormControl w={['300px', '500px']}>
             <FormLabel htmlFor="postalCode">Postal Code</FormLabel>
             <Input
+              borderColor={'#000'}
               value={postalCode}
               onChange={(e) => setPostalCode(e.target.value)}
               required
@@ -108,6 +112,7 @@ export default function ShippingAddressPage() {
           <FormControl w={['300px', '500px']}>
             <FormLabel htmlFor="country">Country</FormLabel>
             <Input
+              borderColor={'#000'}
               value={country}
               onChange={(e) => setCountry(e.target.value)}
               required

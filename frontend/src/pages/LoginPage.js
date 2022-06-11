@@ -47,7 +47,7 @@ function LoginPage() {
     }
   }, [navigate, redirect, userInfo]);
   return (
-    <Box paddingY="2rem">
+    <Box minH={'60vh'} paddingY="2rem">
       <Helmet>
         <title>Logare - Babyfie</title>
       </Helmet>

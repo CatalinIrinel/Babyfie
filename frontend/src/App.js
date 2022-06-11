@@ -83,7 +83,7 @@ function App() {
           <Route path="/cart" element={<CartPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/product/:slug" element={<ProductPage />} />
-          <Route path="/products" element={<ProductsPage />} />
+          <Route path="/our-products" element={<ProductsPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
           {/* admin routes */}

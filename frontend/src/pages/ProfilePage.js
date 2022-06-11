@@ -12,6 +12,7 @@ import {
   Heading,
   Input,
 } from '@chakra-ui/react';
+import LoadingBox from '../components/LoadingBox';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -42,24 +43,34 @@ function ProfilePage() {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    try {
-      const { data } = await axios.put(
-        '/api/users/profile',
-        { name, email, password },
-        { headers: { authorization: `Bearer ${userInfo.token}` } }
-      );
-      dispatch({ type: 'UPDATE_SUCCESS' });
-      ctxDispatch({ type: 'USER_SIGNIN', payload: data });
-      localStorage.setItem('userInfo', JSON.stringify(data));
-      toast.success('User updated successfully');
-    } catch (error) {
-      dispatch({ type: 'UPDATE_FAIL' });
-      toast.error(getError(error));
+    if (confirmPassword === password) {
+      try {
+        const { data } = await axios.put(
+          '/api/users/profile',
+          { name, email, password },
+          { headers: { authorization: `Bearer ${userInfo.token}` } }
+        );
+        dispatch({ type: 'UPDATE_SUCCESS' });
+        ctxDispatch({ type: 'USER_SIGNIN', payload: data });
+        localStorage.setItem('userInfo', JSON.stringify(data));
+        toast.success('User updated successfully');
+      } catch (error) {
+        dispatch({ type: 'UPDATE_FAIL' });
+        toast.error(getError(error));
+      }
+    } else {
+      toast.error('Passwords do not match');
     }
   };
   return (
     <>
-      <Box display="flex" flexDirection="column" alignItems="center" my="3rem">
+      <Box
+        minH={'60vh'}
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        py={'3rem'}
+      >
         <Helmet>
           <title>User Profile</title>
         </Helmet>
@@ -71,6 +82,7 @@ function ProfilePage() {
             <FormControl mb="2rem">
               <FormLabel>Name:</FormLabel>
               <Input
+                borderColor={'#000'}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 isRequired
@@ -79,6 +91,7 @@ function ProfilePage() {
             <FormControl mb="2rem">
               <FormLabel>Email:</FormLabel>
               <Input
+                borderColor={'#000'}
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -88,6 +101,7 @@ function ProfilePage() {
             <FormControl mb="2rem">
               <FormLabel>Password:</FormLabel>
               <Input
+                borderColor={'#000'}
                 type="password"
                 onChange={(e) => setPassword(e.target.value)}
                 isRequired
@@ -96,6 +110,7 @@ function ProfilePage() {
             <FormControl mb="2rem">
               <FormLabel>Confirm Password:</FormLabel>
               <Input
+                borderColor={'#000'}
                 type="password"
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 isRequired
@@ -105,6 +120,7 @@ function ProfilePage() {
               <Button type="submit" bg="brand.500">
                 Change info
               </Button>
+              {loadingUpdate && <LoadingBox></LoadingBox>}
             </Box>
           </form>
         </Box>

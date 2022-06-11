@@ -46,11 +46,13 @@ const reducer = (state, action) => {
 };
 function EditProductPage() {
   const navigate = useNavigate();
+
   const params = useParams();
   const { id: productId } = params;
 
   const { state } = useContext(Store);
   const { userInfo } = state;
+
   const [{ loading, error, loadingUpdate }, dispatch] = useReducer(reducer, {
     loading: true,
     error: '',
@@ -120,8 +122,31 @@ function EditProductPage() {
       dispatch({ type: 'UPDATE_FAIL' });
     }
   };
+  const uploadFileHandler = async (e) => {
+    const file = e.target.files[0];
+    const bodyFormData = new FormData();
+    bodyFormData.append('file', file);
+
+    try {
+      dispatch({ type: 'UPLOAD_REQUEST' });
+      const { data } = await axios.post('/api/upload', bodyFormData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          authorization: `Bearer ${userInfo.token}`,
+        },
+      });
+      dispatch({ type: 'UPLOAD_SUCCESS' });
+
+      toast.success('Image uploaded successfully');
+      setImage(data.secure_url);
+    } catch (err) {
+      toast.error(getError(err));
+      dispatch({ type: 'UPLOAD_FAIL', payload: getError(err) });
+    }
+  };
   return (
     <Box
+      minH={'60vh'}
       mx="3rem"
       my="4rem"
       display="flex"
@@ -143,7 +168,6 @@ function EditProductPage() {
               <FormLabel htmlFor="name">Name: </FormLabel>
               <Input
                 w="300px"
-                type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
@@ -153,7 +177,6 @@ function EditProductPage() {
               <FormLabel htmlFor="Slug">Slug: </FormLabel>
               <Input
                 w="300px"
-                type="text"
                 value={slug}
                 onChange={(e) => setSlug(e.target.value)}
               />
@@ -163,7 +186,6 @@ function EditProductPage() {
               <FormLabel htmlFor="brand">Brand:</FormLabel>
               <Input
                 w="300px"
-                type="text"
                 value={brand}
                 onChange={(e) => setBrand(e.target.value)}
               />
@@ -173,7 +195,6 @@ function EditProductPage() {
               <FormLabel htmlFor="countInStock">Count In Stock:</FormLabel>
               <Input
                 w="300px"
-                type="text"
                 value={countInStock}
                 onChange={(e) => setCountInStock(e.target.value)}
               />
@@ -183,7 +204,6 @@ function EditProductPage() {
               <FormLabel htmlFor="description">Description:</FormLabel>
               <Input
                 w="300px"
-                type="text"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
               />
@@ -193,7 +213,6 @@ function EditProductPage() {
               <FormLabel htmlFor="price">Price:</FormLabel>
               <Input
                 w="300px"
-                type="text"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
               />
@@ -203,7 +222,6 @@ function EditProductPage() {
               <FormLabel htmlFor="image">Image:</FormLabel>
               <Input
                 w="300px"
-                type="text"
                 value={image}
                 onChange={(e) => setImage(e.target.value)}
               />
@@ -211,25 +229,19 @@ function EditProductPage() {
 
             <FormControl mb="2rem">
               <FormLabel htmlFor="image">Upload Image:</FormLabel>
-              <Input
-                w="300px"
-                type="file"
-                value={image}
-                onChange={(e) => setImage(e.target.value)}
-              />
+              <Input w="300px" type={'file'} onChange={uploadFileHandler} />
             </FormControl>
 
             <FormControl mb="2rem">
               <FormLabel htmlFor="category">Category:</FormLabel>
               <Input
                 w="300px"
-                type="text"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
               />
             </FormControl>
 
-            <Button disabled={loadingUpdate} type="submit">
+            <Button bg={'brand.500'} disabled={loadingUpdate} type="submit">
               Update product info
             </Button>
             {loadingUpdate && <LoadingBox></LoadingBox>}

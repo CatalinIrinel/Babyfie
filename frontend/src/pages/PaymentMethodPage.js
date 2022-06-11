@@ -33,7 +33,7 @@ function PaymentMethodPage() {
   };
 
   return (
-    <Box minH={'500px'} mx="3rem" my="4rem">
+    <Box minH={'60vh'} mx="3rem" py="4rem">
       <CheckoutSteps step1 step2 step3></CheckoutSteps>
       <Box display={'flex'} alignItems={'center'} flexDirection={'column'}>
         <Helmet>
@@ -45,6 +45,7 @@ function PaymentMethodPage() {
         <form onSubmit={submitHandler}>
           <Box className="mb-3">
             <Radio
+              borderColor={'#000'}
               type="radio"
               id="PayPal"
               value="PayPal"
@@ -56,6 +57,7 @@ function PaymentMethodPage() {
           </Box>
           <Box className="mb-3">
             <Radio
+              borderColor={'#000'}
               type="radio"
               id="Stripe"
               value="Stripe"

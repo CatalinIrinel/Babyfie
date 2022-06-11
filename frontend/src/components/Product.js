@@ -22,14 +22,26 @@ function Product(props) {
     ctxDispatch({ type: 'CART_ADD_ITEM', payload: { ...item, quantity } });
   };
   return (
-    <Box key={product.slug}>
+    <Box
+      key={product.slug}
+      display={'flex'}
+      justifyContent="space-between"
+      alignItems={'center'}
+      flexDirection={'column'}
+      mb={'4rem'}
+    >
       <Box
         borderTopLeftRadius={'50%'}
         borderTopRightRadius={'50%'}
         overflow={'hidden'}
       >
         <Link to={`/product/${product.slug}`}>
-          <Image w="300px" src={product.image} alt={product.name} />
+          <Image
+            boxSize="300px"
+            src={product.image}
+            alt={product.name}
+            objectFit={'cover'}
+          />
         </Link>
       </Box>
 
@@ -42,22 +54,28 @@ function Product(props) {
         mt="0.5rem"
       >
         <Link to={`/product/${product.slug}`}>
-          <Heading as="h2" fontSize={'1.2rem'} color={'brand.500'}>
+          <Heading as="h2" fontSize={'1.4rem'} color={'brand.600'}>
             {product.name}
           </Heading>
         </Link>
-        <Heading as="h3" fontSize={'0.8rem'} my={'1rem'}>
+        <Heading as="h3" fontSize={'1rem'} my={'1rem'}>
           {product.price} RON
         </Heading>
 
         {product.countInStock === 0 ? (
-          <Button variant="outline" bg="brand.400" disabled>
+          <Button
+            variant="outline"
+            bg="brand.400"
+            _hover={{ background: 'brand.400' }}
+            disabled
+          >
             Lipsa Stoc
           </Button>
         ) : (
           <Button
             variant="solid"
             bg="brand.300"
+            _hover={{ background: 'brand.400' }}
             onClick={() => addToCartHandler(product)}
           >
             Adauga in cos

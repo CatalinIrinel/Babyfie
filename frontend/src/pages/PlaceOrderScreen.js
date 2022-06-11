@@ -87,7 +87,7 @@ function PlaceOrderScreen() {
     }
   }, [cart, navigate]);
   return (
-    <Box mx="3rem" my="4rem">
+    <Box mx="3rem" py="4rem">
       <CheckoutSteps step1 step2 step3 step4></CheckoutSteps>
       <Helmet>
         <title>Preview Order</title>
@@ -95,7 +95,11 @@ function PlaceOrderScreen() {
       <Heading as="h1" my="3rem">
         Preview Order
       </Heading>
-      <Flex alignItems={'flex-start'} justifyContent={'space-between'}>
+      <Flex
+        minH={'60vh'}
+        alignItems={'flex-start'}
+        justifyContent={'space-between'}
+      >
         <Box w="70%" display={'flex'} flexDirection={'column'}>
           <Box mb="1rem" p="1rem" border={'1px solid #000'}>
             <Heading mb="1rem" as="h2">
@@ -242,6 +246,8 @@ function PlaceOrderScreen() {
               <Button
                 type="button"
                 bg={'brand.500'}
+                transition={'all ease-in-out 0.3s'}
+                _hover={{ bg: 'brand.600', color: '#fff' }}
                 disabled={cart.cartItems.length === 0}
                 onClick={placeOrderHandler}
               >
