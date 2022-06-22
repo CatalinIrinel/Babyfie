@@ -111,7 +111,7 @@ function DashboardPage() {
                     {summary.orders && summary.orders[0]
                       ? summary.orders[0].totalSales.toFixed(2)
                       : 0}
-                    &nbsp; RON
+                    &nbsp; &euro;
                   </Box>
                   <Box>Income</Box>
                 </Box>

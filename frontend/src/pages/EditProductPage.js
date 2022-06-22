@@ -148,7 +148,7 @@ function EditProductPage() {
     <Box
       minH={'60vh'}
       mx="3rem"
-      my="4rem"
+      py="4rem"
       display="flex"
       flexDirection="column"
       alignItems="center"
@@ -167,6 +167,7 @@ function EditProductPage() {
             <FormControl mb="2rem">
               <FormLabel htmlFor="name">Name: </FormLabel>
               <Input
+                borderColor={'#000'}
                 w="300px"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -176,6 +177,7 @@ function EditProductPage() {
             <FormControl mb="2rem">
               <FormLabel htmlFor="Slug">Slug: </FormLabel>
               <Input
+                borderColor={'#000'}
                 w="300px"
                 value={slug}
                 onChange={(e) => setSlug(e.target.value)}
@@ -185,6 +187,7 @@ function EditProductPage() {
             <FormControl mb="2rem">
               <FormLabel htmlFor="brand">Brand:</FormLabel>
               <Input
+                borderColor={'#000'}
                 w="300px"
                 value={brand}
                 onChange={(e) => setBrand(e.target.value)}
@@ -194,6 +197,7 @@ function EditProductPage() {
             <FormControl mb="2rem">
               <FormLabel htmlFor="countInStock">Count In Stock:</FormLabel>
               <Input
+                borderColor={'#000'}
                 w="300px"
                 value={countInStock}
                 onChange={(e) => setCountInStock(e.target.value)}
@@ -203,6 +207,7 @@ function EditProductPage() {
             <FormControl mb="2rem">
               <FormLabel htmlFor="description">Description:</FormLabel>
               <Input
+                borderColor={'#000'}
                 w="300px"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
@@ -212,6 +217,7 @@ function EditProductPage() {
             <FormControl mb="2rem">
               <FormLabel htmlFor="price">Price:</FormLabel>
               <Input
+                borderColor={'#000'}
                 w="300px"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
@@ -221,6 +227,7 @@ function EditProductPage() {
             <FormControl mb="2rem">
               <FormLabel htmlFor="image">Image:</FormLabel>
               <Input
+                borderColor={'#000'}
                 w="300px"
                 value={image}
                 onChange={(e) => setImage(e.target.value)}
@@ -229,12 +236,19 @@ function EditProductPage() {
 
             <FormControl mb="2rem">
               <FormLabel htmlFor="image">Upload Image:</FormLabel>
-              <Input w="300px" type={'file'} onChange={uploadFileHandler} />
+              <Input
+                borderColor={'#000'}
+                w="300px"
+                p={1}
+                type={'file'}
+                onChange={uploadFileHandler}
+              />
             </FormControl>
 
             <FormControl mb="2rem">
               <FormLabel htmlFor="category">Category:</FormLabel>
               <Input
+                borderColor={'#000'}
                 w="300px"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}

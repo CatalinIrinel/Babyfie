@@ -1,4 +1,11 @@
-import { Box, Flex, ListItem, Text, UnorderedList } from '@chakra-ui/react';
+import {
+  Box,
+  Flex,
+  ListItem,
+  Text,
+  UnorderedList,
+  Link as LinkChak,
+} from '@chakra-ui/react';
 import React from 'react';
 import { MdCopyright } from 'react-icons/md';
 import { Link } from 'react-router-dom';
@@ -35,7 +42,7 @@ function Footer() {
             _hover={{ color: 'brand.600' }}
             transition=".3s ease-in-out"
           >
-            <Link to="/products">Products</Link>
+            <Link to="/our-products">Products</Link>
           </ListItem>
           <ListItem
             _hover={{ color: 'brand.600' }}
@@ -136,9 +143,13 @@ function Footer() {
           <MdCopyright style={{ margin: 0 }} />
           <Text>
             &nbsp; Created by{' '}
-            <Link style={{ color: 'green' }} to="https://peakngo.com">
+            <LinkChak
+              style={{ color: 'green' }}
+              isExternal
+              href="https://peakngo.com"
+            >
               Peak & Go - Web
-            </Link>
+            </LinkChak>
           </Text>
         </Box>
         <Box

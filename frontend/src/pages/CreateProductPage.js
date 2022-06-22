@@ -9,7 +9,7 @@ import {
 import axios from 'axios';
 import React, { useContext, useReducer, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import LoadingBox from '../components/LoadingBox';
 import { Store } from '../Store';
@@ -41,7 +41,7 @@ const reducer = (state, action) => {
   }
 };
 function CreateProductPage() {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [{ error, loadingUpdate }, dispatch] = useReducer(reducer, {
     loading: true,
     error: '',
@@ -85,7 +85,9 @@ function CreateProductPage() {
         type: 'CREATE_FAIL',
       });
     }
+    navigate('/admin/products');
   };
+
   const uploadFileHandler = async (e) => {
     const file = e.target.files[0];
     const bodyFormData = new FormData();
@@ -112,7 +114,7 @@ function CreateProductPage() {
     <Box
       minH={'60vh'}
       mx="3rem"
-      my="4rem"
+      py="4rem"
       display="flex"
       flexDirection="column"
       alignItems="center"
@@ -127,6 +129,7 @@ function CreateProductPage() {
         <FormControl mb="2rem">
           <FormLabel htmlFor="name">Name: </FormLabel>
           <Input
+            borderColor={'#000'}
             w={['300px', '500px']}
             type="text"
             isRequired
@@ -137,6 +140,7 @@ function CreateProductPage() {
         <FormControl mb="2rem">
           <FormLabel htmlFor="Slug">Slug: </FormLabel>
           <Input
+            borderColor={'#000'}
             w={['300px', '500px']}
             type="text"
             isRequired
@@ -147,6 +151,7 @@ function CreateProductPage() {
         <FormControl mb="2rem">
           <FormLabel htmlFor="brand">Brand:</FormLabel>
           <Input
+            borderColor={'#000'}
             w={['300px', '500px']}
             type="text"
             isRequired
@@ -157,6 +162,7 @@ function CreateProductPage() {
         <FormControl mb="2rem">
           <FormLabel htmlFor="countInStock">Count In Stock:</FormLabel>
           <Input
+            borderColor={'#000'}
             w={['300px', '500px']}
             type="number"
             isRequired
@@ -167,6 +173,7 @@ function CreateProductPage() {
         <FormControl mb="2rem">
           <FormLabel htmlFor="description">Description:</FormLabel>
           <Input
+            borderColor={'#000'}
             w={['300px', '500px']}
             type="text"
             isRequired
@@ -177,6 +184,7 @@ function CreateProductPage() {
         <FormControl mb="2rem">
           <FormLabel htmlFor="price">Price:</FormLabel>
           <Input
+            borderColor={'#000'}
             w={['300px', '500px']}
             type="number"
             isRequired
@@ -187,7 +195,9 @@ function CreateProductPage() {
         <FormControl mb="2rem">
           <FormLabel htmlFor="imageFile">Upload Image:</FormLabel>
           <Input
+            borderColor={'#000'}
             w={['300px', '500px']}
+            p={1}
             type="file"
             isRequired
             onChange={uploadFileHandler}
@@ -197,6 +207,7 @@ function CreateProductPage() {
         <FormControl mb="2rem">
           <FormLabel htmlFor="category">Category:</FormLabel>
           <Input
+            borderColor={'#000'}
             w={['300px', '500px']}
             type="text"
             isRequired

@@ -173,7 +173,7 @@ function PlaceOrderScreen() {
                     <Box w="20%">
                       <span>{item.quantity}</span>
                     </Box>
-                    <Box w="20%">{item.price} RON</Box>
+                    <Box w="20%">{item.price} &euro;</Box>
                   </Box>
                 </ListItem>
               ))}
@@ -209,7 +209,7 @@ function PlaceOrderScreen() {
               borderBottom={'1px solid gray'}
             >
               <Text>Items</Text>
-              <Text>{cart.itemsPrice.toFixed(2)} RON</Text>
+              <Text>{cart.itemsPrice.toFixed(2)} &euro;</Text>
             </ListItem>
             <ListItem
               display={'flex'}
@@ -218,7 +218,7 @@ function PlaceOrderScreen() {
               borderBottom={'1px solid gray'}
             >
               <Text>Shipping</Text>
-              <Text>{cart.shippingPrice.toFixed(2)} RON</Text>
+              <Text>{cart.shippingPrice.toFixed(2)} &euro;</Text>
             </ListItem>
             <ListItem
               display={'flex'}
@@ -227,7 +227,7 @@ function PlaceOrderScreen() {
               borderBottom={'1px solid gray'}
             >
               <Text>Tax</Text>
-              <Text>{cart.taxPrice.toFixed(2)} RON</Text>
+              <Text>{cart.taxPrice.toFixed(2)} &euro;</Text>
             </ListItem>
             <ListItem
               display={'flex'}
@@ -239,7 +239,7 @@ function PlaceOrderScreen() {
                 <strong>Order Total</strong>
               </Text>
               <Text>
-                <strong>{cart.totalPrice.toFixed(2)} RON</strong>
+                <strong>{cart.totalPrice.toFixed(2)} &euro;</strong>
               </Text>
             </ListItem>
             <ListItem>

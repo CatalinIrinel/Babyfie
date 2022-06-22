@@ -84,12 +84,7 @@ function OrderHistory() {
             </Thead>
             <Tbody>
               {orders.map((order) => (
-                <Tr
-                  border={'none'}
-                  borderBottomWidth={'1px'}
-                  borderColor={'#000'}
-                  key={order._id}
-                >
+                <Tr key={order._id}>
                   <Td>{order._id}</Td>
                   <Td>{order.createdAt.substring(0, 10)}</Td>
                   <Td>{order.totalPrice.toFixed(2)}</Td>

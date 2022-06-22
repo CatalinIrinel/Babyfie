@@ -15,7 +15,7 @@ import { shippingData } from './data';
 
 function ShippingPolicy() {
   return (
-    <Flex h="auto" mx="3rem" my="4rem" justifyContent="center">
+    <Flex h="auto" mx="3rem" py="4rem" justifyContent="center">
       <Helmet>
         <title>Shipping Policy - Babyfie</title>
       </Helmet>

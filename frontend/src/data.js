@@ -3,7 +3,7 @@ const data = {
     {
       // _id: '1',
       name: 'produsul 1',
-      slug: 'produsul-1',
+      slug: 'test-2',
       category: 'categoria-1',
       image: '/images/p1.webp',
       price: 120,
@@ -14,7 +14,7 @@ const data = {
     {
       // _id: '2',
       name: 'produsul 2',
-      slug: 'produsul-2',
+      slug: 'test-3',
       category: 'categoria-2',
       image: '/images/p2.webp',
       price: 220,
@@ -25,7 +25,7 @@ const data = {
     {
       // _id: '3',
       name: 'produsul 3',
-      slug: 'produsul-3',
+      slug: 'test-4',
       category: 'categoria-3',
       image: '/images/p3.webp',
       price: 150,
@@ -36,7 +36,7 @@ const data = {
     {
       // _id: '4',
       name: 'produsul 4',
-      slug: 'produsul-4',
+      slug: 'test-5',
       category: 'categoria-4',
       image: '/images/p4.webp',
       price: 520,

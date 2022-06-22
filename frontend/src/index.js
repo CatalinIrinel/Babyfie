@@ -5,6 +5,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 import { StoreProvider } from './Store';
 import { HelmetProvider } from 'react-helmet-async';
 import { extendTheme } from '@chakra-ui/react';
+import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 
 const theme = extendTheme({
   colors: {
@@ -26,7 +27,9 @@ root.render(
     <ChakraProvider theme={theme}>
       <StoreProvider>
         <HelmetProvider>
-          <App />
+          <PayPalScriptProvider deferLoading={true}>
+            <App />
+          </PayPalScriptProvider>
         </HelmetProvider>
       </StoreProvider>
     </ChakraProvider>

@@ -73,6 +73,7 @@ function RegisterPage() {
           <FormControl isRequired mb="2rem">
             <FormLabel htmlFor="name">Nume Complet:</FormLabel>
             <Input
+              borderColor={'#000'}
               w="300px"
               type="text"
               onChange={(e) => setName(e.target.value)}
@@ -82,6 +83,7 @@ function RegisterPage() {
           <FormControl isRequired mb="2rem">
             <FormLabel htmlFor="email">Email:</FormLabel>
             <Input
+              borderColor={'#000'}
               w="300px"
               type="email"
               onChange={(e) => setEmail(e.target.value)}
@@ -91,6 +93,7 @@ function RegisterPage() {
           <FormControl isRequired mb="2rem">
             <FormLabel htmlFor="password">Parola:</FormLabel>
             <Input
+              borderColor={'#000'}
               w="300px"
               type="password"
               onChange={(e) => setPassword(e.target.value)}
@@ -100,6 +103,7 @@ function RegisterPage() {
           <FormControl isRequired mb="2rem">
             <FormLabel htmlFor="password">Confirma Parola:</FormLabel>
             <Input
+              borderColor={'#000'}
               w="300px"
               type="password"
               onChange={(e) => setConfirmPassword(e.target.value)}

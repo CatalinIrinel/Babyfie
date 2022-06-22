@@ -16,7 +16,7 @@ function Product(props) {
     const quantity = existingItem ? existingItem.quantity + 1 : 1;
     const { data } = await axios.get(`/api/products/${item._id}`);
     if (data.countInStock < quantity) {
-      toast.error('Ne pare rau produsul nu mai este in stoc');
+      toast.error('We are sorry the product is out of stock ');
       return;
     }
     ctxDispatch({ type: 'CART_ADD_ITEM', payload: { ...item, quantity } });
@@ -59,7 +59,7 @@ function Product(props) {
           </Heading>
         </Link>
         <Heading as="h3" fontSize={'1rem'} my={'1rem'}>
-          {product.price} RON
+          {product.price} &euro;
         </Heading>
 
         {product.countInStock === 0 ? (
@@ -69,7 +69,7 @@ function Product(props) {
             _hover={{ background: 'brand.400' }}
             disabled
           >
-            Lipsa Stoc
+            Out of Stock
           </Button>
         ) : (
           <Button
@@ -78,7 +78,7 @@ function Product(props) {
             _hover={{ background: 'brand.400' }}
             onClick={() => addToCartHandler(product)}
           >
-            Adauga in cos
+            Add to cart
           </Button>
         )}
       </Box>

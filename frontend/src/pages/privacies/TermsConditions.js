@@ -15,7 +15,7 @@ import { termsData } from './data.js';
 
 function TermsConditions() {
   return (
-    <Flex h="auto" mx="3rem" my="4rem" justifyContent="center">
+    <Flex h="auto" mx="3rem" py="4rem" justifyContent="center">
       <Helmet>
         <title>Terms & Conditions - Babyfie</title>
       </Helmet>

@@ -15,7 +15,7 @@ import { gdprData } from './data';
 
 function PrivacyPolicy() {
   return (
-    <Flex h="auto" mx="3rem" my="4rem" justifyContent="center">
+    <Flex h="auto" mx="3rem" py="4rem" justifyContent="center">
       <Helmet>
         <title>Privacy Policy - Babyfie</title>
       </Helmet>

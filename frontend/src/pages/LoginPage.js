@@ -65,6 +65,7 @@ function LoginPage() {
           <FormControl isRequired mb="2rem">
             <FormLabel htmlFor="email">Email:</FormLabel>
             <Input
+              borderColor={'#000'}
               w="300px"
               type="email"
               onChange={(e) => setEmail(e.target.value)}
@@ -74,6 +75,7 @@ function LoginPage() {
           <FormControl isRequired mb="2rem">
             <FormLabel htmlFor="password">Parola:</FormLabel>
             <Input
+              borderColor={'#000'}
               w="300px"
               type="password"
               onChange={(e) => setPassword(e.target.value)}

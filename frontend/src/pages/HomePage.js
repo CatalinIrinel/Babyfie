@@ -10,7 +10,7 @@ function HomePage() {
   return (
     <Box display="flex" justifyContent="center" flexDirection={'column'}>
       <Helmet>
-        <title>Acasa - Babyfie</title>
+        <title>Premium cribs for your angel- Babyfie</title>
       </Helmet>
       <Hero />
       <Box

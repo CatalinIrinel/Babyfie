@@ -1,12 +1,15 @@
-import { Alert, AlertIcon } from '@chakra-ui/react';
+import { Alert, AlertIcon, Box } from '@chakra-ui/react';
 import React from 'react';
 
 function MessageBox(props) {
   return (
-    <Alert status={props.status || 'info'}>
-      <AlertIcon />
-      {props.children}
-    </Alert>
+    <Box w="full" h={'50px'}>
+      {' '}
+      <Alert status={props.status || 'info'}>
+        <AlertIcon />
+        {props.children}
+      </Alert>
+    </Box>
   );
 }
 

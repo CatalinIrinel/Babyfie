@@ -15,7 +15,7 @@ import { returnData } from './data';
 
 function ReturnPolicy() {
   return (
-    <Flex h="auto" mx="3rem" my="4rem" justifyContent="center">
+    <Flex h="auto" mx="3rem" py="4rem" justifyContent="center">
       <Helmet>
         <title>Return Policy - Babyfie</title>
       </Helmet>

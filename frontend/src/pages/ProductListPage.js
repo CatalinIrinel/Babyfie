@@ -140,7 +140,7 @@ function ProductListPage() {
             }}
             type="button"
           >
-            Add Product
+            Add New Product
           </Button>
         </Link>
       </Box>

@@ -47,7 +47,7 @@ function ProductsPage() {
       flexDirection={'column'}
     >
       <Helmet>
-        <title>Produsele - Babyfie</title>
+        <title>Products - Babyfie</title>
       </Helmet>
       <Heading as="h1" mb="3rem">
         Products Page

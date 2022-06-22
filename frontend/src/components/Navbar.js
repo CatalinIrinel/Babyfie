@@ -58,9 +58,9 @@ function Navbar({ toggle }) {
           justifyContent="space-evenly"
           fontWeight="bold"
         >
-          <Link to="/">Acasa</Link>
-          <Link to="/our-products">Produse</Link>
-          <Link to="/about">Despre</Link>
+          <Link to="/">Home</Link>
+          <Link to="/our-products">Products</Link>
+          <Link to="/about">About</Link>
           <Link to="/contact">Contact</Link>
         </Box>
         <Box display={['none', 'flex', 'flex']}>
@@ -111,12 +111,12 @@ function Navbar({ toggle }) {
                     <MenuItem>Profile</MenuItem>
                   </Link>
                   <Link to="/order-history">
-                    <MenuItem>Istoric Comenzi</MenuItem>
+                    <MenuItem>Order History</MenuItem>
                   </Link>
                   <MenuDivider />
                   <Link to="#signout" onClick={signoutHandler}>
                     {' '}
-                    <MenuItem> Delogare</MenuItem>
+                    <MenuItem> Log out</MenuItem>
                   </Link>
                 </MenuList>
               </Menu>

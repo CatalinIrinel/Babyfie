@@ -32,6 +32,9 @@ import ReturnPolicy from './pages/privacies/ReturnPolicy';
 import CreateProductPage from './pages/CreateProductPage';
 import EditProductPage from './pages/EditProductPage';
 import OrderPage from './pages/OrderPage';
+import OrderListPage from './pages/OrderListPage';
+import UserListPage from './pages/UserListPage';
+import UserEditPage from './pages/UserEditPage';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -117,6 +120,31 @@ function App() {
             element={
               <AdminRoute>
                 <ProductListPage />
+              </AdminRoute>
+            }
+          />
+
+          <Route
+            path="/admin/orders"
+            element={
+              <AdminRoute>
+                <OrderListPage />
+              </AdminRoute>
+            }
+          />
+          <Route
+            path="/admin/user/:id"
+            element={
+              <AdminRoute>
+                <UserEditPage />
+              </AdminRoute>
+            }
+          />
+          <Route
+            path="/admin/users"
+            element={
+              <AdminRoute>
+                <UserListPage />
               </AdminRoute>
             }
           />

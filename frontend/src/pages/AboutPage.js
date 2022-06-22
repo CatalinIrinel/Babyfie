@@ -1,6 +1,8 @@
-import { Box, Heading } from '@chakra-ui/react';
+import { Box, Heading, Text } from '@chakra-ui/react';
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { teamData } from '../components/InfoData';
+import TeamCard from '../components/TeamCard';
 
 function AboutPage() {
   return (
@@ -12,9 +14,53 @@ function AboutPage() {
       justifyContent="center"
     >
       <Helmet>
-        <title>Despre - Babyfie</title>
+        <title>About - Babyfie</title>
       </Helmet>
-      <Heading as="h1">AboutPage</Heading>
+      <Box
+        display={'flex'}
+        alignItems={'center'}
+        flexDirection={'column'}
+        justifyContent={'flex-start'}
+      >
+        <Box my="2rem" w={'fit-content'}>
+          <Heading as={'h1'}>Want to get to know us?</Heading>
+        </Box>
+        <Box textAlign={'center'} maxW={'1100px'} paddingY="2rem">
+          <Box mb={'5rem'} w={'full'}>
+            <Heading
+              color={'brand.400'}
+              fontSize={'1.2rem'}
+              lineHeight={'1'}
+              letterSpacing={'0.1rem'}
+              fontWeight={'700'}
+              as={'h3'}
+            >
+              {teamData.topLine}
+            </Heading>
+            <Heading
+              mb={'1rem'}
+              fontSize={'1.6rem'}
+              lineHeight={'1.1'}
+              fontWeight={'600'}
+              as={'h2'}
+            >
+              {teamData.headline}
+            </Heading>
+            <Text fontSize={'1.2rem'}>{teamData.text}</Text>
+          </Box>
+
+          <Box
+            w={'full'}
+            display={'flex'}
+            alignItems={'center'}
+            justifyContent={'space-evenly'}
+          >
+            <TeamCard {...teamData.catalin} />
+            <TeamCard {...teamData.ferdil} />
+            <TeamCard {...teamData.cristina} />
+          </Box>
+        </Box>
+      </Box>
     </Box>
   );
 }
