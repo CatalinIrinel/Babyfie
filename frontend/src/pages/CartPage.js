@@ -55,15 +55,15 @@ function CartPage() {
       <Helmet>
         <title>Shopping Cart - Babyfie</title>
       </Helmet>
-      <Heading as="h1">Shopping cart</Heading>
+      <Heading as="h1">Coșul de cumpărături</Heading>
       <Box w="100%" mt="3rem">
         <Flex alignItems="flex-start" justifyContent={'space-between'}>
           <Box w="60%">
             {cartItems.length === 0 ? (
               <MessageBox status="info">
-                Cart is empty.&nbsp;
+                Coșul este gol.&nbsp;
                 <Link className="links" to="/products">
-                  Happy shopping!
+                  Spor la cumpărături”
                 </Link>
               </MessageBox>
             ) : (
@@ -112,7 +112,7 @@ function CartPage() {
                         </Button>
                       </Box>
                       <Spacer />
-                      <Box>{item.price} &euro;</Box>
+                      <Box>{item.price} RON</Box>
                       <Box>
                         <Button
                           variant="light"
@@ -139,9 +139,9 @@ function CartPage() {
                 <ListItem mb="1rem">
                   <Heading as="h3" size="md">
                     Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{' '}
-                    items):{' '}
+                    produse):{' '}
                     {cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}{' '}
-                    &euro;
+                    RON
                   </Heading>
                 </ListItem>
 
@@ -154,7 +154,7 @@ function CartPage() {
                       disabled={cartItems.length === 0}
                       _hover={{ background: 'brand.500' }}
                     >
-                      Proceed Checkout
+                      Finalizează comanda
                     </Button>
                   </Link>
                 </ListItem>

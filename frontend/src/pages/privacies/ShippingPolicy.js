@@ -11,7 +11,7 @@ import {
 } from '@chakra-ui/react';
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { shippingData } from './data';
+import { shippingDataRo } from './data';
 
 function ShippingPolicy() {
   return (
@@ -21,18 +21,22 @@ function ShippingPolicy() {
       </Helmet>
       <Box w="100%" maxW="1100px">
         <Heading as="h1" textTransform="uppercase">
-          Shipping Policy
+          POLITICA DE LIVRARE
         </Heading>
-        <Text>Last updated May 29,2022</Text>
         <Text>
-          This Shipping & Delivery Policy is part of our Terms and Conditions
-          ("Terms") and should be therefore read alongside our main Terms:&nbsp;
-          <a href="https://babyfie.eu/terms">https://babyfie.eu/terms</a>.
-          Please carefully review our Shipping & Delivery Policy when purchasing
-          our products. This policy will apply to any order you place with us.{' '}
+          <strong>Ultima actualizare 29 mai 2022</strong>
+        </Text>
+        <Text>
+          Această politică de livrare și livrare face parte din Termenii și
+          condițiile noastre ("Termeni") și, prin urmare, trebuie citită
+          împreună cu Termenii noștri principali: &nbsp;
+          <a href="https://babyfie.eu/terms">https://babyfie.eu/terms</a>.Vă
+          rugăm să consultați cu atenție Politica noastră de livrare și livrare
+          atunci când cumpărați produsele noastre. Această politică se va aplica
+          oricărei comenzi pe care o plasați la noi.
         </Text>
         <Accordion my="2rem" allowToggle allowMultiple>
-          {shippingData.map((item) => (
+          {shippingDataRo.map((item) => (
             <AccordionItem key={item.title}>
               <h2>
                 <AccordionButton>

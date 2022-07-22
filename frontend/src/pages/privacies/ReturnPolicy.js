@@ -11,7 +11,7 @@ import {
 } from '@chakra-ui/react';
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { returnData } from './data';
+import { returnDataRo } from './data';
 
 function ReturnPolicy() {
   return (
@@ -23,15 +23,19 @@ function ReturnPolicy() {
         <Heading as="h1" textTransform="uppercase">
           Return Policy
         </Heading>
-        <Text>Last updated May 29,2022</Text>
         <Text>
-          Thank you for your purchase. We hope you are happy with your purchase.
-          However, if you are not completely satisfied with your purchase for
-          any reason, you may return it to us for a full refund or an exchange.
-          Please see below for more information on our return policy.
+          <strong>Ultima actualizare Mai 29,2022</strong>
+        </Text>
+        <br />
+        <Text>
+          Vă multumim pentru cumpărăturile făcute. Sperăm că sunteți mulțumit de
+          achiziția dvs. Cu toate acestea, dacă nu sunteți complet mulțumit de
+          achiziția dvs. din orice motiv, îl puteți returna pentru o rambursare
+          completă sau un schimb. Vă rugăm să consultați mai jos pentru mai
+          multe informații despre politica noastră de returnare.
         </Text>
         <Accordion my="2rem" allowToggle allowMultiple>
-          {returnData.map((item) => (
+          {returnDataRo.map((item) => (
             <AccordionItem key={item.title}>
               <h2>
                 <AccordionButton>

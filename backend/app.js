@@ -6,6 +6,8 @@ import productRouter from './routes/productRoutes.js';
 import userRouter from './routes/userRoutes.js';
 import orderRouter from './routes/orderRoutes.js';
 import uploadRouter from './routes/uploadRoutes.js';
+import cors from 'cors';
+import nodemailer from 'nodemailer';
 
 dotenv.config();
 //babyfieAdmin Babyf132022
@@ -19,6 +21,41 @@ mongoose
   });
 
 const app = express();
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cors());
+
+//send email at contact
+
+let transporter = nodemailer.createTransport({
+  host: process.env.HOST_EMAIL,
+  port: process.env.PORT_EMAIL,
+  secure: true,
+  auth: {
+    user: process.env.USER_EMAIL,
+    pass: process.env.PASS_EMAIL,
+  },
+});
+
+// verify connection configuration
+transporter.verify(function (error, success) {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log('Server is ready to take our messages');
+  }
+});
+
+app.post('/send-mail', cors(), async (req, res) => {
+  let mail = {
+    from: req.body.email,
+    to: process.env.USER_EMAIL,
+    subject: `${req.body.name} ne contacteaza in legatura cu ${req.body.issue}`,
+    text: req.body.message,
+  };
+  await transporter.sendMail(mail);
+});
 
 //form data converted to JSON object
 app.use(express.json());

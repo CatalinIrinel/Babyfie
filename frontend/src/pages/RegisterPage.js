@@ -1,11 +1,14 @@
 import {
   Box,
   Button,
+  Checkbox,
+  CheckboxGroup,
   Flex,
   FormControl,
   FormLabel,
   Heading,
   Input,
+  Stack,
 } from '@chakra-ui/react';
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
@@ -67,7 +70,7 @@ function RegisterPage() {
           w="100%"
           fontSize="2.5rem"
         >
-          <Heading as="h1"> Creaza contul tau Babyfie</Heading>
+          <Heading as="h1"> Crează contul tău Babyfie</Heading>
         </Box>
         <form onSubmit={submitHandler}>
           <FormControl isRequired mb="2rem">
@@ -91,7 +94,7 @@ function RegisterPage() {
           </FormControl>
 
           <FormControl isRequired mb="2rem">
-            <FormLabel htmlFor="password">Parola:</FormLabel>
+            <FormLabel htmlFor="password">Parolă:</FormLabel>
             <Input
               borderColor={'#000'}
               w="300px"
@@ -101,13 +104,32 @@ function RegisterPage() {
           </FormControl>
 
           <FormControl isRequired mb="2rem">
-            <FormLabel htmlFor="password">Confirma Parola:</FormLabel>
+            <FormLabel htmlFor="password">Confirmă Parola:</FormLabel>
             <Input
               borderColor={'#000'}
               w="300px"
               type="password"
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
+          </FormControl>
+
+          <FormControl isRequired>
+            <CheckboxGroup colorScheme={'green'}>
+              <Stack spacing={[1, 5]} direction={'column'}>
+                <Checkbox value={'tac'}>
+                  Sunt de acord cu{' '}
+                  <Link to="/terms" className="policyLink">
+                    Termenii și Condițiile
+                  </Link>
+                </Checkbox>
+                <Checkbox value={'gdpr'}>
+                  Sunt de acord cu{' '}
+                  <Link to="/privacy" className="policyLink">
+                    Politica GDPR
+                  </Link>
+                </Checkbox>
+              </Stack>
+            </CheckboxGroup>
           </FormControl>
 
           <Box display="flex" justifyContent="center" w="100%">
@@ -121,7 +143,7 @@ function RegisterPage() {
               _hover={{ backgroundColor: 'brand.600', color: '#fff' }}
               _focus={{ boxShadow: 'none' }}
             >
-              Creaza Contul
+              Crează Contul
             </Button>
           </Box>
 
@@ -129,7 +151,7 @@ function RegisterPage() {
             Ai deja cont babyfie?&nbsp;
             <Link className="links" to={`/login?redirect=${redirect}`}>
               {' '}
-              Logheaza-te aici
+              Loghează-te aici
             </Link>
           </Box>
         </form>

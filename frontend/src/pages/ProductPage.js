@@ -28,7 +28,7 @@ const settings = {
   arrows: false,
   fade: true,
   infinite: true,
-  autoplay: true,
+  autoplay: false,
   speed: 500,
   autoplaySpeed: 5000,
   slidesToShow: 1,
@@ -222,12 +222,12 @@ function ProductPage() {
                       onClick={addToCartHandler}
                     >
                       {' '}
-                      Add to cart
+                      Adauga în coș
                     </Button>
                   ) : (
                     <Button type="button" bg={'brand.500'} disabled>
                       {' '}
-                      Out of Stock
+                      Nu mai este în stock
                     </Button>
                   )}
                 </Box>

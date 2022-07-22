@@ -10,7 +10,7 @@ function HomePage() {
   return (
     <Box display="flex" justifyContent="center" flexDirection={'column'}>
       <Helmet>
-        <title>Premium cribs for your angel- Babyfie</title>
+        <title>Pătuțuri premium pentru îngerașul vostru- Babyfie</title>
       </Helmet>
       <Hero />
       <Box
@@ -32,7 +32,7 @@ function HomePage() {
             letterSpacing="3px"
             lineHeight={1.5}
           >
-            Our Products
+            Cele mai vândute produse
           </Heading>
         </Box>
         <Box display="flex" flexWrap={'wrap'} justifyContent={'space-between'}>
@@ -50,9 +50,10 @@ function HomePage() {
                 src={product.image}
                 alt={product.name}
               />
-              <Box className="buttonEffect">
-                <Link to={`/product/${product.slug}`}>More Details</Link>
-              </Box>
+              <Link to={`/product/${product.slug}`}>
+                {' '}
+                <Box className="buttonEffect">Mai multe detalii</Box>
+              </Link>
             </Box>
           ))}
         </Box>
@@ -73,7 +74,7 @@ function HomePage() {
         flexWrap={'wrap'}
         flexDirection={'column'}
         py={'3rem'}
-        px={'6rem'}
+        px={['2rem', '6rem']}
       >
         <Box w={'full'} display={'flex'} justifyContent={'center'}>
           <Heading
@@ -86,17 +87,20 @@ function HomePage() {
             letterSpacing="3px"
             lineHeight={1.5}
           >
-            Why the babyfie cribs?
+            De ce pătuțurile babyfie?
           </Heading>
         </Box>
         <Box display="flex" flexWrap={'wrap'} justifyContent={'space-between'}>
           {data.promise.map((item) => (
             <Box
+              maxW={'300px'}
+              w={'100%'}
               key={item.name}
               display="flex"
               alignItems={'center'}
               flexDirection={'column'}
               my={'2rem'}
+              marginBottom="1rem"
             >
               <Image
                 boxSize={'150px'}

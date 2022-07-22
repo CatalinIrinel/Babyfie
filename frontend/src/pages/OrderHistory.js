@@ -63,7 +63,7 @@ function OrderHistory() {
         <title>Order History</title>
       </Helmet>
       <Heading as="h1" my="2rem">
-        Order History
+        Istoric Comenzi
       </Heading>
       {loading ? (
         <LoadingBox></LoadingBox>
@@ -75,11 +75,11 @@ function OrderHistory() {
             <Thead bg={'brand.300'}>
               <Tr>
                 <Th>ID</Th>
-                <Th>DATE</Th>
+                <Th>DATA</Th>
                 <Th>TOTAL</Th>
-                <Th>PAID</Th>
-                <Th>DELIVERED</Th>
-                <Th>ACTIONS</Th>
+                <Th>PLĂTIT</Th>
+                <Th>LIVRAT</Th>
+                <Th>ACȚIUNI</Th>
               </Tr>
             </Thead>
             <Tbody>
@@ -87,7 +87,7 @@ function OrderHistory() {
                 <Tr key={order._id}>
                   <Td>{order._id}</Td>
                   <Td>{order.createdAt.substring(0, 10)}</Td>
-                  <Td>{order.totalPrice.toFixed(2)}</Td>
+                  <Td>{order.totalPrice.toFixed(2)} RON</Td>
                   <Td>{order.isPaid ? order.paidAt.substring(0, 10) : 'No'}</Td>
                   <Td>
                     {order.isDelivered
@@ -103,7 +103,7 @@ function OrderHistory() {
                         navigate(`/order/${order._id}`);
                       }}
                     >
-                      Details
+                      Detalii
                     </Button>
                   </Td>
                 </Tr>

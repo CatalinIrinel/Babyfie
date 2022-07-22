@@ -154,9 +154,9 @@ function EditProductPage() {
       alignItems="center"
     >
       <Helmet>
-        <title>Edit Product ${productId}</title>
+        <title>Edit Product - Babyfie</title>
       </Helmet>
-      <Heading as={'h1'}>Edit Product {name}</Heading>
+      <Heading as={'h1'}>Editează Produsul {name}</Heading>
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (
@@ -165,7 +165,7 @@ function EditProductPage() {
         <Box>
           <form onSubmit={submitHandler}>
             <FormControl mb="2rem">
-              <FormLabel htmlFor="name">Name: </FormLabel>
+              <FormLabel htmlFor="name">Nume: </FormLabel>
               <Input
                 borderColor={'#000'}
                 w="300px"
@@ -205,7 +205,7 @@ function EditProductPage() {
             </FormControl>
 
             <FormControl mb="2rem">
-              <FormLabel htmlFor="description">Description:</FormLabel>
+              <FormLabel htmlFor="description">Descriere:</FormLabel>
               <Input
                 borderColor={'#000'}
                 w="300px"
@@ -215,7 +215,7 @@ function EditProductPage() {
             </FormControl>
 
             <FormControl mb="2rem">
-              <FormLabel htmlFor="price">Price:</FormLabel>
+              <FormLabel htmlFor="price">Preț:</FormLabel>
               <Input
                 borderColor={'#000'}
                 w="300px"
@@ -225,7 +225,7 @@ function EditProductPage() {
             </FormControl>
 
             <FormControl mb="2rem">
-              <FormLabel htmlFor="image">Image:</FormLabel>
+              <FormLabel htmlFor="image">Poze:</FormLabel>
               <Input
                 borderColor={'#000'}
                 w="300px"
@@ -235,7 +235,7 @@ function EditProductPage() {
             </FormControl>
 
             <FormControl mb="2rem">
-              <FormLabel htmlFor="image">Upload Image:</FormLabel>
+              <FormLabel htmlFor="image">Încarcă poze:</FormLabel>
               <Input
                 borderColor={'#000'}
                 w="300px"
@@ -246,7 +246,7 @@ function EditProductPage() {
             </FormControl>
 
             <FormControl mb="2rem">
-              <FormLabel htmlFor="category">Category:</FormLabel>
+              <FormLabel htmlFor="category">Categorie:</FormLabel>
               <Input
                 borderColor={'#000'}
                 w="300px"
@@ -256,7 +256,7 @@ function EditProductPage() {
             </FormControl>
 
             <Button bg={'brand.500'} disabled={loadingUpdate} type="submit">
-              Update product info
+              Editează produsul
             </Button>
             {loadingUpdate && <LoadingBox></LoadingBox>}
           </form>

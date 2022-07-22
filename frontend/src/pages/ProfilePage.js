@@ -75,12 +75,12 @@ function ProfilePage() {
           <title>User Profile</title>
         </Helmet>
         <Heading as="h1" my="3">
-          User Profile
+          Profilul utilizatorului
         </Heading>
         <Box w="md">
           <form onSubmit={submitHandler}>
             <FormControl mb="2rem">
-              <FormLabel>Name:</FormLabel>
+              <FormLabel>Nume:</FormLabel>
               <Input
                 borderColor={'#000'}
                 value={name}
@@ -99,7 +99,7 @@ function ProfilePage() {
               />
             </FormControl>
             <FormControl mb="2rem">
-              <FormLabel>Password:</FormLabel>
+              <FormLabel>Parolă:</FormLabel>
               <Input
                 borderColor={'#000'}
                 type="password"
@@ -108,7 +108,7 @@ function ProfilePage() {
               />
             </FormControl>
             <FormControl mb="2rem">
-              <FormLabel>Confirm Password:</FormLabel>
+              <FormLabel>Confirmă parola:</FormLabel>
               <Input
                 borderColor={'#000'}
                 type="password"
@@ -118,7 +118,7 @@ function ProfilePage() {
             </FormControl>
             <Box w="100%" display="flex" justifyContent="center">
               <Button type="submit" bg="brand.500">
-                Change info
+                Editează profilul
               </Button>
               {loadingUpdate && <LoadingBox></LoadingBox>}
             </Box>

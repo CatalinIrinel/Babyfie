@@ -4,10 +4,10 @@ import {
   Box,
   Flex,
   Icon,
-  IconButton,
-  Input,
-  InputGroup,
-  InputRightElement,
+  // IconButton,
+  // Input,
+  // InputGroup,
+  // InputRightElement,
   Menu,
   MenuButton,
   MenuDivider,
@@ -16,7 +16,7 @@ import {
 } from '@chakra-ui/react';
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronDownIcon, HamburgerIcon, SearchIcon } from '@chakra-ui/icons';
+import { ChevronDownIcon, HamburgerIcon } from '@chakra-ui/icons';
 import { RiShoppingCartLine } from 'react-icons/ri';
 import { Store } from '../Store';
 
@@ -58,12 +58,12 @@ function Navbar({ toggle }) {
           justifyContent="space-evenly"
           fontWeight="bold"
         >
-          <Link to="/">Home</Link>
-          <Link to="/our-products">Products</Link>
-          <Link to="/about">About</Link>
+          <Link to="/">Acasă</Link>
+          <Link to="/our-products">Produse</Link>
+          <Link to="/about">Despre</Link>
           <Link to="/contact">Contact</Link>
         </Box>
-        <Box display={['none', 'flex', 'flex']}>
+        {/* <Box display={['none', 'flex', 'flex']}>
           <Flex alignItems="center">
             <InputGroup>
               <Input
@@ -80,7 +80,7 @@ function Navbar({ toggle }) {
               </InputRightElement>
             </InputGroup>
           </Flex>
-        </Box>
+        </Box> */}
         <Box display="flex" alignItems="center">
           <Box marginRight="1rem">
             {' '}
@@ -108,20 +108,20 @@ function Navbar({ toggle }) {
                 </MenuButton>
                 <MenuList>
                   <Link to="/profile">
-                    <MenuItem>Profile</MenuItem>
+                    <MenuItem>Profil</MenuItem>
                   </Link>
                   <Link to="/order-history">
-                    <MenuItem>Order History</MenuItem>
+                    <MenuItem>Istoric Comenzi</MenuItem>
                   </Link>
                   <MenuDivider />
                   <Link to="#signout" onClick={signoutHandler}>
                     {' '}
-                    <MenuItem> Log out</MenuItem>
+                    <MenuItem> Delogare</MenuItem>
                   </Link>
                 </MenuList>
               </Menu>
             ) : (
-              <Link to="/login">Log In</Link>
+              <Link to="/login">Loghează-te</Link>
             )}
           </Box>
           <Box>
@@ -133,18 +133,22 @@ function Navbar({ toggle }) {
                   <ChevronDownIcon />
                 </MenuButton>
                 <MenuList>
-                  <MenuItem>
-                    <Link to="/admin/dashboard"> Dashboard</Link>
-                  </MenuItem>
-                  <MenuItem>
-                    <Link to="/admin/products"> Produse</Link>
-                  </MenuItem>
-                  <MenuItem>
-                    <Link to="/admin/orders"> Comenzi</Link>
-                  </MenuItem>
-                  <MenuItem>
-                    <Link to="/admin/users"> Utilizatori</Link>
-                  </MenuItem>
+                  <Link to="/admin/dashboard">
+                    {' '}
+                    <MenuItem>Dashboard</MenuItem>
+                  </Link>
+                  <Link to="/admin/products">
+                    {' '}
+                    <MenuItem>Produse</MenuItem>
+                  </Link>
+                  <Link to="/admin/orders">
+                    {' '}
+                    <MenuItem>Comenzi</MenuItem>
+                  </Link>
+                  <Link to="/admin/users">
+                    {' '}
+                    <MenuItem>Utilizatori</MenuItem>
+                  </Link>
                 </MenuList>
               </Menu>
             )}

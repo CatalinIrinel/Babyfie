@@ -47,10 +47,15 @@ function ProductsPage() {
       flexDirection={'column'}
     >
       <Helmet>
-        <title>Products - Babyfie</title>
+        <title>Produsele - Babyfie</title>
       </Helmet>
-      <Heading as="h1" mb="3rem">
-        Products Page
+      <Heading
+        as="h1"
+        mb="3rem"
+        borderTop={'4px solid hsl(267, 30%, 57%)'}
+        borderBottom={'4px solid hsl(267, 30%, 57%)'}
+      >
+        Produsele <span className="logo">Babyfie</span>
       </Heading>
       {loading ? (
         <LoadingBox />

@@ -47,25 +47,25 @@ const data = {
   ],
   promise: [
     {
-      name: 'Safer than ever',
+      name: 'Siguranța pe primul plan',
       description:
         'We are testing our product to be sure your baby is safe and sound',
       image: '/images/safe.webp',
     },
     {
-      name: 'Designed to last',
+      name: 'Create să reziste',
       description:
         'Durable and stylish products that seamlessly transition from nursery to big kids room',
       image: '/images/trophy.webp',
     },
     {
-      name: "What's not to love",
+      name: 'Îndrăgite de toată lumea',
       description:
         'Loved by over 2 million parents and recommended by experts for over 30 years',
       image: '/images/baby.webp',
     },
     {
-      name: "Practicality at it's finest",
+      name: 'Foarte practice',
       description:
         'We are testing our product to be sure your baby is safe and sound',
       image: '/images/key.webp',

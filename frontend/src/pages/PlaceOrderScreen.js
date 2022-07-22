@@ -90,10 +90,10 @@ function PlaceOrderScreen() {
     <Box mx="3rem" py="4rem">
       <CheckoutSteps step1 step2 step3 step4></CheckoutSteps>
       <Helmet>
-        <title>Preview Order</title>
+        <title>Previzualizare Comandă - Babyfie</title>
       </Helmet>
       <Heading as="h1" my="3rem">
-        Preview Order
+        Previzualizare Comandă
       </Heading>
       <Flex
         minH={'60vh'}
@@ -103,11 +103,11 @@ function PlaceOrderScreen() {
         <Box w="70%" display={'flex'} flexDirection={'column'}>
           <Box mb="1rem" p="1rem" border={'1px solid #000'}>
             <Heading mb="1rem" as="h2">
-              Shipping
+              Livrare
             </Heading>
             <Text mb="3">
-              <strong>Name: </strong> {cart.shippingAddress.fullName} <br />
-              <strong>Address: </strong> {cart.shippingAddress.address},{' '}
+              <strong>Nume: </strong> {cart.shippingAddress.fullName} <br />
+              <strong>Adresă: </strong> {cart.shippingAddress.address},{' '}
               {cart.shippingAddress.city}, {cart.shippingAddress.postalCode},{' '}
               {cart.shippingAddress.country}
             </Text>
@@ -120,16 +120,16 @@ function PlaceOrderScreen() {
               px="1.5rem"
               fontWeight={'bold'}
             >
-              <Link to="/shipping">Edit</Link>
+              <Link to="/shipping">Modifică</Link>
             </Box>
           </Box>
 
           <Box mb="1rem" p="1rem" border={'1px solid #000'}>
             <Heading mb="1rem" as="h2">
-              Payment
+              Metoda de plată
             </Heading>
             <Text mb="1rem">
-              <b>Method: </b> {cart.paymentMethod} <br />
+              <b>Metoda: </b> {cart.paymentMethod} <br />
             </Text>
             <Box
               borderRadius={'1rem'}
@@ -140,13 +140,13 @@ function PlaceOrderScreen() {
               px="1.5rem"
               fontWeight={'bold'}
             >
-              <Link to="/payment">Edit</Link>
+              <Link to="/payment">Modifică</Link>
             </Box>
           </Box>
 
           <Box p="1rem" border={'1px solid #000'}>
             <Heading mb="1rem" as="h2">
-              Items
+              Produse
             </Heading>
             <UnorderedList margin={'0'} listStyleType={'none'} px={'1rem'}>
               {cart.cartItems.map((item) => (
@@ -173,7 +173,7 @@ function PlaceOrderScreen() {
                     <Box w="20%">
                       <span>{item.quantity}</span>
                     </Box>
-                    <Box w="20%">{item.price} &euro;</Box>
+                    <Box w="20%">{item.price} RON</Box>
                   </Box>
                 </ListItem>
               ))}
@@ -187,14 +187,14 @@ function PlaceOrderScreen() {
               px="1.5rem"
               fontWeight={'bold'}
             >
-              <Link to="/cart">Edit</Link>
+              <Link to="/cart">Modifică</Link>
             </Box>
           </Box>
         </Box>
 
         <Box w="25%" p="1rem" border={'1px solid #000'}>
           <Heading mb="1rem" as="h2">
-            Order Summary
+            Sumar Comandă
           </Heading>
           <UnorderedList
             w={'100%'}
@@ -208,8 +208,8 @@ function PlaceOrderScreen() {
               mb={'1rem'}
               borderBottom={'1px solid gray'}
             >
-              <Text>Items</Text>
-              <Text>{cart.itemsPrice.toFixed(2)} &euro;</Text>
+              <Text>Produse</Text>
+              <Text>{cart.itemsPrice.toFixed(2)} RON</Text>
             </ListItem>
             <ListItem
               display={'flex'}
@@ -217,8 +217,8 @@ function PlaceOrderScreen() {
               mb={'1rem'}
               borderBottom={'1px solid gray'}
             >
-              <Text>Shipping</Text>
-              <Text>{cart.shippingPrice.toFixed(2)} &euro;</Text>
+              <Text>Livrare</Text>
+              <Text>{cart.shippingPrice.toFixed(2)} RON</Text>
             </ListItem>
             <ListItem
               display={'flex'}
@@ -226,8 +226,8 @@ function PlaceOrderScreen() {
               mb={'1rem'}
               borderBottom={'1px solid gray'}
             >
-              <Text>Tax</Text>
-              <Text>{cart.taxPrice.toFixed(2)} &euro;</Text>
+              <Text>Cost Livrare</Text>
+              <Text>{cart.taxPrice.toFixed(2)} RON</Text>
             </ListItem>
             <ListItem
               display={'flex'}
@@ -236,10 +236,10 @@ function PlaceOrderScreen() {
               borderBottom={'1px solid gray'}
             >
               <Text>
-                <strong>Order Total</strong>
+                <strong>Total Comandă</strong>
               </Text>
               <Text>
-                <strong>{cart.totalPrice.toFixed(2)} &euro;</strong>
+                <strong>{cart.totalPrice.toFixed(2)} RON</strong>
               </Text>
             </ListItem>
             <ListItem>
@@ -251,7 +251,7 @@ function PlaceOrderScreen() {
                 disabled={cart.cartItems.length === 0}
                 onClick={placeOrderHandler}
               >
-                Place Order
+                Plasează Comanda
               </Button>
 
               {loading && <LoadingBox></LoadingBox>}

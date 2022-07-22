@@ -77,15 +77,15 @@ function CreateProductPage() {
           headers: { Authorization: `Bearer ${userInfo.token}` },
         }
       );
-      toast.success('Product created successfully');
       dispatch({ type: 'CREATE_SUCCESS' });
+      toast.success('Product created successfully');
+      navigate('/admin/products');
     } catch (err) {
       toast.error(getError(error));
       dispatch({
         type: 'CREATE_FAIL',
       });
     }
-    navigate('/admin/products');
   };
 
   const uploadFileHandler = async (e) => {
@@ -127,7 +127,7 @@ function CreateProductPage() {
       </Heading>
       <form onSubmit={createHandler}>
         <FormControl mb="2rem">
-          <FormLabel htmlFor="name">Name: </FormLabel>
+          <FormLabel htmlFor="name">Denumire produs: </FormLabel>
           <Input
             borderColor={'#000'}
             w={['300px', '500px']}
@@ -171,7 +171,7 @@ function CreateProductPage() {
         </FormControl>
 
         <FormControl mb="2rem">
-          <FormLabel htmlFor="description">Description:</FormLabel>
+          <FormLabel htmlFor="description">Descriere:</FormLabel>
           <Input
             borderColor={'#000'}
             w={['300px', '500px']}
@@ -182,7 +182,7 @@ function CreateProductPage() {
         </FormControl>
 
         <FormControl mb="2rem">
-          <FormLabel htmlFor="price">Price:</FormLabel>
+          <FormLabel htmlFor="price">Preț:</FormLabel>
           <Input
             borderColor={'#000'}
             w={['300px', '500px']}
@@ -193,7 +193,7 @@ function CreateProductPage() {
         </FormControl>
 
         <FormControl mb="2rem">
-          <FormLabel htmlFor="imageFile">Upload Image:</FormLabel>
+          <FormLabel htmlFor="imageFile">Poze:</FormLabel>
           <Input
             borderColor={'#000'}
             w={['300px', '500px']}
@@ -205,7 +205,7 @@ function CreateProductPage() {
         </FormControl>
 
         <FormControl mb="2rem">
-          <FormLabel htmlFor="category">Category:</FormLabel>
+          <FormLabel htmlFor="category">Categorie:</FormLabel>
           <Input
             borderColor={'#000'}
             w={['300px', '500px']}
@@ -216,7 +216,7 @@ function CreateProductPage() {
         </FormControl>
 
         <Button bg={'brand.500'} disabled={loadingUpdate} type="submit">
-          Create new product
+          Crează produs nou
         </Button>
         {loadingUpdate && <LoadingBox></LoadingBox>}
       </form>

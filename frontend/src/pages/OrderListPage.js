@@ -125,11 +125,11 @@ function OrderListPage() {
               <Tr>
                 <Th>ID</Th>
                 <Th>USER</Th>
-                <Th>DATE</Th>
+                <Th>DATA</Th>
                 <Th>TOTAL</Th>
-                <Th>PAID</Th>
-                <Th>DELIVERED</Th>
-                <Th>ACTIONS</Th>
+                <Th>PLĂTIT</Th>
+                <Th>LIVRAT</Th>
+                <Th>ACȚIUNI</Th>
               </Tr>
             </Thead>
             <Tbody>
@@ -138,7 +138,7 @@ function OrderListPage() {
                   <Td>{order._id}</Td>
                   <Td>{order.user ? order.user.name : 'DELETED USER'}</Td>
                   <Td>{order.createdAt.substring(0, 10)}</Td>
-                  <Td>{order.totalPrice.toFixed(2)}</Td>
+                  <Td>{order.totalPrice.toFixed(2)} RON</Td>
                   <Td>{order.isPaid ? order.paidAt.substring(0, 10) : 'No'}</Td>
                   <Td>
                     {order.isDelivered
@@ -156,7 +156,7 @@ function OrderListPage() {
                         navigate(`/order/${order._id}`);
                       }}
                     >
-                      Details
+                      Detalii
                     </Button>
                     <IconButton
                       bg={'brand.600'}

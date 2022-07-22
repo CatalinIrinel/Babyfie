@@ -59,7 +59,7 @@ function LoginPage() {
           w="100%"
           fontSize="2.5rem"
         >
-          <Heading as="h1">Logeaza-te</Heading>
+          <Heading as="h1">Logează-te</Heading>
         </Box>
         <form onSubmit={submitHandler}>
           <FormControl isRequired mb="2rem">
@@ -92,13 +92,13 @@ function LoginPage() {
               _hover={{ backgroundColor: 'brand.600', color: '#fff' }}
               _focus={{ boxShadow: 'none' }}
             >
-              Log In
+              Logare
             </Button>
           </Box>
           <Box display="flex" justifyContent="center">
             Client Nou?&nbsp;
             <Link className="links" to={`/register?redirect=${redirect}`}>
-              Creaza-ti contul aici!
+              Crează-ți contul aici!
             </Link>
           </Box>
         </form>

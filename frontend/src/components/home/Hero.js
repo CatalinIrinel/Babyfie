@@ -119,7 +119,7 @@ function Hero() {
           w={'100%'}
           textAlign={'center'}
         >
-          Most comfortable baby cribs
+          Cele mai confortabile pătuțuri
         </Heading>
         <Text
           fontSize={['1.4rem', '2rem']}
@@ -128,7 +128,7 @@ function Hero() {
           w={'100%'}
           textAlign={'center'}
         >
-          Have a look and choose a unique crib for your child
+          Alege un pătuț unic pentru copilul tău
         </Text>
         <Button
           bg="brand.300"
@@ -137,7 +137,7 @@ function Hero() {
           size="lg"
           onClick={() => navigate('/products')}
         >
-          Our Products
+          Produsele noastre
         </Button>
       </Box>
     </Box>

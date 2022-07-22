@@ -29,33 +29,42 @@ function Footer() {
               fontWeight="bold"
               fontSize="1.2rem"
             >
-              Quick Menu
+              Meniu Rapid
             </Text>
           </ListItem>
-          <ListItem
-            _hover={{ color: 'brand.600' }}
-            transition=".3s ease-in-out"
-          >
-            <Link to="/">Home</Link>
-          </ListItem>
-          <ListItem
-            _hover={{ color: 'brand.600' }}
-            transition=".3s ease-in-out"
-          >
-            <Link to="/our-products">Products</Link>
-          </ListItem>
-          <ListItem
-            _hover={{ color: 'brand.600' }}
-            transition=".3s ease-in-out"
-          >
-            <Link to="/about">About</Link>
-          </ListItem>
-          <ListItem
-            _hover={{ color: 'brand.600' }}
-            transition=".3s ease-in-out"
-          >
-            <Link to="/contact">Contact</Link>
-          </ListItem>
+          <Link to="/">
+            {' '}
+            <ListItem
+              _hover={{ color: 'brand.600' }}
+              transition=".3s ease-in-out"
+            >
+              Acasa
+            </ListItem>
+          </Link>
+          <Link to="/our-products">
+            <ListItem
+              _hover={{ color: 'brand.600' }}
+              transition=".3s ease-in-out"
+            >
+              Produse
+            </ListItem>
+          </Link>
+          <Link to="/about">
+            <ListItem
+              _hover={{ color: 'brand.600' }}
+              transition=".3s ease-in-out"
+            >
+              Despre
+            </ListItem>
+          </Link>
+          <Link to="/contact">
+            <ListItem
+              _hover={{ color: 'brand.600' }}
+              transition=".3s ease-in-out"
+            >
+              Contact
+            </ListItem>
+          </Link>
         </UnorderedList>
 
         <UnorderedList listStyleType="none" color="#000" py="1.5rem">
@@ -66,21 +75,25 @@ function Footer() {
               fontWeight="bold"
               fontSize="1.2rem"
             >
-              User Menu
+              Meniu Utilizator
             </Text>
           </ListItem>
-          <ListItem
-            _hover={{ color: 'brand.600' }}
-            transition=".3s ease-in-out"
-          >
-            <Link to="/profile">Profile</Link>
-          </ListItem>
-          <ListItem
-            _hover={{ color: 'brand.600' }}
-            transition=".3s ease-in-out"
-          >
-            <Link to="/order-history">Order History</Link>
-          </ListItem>
+          <Link to="/profile">
+            <ListItem
+              _hover={{ color: 'brand.600' }}
+              transition=".3s ease-in-out"
+            >
+              Profil
+            </ListItem>
+          </Link>
+          <Link to="/order-history">
+            <ListItem
+              _hover={{ color: 'brand.600' }}
+              transition=".3s ease-in-out"
+            >
+              Istoric Comenzi
+            </ListItem>
+          </Link>
         </UnorderedList>
 
         <UnorderedList listStyleType="none" color="#000" py="1.5rem">
@@ -91,33 +104,42 @@ function Footer() {
               fontWeight="bold"
               fontSize="1.2rem"
             >
-              Policies
+              Politici
             </Text>
           </ListItem>
-          <ListItem
-            _hover={{ color: 'brand.600' }}
-            transition=".3s ease-in-out"
-          >
-            <Link to="/terms">Terms and Conditions</Link>
-          </ListItem>
-          <ListItem
-            _hover={{ color: 'brand.600' }}
-            transition=".3s ease-in-out"
-          >
-            <Link to="/privacy">Privacy Policy</Link>
-          </ListItem>
-          <ListItem
-            _hover={{ color: 'brand.600' }}
-            transition=".3s ease-in-out"
-          >
-            <Link to="/shipping-policy">Shipping Policy</Link>
-          </ListItem>
-          <ListItem
-            _hover={{ color: 'brand.600' }}
-            transition=".3s ease-in-out"
-          >
-            <Link to="/return">Return Policy</Link>
-          </ListItem>
+          <Link to="/terms">
+            <ListItem
+              _hover={{ color: 'brand.600' }}
+              transition=".3s ease-in-out"
+            >
+              Termeni și Condiții
+            </ListItem>
+          </Link>
+          <Link to="/privacy">
+            <ListItem
+              _hover={{ color: 'brand.600' }}
+              transition=".3s ease-in-out"
+            >
+              Politică GDPR
+            </ListItem>
+          </Link>
+          <Link to="/shipping-policy">
+            {' '}
+            <ListItem
+              _hover={{ color: 'brand.600' }}
+              transition=".3s ease-in-out"
+            >
+              Politică de livrare
+            </ListItem>
+          </Link>
+          <Link to="/return">
+            <ListItem
+              _hover={{ color: 'brand.600' }}
+              transition=".3s ease-in-out"
+            >
+              Politică de retur
+            </ListItem>
+          </Link>
         </UnorderedList>
       </Flex>
       <Flex

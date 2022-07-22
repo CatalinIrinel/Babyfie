@@ -75,7 +75,7 @@ function DashboardPage() {
                       ? summary.users[0].numUsers
                       : 0}
                   </Box>
-                  <Box>Users</Box>
+                  <Box>Utilizatori</Box>
                 </Box>
               </Box>
             </Box>
@@ -94,7 +94,7 @@ function DashboardPage() {
                       ? summary.orders[0].numOrders
                       : 0}
                   </Box>
-                  <Box>Orders</Box>
+                  <Box>Comenzi</Box>
                 </Box>
               </Box>
             </Box>
@@ -113,23 +113,23 @@ function DashboardPage() {
                       : 0}
                     &nbsp; &euro;
                   </Box>
-                  <Box>Income</Box>
+                  <Box>Venit</Box>
                 </Box>
               </Box>
             </Box>
           </Flex>
           <Spacer />
           <Box my="2rem">
-            <Heading as="h2">Sales</Heading>
+            <Heading as="h2">Vânzări</Heading>
             {summary.dailyOrders.length === 0 ? (
-              <MessageBox status="warning">No Sales</MessageBox>
+              <MessageBox status="warning">Nici o vânzare</MessageBox>
             ) : (
               <Chart
                 width="100%"
                 height="400px"
                 chartType="AreaChart"
                 options={{ backgroundColor: 'transparent' }}
-                loader={<div>Loading Chart...</div>}
+                loader={<div>Se încarcă graficul...</div>}
                 data={[
                   ['Date', 'Sales'],
                   ...summary.dailyOrders.map((x) => [x._id, x.sales]),
@@ -139,16 +139,16 @@ function DashboardPage() {
           </Box>
           <Spacer />
           <Box my="3">
-            <Heading as="h2">Categories</Heading>
+            <Heading as="h2">Categorii</Heading>
             {summary.productCategories.length === 0 ? (
-              <MessageBox>No Categories</MessageBox>
+              <MessageBox>Nici o categorie</MessageBox>
             ) : (
               <Chart
                 width="100%"
                 height="400px"
                 chartType="PieChart"
                 options={{ backgroundColor: 'transparent' }}
-                loader={<div>Loading Chart...</div>}
+                loader={<div>Se încarcă graficul...</div>}
                 data={[
                   ['Date', 'Categories'],
                   ...summary.productCategories.map((x) => [x._id, x.count]),

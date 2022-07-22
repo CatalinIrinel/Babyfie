@@ -207,47 +207,49 @@ function OrderPage() {
       alignItems={'center'}
     >
       <Helmet>
-        <title>Order {orderId}</title>
+        <title>Order - Babyfie</title>
       </Helmet>
       <Heading as="h1" my="3rem">
-        Order {userInfo.name}
+        Comanda {userInfo.name} cu id: {orderId}
       </Heading>
       <Flex maxW="1100px" w="100%" justifyContent={'space-between'}>
         <Box w="70%">
           <Box mb="2rem" p="1rem" border={'1px solid #000'}>
             <Heading mb="1rem" as="h2">
-              Shipping
+              Livrare
             </Heading>
             <Text mb="3">
-              <strong>Name:</strong> {order.shippingAddress.fullName} <br />
-              <strong>Address: </strong> {order.shippingAddress.address},{' '}
+              <strong>Nume:</strong> {order.shippingAddress.fullName} <br />
+              <strong>Adresă: </strong> {order.shippingAddress.address},{' '}
               {order.shippingAddress.city}, {order.shippingAddress.postalCode},{' '}
               {order.shippingAddress.country}
             </Text>
             {order.isDelivered ? (
               <MessageBox status="success">
-                Delivered at {order.deliveredAt}
+                Livrat la data {order.deliveredAt}
               </MessageBox>
             ) : (
-              <MessageBox status="error">Not Delivered</MessageBox>
+              <MessageBox status="error">Ne livrat</MessageBox>
             )}
           </Box>
           <Box mb="2rem" p="1rem" border={'1px solid #000'}>
             <Heading mb="1rem" as="h2">
-              Payment
+              Metoda de plată
             </Heading>
             <Text mb="3">
-              <strong>Method</strong> {order.paymentMethod}
+              <strong>Metoda</strong> {order.paymentMethod}
             </Text>
             {order.isPaid ? (
-              <MessageBox status="success">Paid at {order.paidAt}</MessageBox>
+              <MessageBox status="success">
+                Plătit la data {order.paidAt}
+              </MessageBox>
             ) : (
-              <MessageBox status="error">Not Paid</MessageBox>
+              <MessageBox status="error">Ne plătit</MessageBox>
             )}
           </Box>
           <Box mb="2rem" p="1rem" border={'1px solid #000'}>
             <Heading mb="1rem" as="h2">
-              Items
+              Produse
             </Heading>
             <UnorderedList margin={'0'} listStyleType={'none'} px={'1rem'}>
               {order.orderItems.map((item) => (
@@ -274,7 +276,7 @@ function OrderPage() {
                     <Box w="20%">
                       <span>{item.quantity}</span>
                     </Box>
-                    <Box w="20%">{item.price} &euro;</Box>
+                    <Box w="20%">{item.price} RON</Box>
                   </Box>
                 </ListItem>
               ))}
@@ -284,7 +286,7 @@ function OrderPage() {
         <Box>
           <Box mb="2rem" p="1rem" border={'1px solid #000'}>
             <Heading mb="1rem" as="h2">
-              Order Summary
+              Sumar Comandă
             </Heading>
             <UnorderedList
               w={'100%'}
@@ -298,8 +300,8 @@ function OrderPage() {
                 mb={'1rem'}
                 borderBottom={'1px solid gray'}
               >
-                <Text>Items</Text>
-                <Text>{order.itemsPrice.toFixed(2)} &euro;</Text>
+                <Text>Produse</Text>
+                <Text>{order.itemsPrice.toFixed(2)} RON</Text>
               </ListItem>
               <ListItem
                 display={'flex'}
@@ -307,8 +309,8 @@ function OrderPage() {
                 mb={'1rem'}
                 borderBottom={'1px solid gray'}
               >
-                <Text>Shipping</Text>
-                <Text>{order.shippingPrice.toFixed(2)} &euro;</Text>
+                <Text>Livrare</Text>
+                <Text>{order.shippingPrice.toFixed(2)} RON</Text>
               </ListItem>
               <ListItem
                 display={'flex'}
@@ -316,8 +318,8 @@ function OrderPage() {
                 mb={'1rem'}
                 borderBottom={'1px solid gray'}
               >
-                <Text>Tax</Text>
-                <Text>{order.taxPrice.toFixed(2)} &euro;</Text>
+                <Text>Cost Livrare</Text>
+                <Text>{order.taxPrice.toFixed(2)} RON</Text>
               </ListItem>
               <ListItem
                 display={'flex'}
@@ -326,9 +328,9 @@ function OrderPage() {
                 borderBottom={'1px solid gray'}
               >
                 <Text>
-                  <strong>Order Total</strong>
+                  <strong>Total Comandă</strong>
                 </Text>
-                <Text>{order.totalPrice.toFixed(2)} &euro;</Text>
+                <Text>{order.totalPrice.toFixed(2)} RON</Text>
               </ListItem>
               {!order.isPaid && (
                 <ListItem>
@@ -351,7 +353,7 @@ function OrderPage() {
                   {loadingDeliver && <LoadingBox></LoadingBox>}
                   <Box>
                     <Button type="button" onClick={deliverOrderHandler}>
-                      Deliver Order
+                      Comandă Livrată
                     </Button>
                   </Box>
                 </ListItem>

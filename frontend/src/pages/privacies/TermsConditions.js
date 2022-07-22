@@ -11,7 +11,7 @@ import {
 } from '@chakra-ui/react';
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { termsData } from './data.js';
+import { termsDataRo } from './data.js';
 
 function TermsConditions() {
   return (
@@ -21,11 +21,13 @@ function TermsConditions() {
       </Helmet>
       <Box w="100%" maxW="1100px">
         <Heading as="h1" textTransform="uppercase">
-          Terms & Conditions
+          Termeni și Condiții
         </Heading>
-        <Text>Last updated May 29,2022</Text>
+        <Text>
+          <strong>Ultima actualizare Mai 29, 2022</strong>
+        </Text>
         <Accordion my="2rem" allowToggle allowMultiple>
-          {termsData.map((item) => (
+          {termsDataRo.map((item) => (
             <AccordionItem key={item.title}>
               <h2>
                 <AccordionButton>

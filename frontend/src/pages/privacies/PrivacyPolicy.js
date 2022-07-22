@@ -7,11 +7,14 @@ import {
   Box,
   Flex,
   Heading,
+  ListItem,
   Text,
+  UnorderedList,
 } from '@chakra-ui/react';
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { gdprData } from './data';
+import { Link } from 'react-router-dom';
+import { gdprDataRo } from './data';
 
 function PrivacyPolicy() {
   return (
@@ -21,11 +24,43 @@ function PrivacyPolicy() {
       </Helmet>
       <Box w="100%" maxW="1100px">
         <Heading as="h1" textTransform="uppercase">
-          Privacy Policy
+          POLITICA DE CONFIDENȚIALITATE
         </Heading>
-        <Text>Last updated May 29,2022</Text>
+        <Text>
+          <strong>Ultima actualizare 29 mai 2022</strong>
+        </Text>
+        <br />
+        <Text>
+          Această notificare de confidențialitate pentru Babyfie SRL ({' '}
+          <strong>„Companie”, „noi”, „noi”,</strong> sau{' '}
+          <strong>„nostru”</strong> ,), descrie cum și de ce am putea colecta,
+          stoca, folosi și/sau partaja („procesează”) informațiile dvs. atunci
+          când utilizați serviciile noastre (<strong>„ Serviciile ”</strong>),
+          cum ar fi atunci când:
+        </Text>
+        <UnorderedList>
+          <ListItem>
+            Vizitați site-ul nostru web la{' '}
+            <Link to="https://babyfie.eu">https://babyfie.eu </Link>sau orice
+            site de-al nostru care trimite la această notificare de
+            confidențialitate
+          </ListItem>
+          <ListItem>
+            Interacționați cu noi în alte moduri conexe, inclusiv în orice
+            vânzări, marketing sau evenimente
+          </ListItem>
+        </UnorderedList>
+        <br />
+        <Text>
+          <strong>Întrebări sau Nelămuriri?</strong> Citirea acestei notificări
+          de confidențialitate vă va ajuta să înțelegeți drepturile și opțiunile
+          dvs. de confidențialitate. Dacă nu sunteți de acord cu politicile și
+          practicile noastre, vă rugăm să nu utilizați Serviciile noastre. Dacă
+          mai aveți întrebări sau nelămuriri, vă rugăm să ne contactați la
+          contact@babyfie.eu.
+        </Text>
         <Accordion my="2rem" allowToggle allowMultiple>
-          {gdprData.map((item) => (
+          {gdprDataRo.map((item) => (
             <AccordionItem key={item.title}>
               <h2>
                 <AccordionButton>

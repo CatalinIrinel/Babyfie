@@ -9,7 +9,7 @@
   --bleu: hsl(202, 100%, 89%);
   --indigo: hsl(267, 100%, 85%);
   --dark-indigo: hsl(267, 30%, 57%);
-  --dark-bleu: hsl(202, 65%, 59%);
+  --dark-bleu: #52a9da;
   --dark-crem: hsl(47, 76%, 59%);
   --bg-green: hsl(131, 32%, 72%);
   --logo-font: 'Sacramento', cursive;
@@ -25,6 +25,11 @@ main {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: var(--logo-font);
+}
+
+span.logo {
+  font-weight: 500;
+  font-size: 3rem;
 }
 
 .img-large {
@@ -112,16 +117,18 @@ main {
     var(--dark-bleu)
   );
   background-size: 300%;
-  font-size: 14px;
+  font-size: 1rem;
   font-weight: bold;
   text-transform: uppercase;
   color: #000;
-  width: 9em;
-  height: 3em;
+  width: 10em;
+  height: 4em;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 1rem;
+  text-align: center;
+  padding: 0.5rem 1rem;
 }
 
 .buttonEffect:hover {
@@ -141,5 +148,10 @@ main {
 
 .links {
   color: var(--dark-indigo);
+  text-decoration: underline;
+}
+
+a.policyLink {
+  color: blue;
   text-decoration: underline;
 }

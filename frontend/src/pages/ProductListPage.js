@@ -129,7 +129,7 @@ function ProductListPage() {
         justifyContent={'space-between'}
         mb={'2rem'}
       >
-        <Heading as="h1">Products</Heading>
+        <Heading as="h1">Produse</Heading>
         <Link to="/admin/product-create">
           <Button
             bg={'brand.500'}
@@ -140,7 +140,7 @@ function ProductListPage() {
             }}
             type="button"
           >
-            Add New Product
+            Adaugă Produs Nou
           </Button>
         </Link>
       </Box>
@@ -168,7 +168,7 @@ function ProductListPage() {
                 <Tr key={product._id}>
                   <Td>{product._id}</Td>
                   <Td>{product.name}</Td>
-                  <Td>{product.price}</Td>
+                  <Td>{product.price} RON</Td>
                   <Td>{product.category}</Td>
                   <Td>{product.brand}</Td>
                   <Td>

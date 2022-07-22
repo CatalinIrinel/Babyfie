@@ -70,11 +70,11 @@ export default function ShippingAddressPage() {
         mt="5"
       >
         <Heading as="h1" my="3">
-          Shipping Adress
+          Adresa de livrare
         </Heading>
         <form onSubmit={submitHandler}>
           <FormControl w={['300px', '500px']}>
-            <FormLabel htmlFor="fullName">Full Name</FormLabel>
+            <FormLabel htmlFor="fullName">Nume Complet:</FormLabel>
             <Input
               borderColor={'#000'}
               value={fullName}
@@ -83,7 +83,7 @@ export default function ShippingAddressPage() {
             />
           </FormControl>
           <FormControl w={['300px', '500px']}>
-            <FormLabel htmlFor="address">Address</FormLabel>
+            <FormLabel htmlFor="address">Adresa</FormLabel>
             <Input
               borderColor={'#000'}
               value={address}
@@ -92,7 +92,7 @@ export default function ShippingAddressPage() {
             />
           </FormControl>
           <FormControl w={['300px', '500px']}>
-            <FormLabel htmlFor="city">City</FormLabel>
+            <FormLabel htmlFor="city">Orașul</FormLabel>
             <Input
               borderColor={'#000'}
               value={city}
@@ -101,7 +101,7 @@ export default function ShippingAddressPage() {
             />
           </FormControl>
           <FormControl w={['300px', '500px']}>
-            <FormLabel htmlFor="postalCode">Postal Code</FormLabel>
+            <FormLabel htmlFor="postalCode">Codul Poștal</FormLabel>
             <Input
               borderColor={'#000'}
               value={postalCode}
@@ -110,7 +110,7 @@ export default function ShippingAddressPage() {
             />
           </FormControl>
           <FormControl w={['300px', '500px']}>
-            <FormLabel htmlFor="country">Country</FormLabel>
+            <FormLabel htmlFor="country">Țara:</FormLabel>
             <Input
               borderColor={'#000'}
               value={country}
@@ -120,7 +120,7 @@ export default function ShippingAddressPage() {
           </FormControl>
           <Box mt="3">
             <Button bg={'brand.500'} variant="solid" type="submit">
-              Continue
+              Continuă
             </Button>
           </Box>
         </form>

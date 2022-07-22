@@ -52,6 +52,8 @@ function UserEditPage() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [isAdmin, setIsAdmin] = useState(false);
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -76,23 +78,28 @@ function UserEditPage() {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    try {
-      dispatch({ type: 'UPDATE_REQUEST' });
-      await axios.put(
-        `/api/users/${userId}`,
-        { _id: userId, name, email, isAdmin },
-        {
-          headers: { Authorization: `Bearer ${userInfo.token}` },
-        }
-      );
-      dispatch({
-        type: 'UPDATE_SUCCESS',
-      });
-      toast.success('User updated successfully');
-      navigate('/admin/users');
-    } catch (error) {
-      toast.error(getError(error));
-      dispatch({ type: 'UPDATE_FAIL' });
+    if (confirmPassword === password) {
+      try {
+        dispatch({ type: 'UPDATE_REQUEST' });
+
+        await axios.put(
+          `/api/users/${userId}`,
+          { _id: userId, name, email, isAdmin, password },
+          {
+            headers: { Authorization: `Bearer ${userInfo.token}` },
+          }
+        );
+        dispatch({
+          type: 'UPDATE_SUCCESS',
+        });
+        toast.success('User updated successfully');
+        navigate('/admin/users');
+      } catch (error) {
+        toast.error(getError(error));
+        dispatch({ type: 'UPDATE_FAIL' });
+      }
+    } else {
+      toast.error('Passwords do not match');
     }
   };
   return (
@@ -107,7 +114,7 @@ function UserEditPage() {
       <Helmet>
         <title>Edit User</title>
       </Helmet>
-      <Heading as="h1">Edit User {name}</Heading>
+      <Heading as="h1">Editează utilizatorul{name}</Heading>
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (
@@ -115,7 +122,7 @@ function UserEditPage() {
       ) : (
         <form onSubmit={submitHandler}>
           <FormControl isRequired mb="2rem">
-            <FormLabel htmlFor="name">Name:</FormLabel>
+            <FormLabel htmlFor="name">Nume:</FormLabel>
             <Input
               borderColor={'#000'}
               w="300px"
@@ -136,6 +143,25 @@ function UserEditPage() {
             />
           </FormControl>
 
+          <FormControl mb="2rem">
+            <FormLabel>Parolă:</FormLabel>
+            <Input
+              borderColor={'#000'}
+              type="password"
+              onChange={(e) => setPassword(e.target.value)}
+              isRequired
+            />
+          </FormControl>
+          <FormControl mb="2rem">
+            <FormLabel>Confirmă parola:</FormLabel>
+            <Input
+              borderColor={'#000'}
+              type="password"
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              isRequired
+            />
+          </FormControl>
+
           <FormControl mb={'2rem'}>
             <Checkbox
               colorScheme={'orange'}
@@ -144,7 +170,7 @@ function UserEditPage() {
               checked={isAdmin}
               onChange={(e) => setIsAdmin(e.target.checked)}
             >
-              Set user as an Admin
+              Setează utilizatorul ca admin
             </Checkbox>
           </FormControl>
 
@@ -160,7 +186,7 @@ function UserEditPage() {
               _hover={{ backgroundColor: 'brand.600', color: '#fff' }}
               _focus={{ boxShadow: 'none' }}
             >
-              Update
+              Actualizează
             </Button>
             {loadingUpdate && <LoadingBox></LoadingBox>}
           </Box>

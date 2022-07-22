@@ -40,19 +40,19 @@ function PaymentMethodPage() {
           <title>Payment Method</title>
         </Helmet>
         <Heading as="h1" my="3rem">
-          Payment Method
+          Metoda de plată
         </Heading>
         <form onSubmit={submitHandler}>
           <Box className="mb-3">
             <Radio
               borderColor={'#000'}
               type="radio"
-              id="PayPal"
-              value="PayPal"
-              checked={paymentMethodName === 'PayPal'}
+              id="Cash"
+              value="Cash"
+              checked={paymentMethodName === 'Cash'}
               onChange={(e) => setPaymentMethod(e.target.value)}
             >
-              Pay Pal
+              Numerar la livrare
             </Radio>
           </Box>
           <Box className="mb-3">
@@ -69,7 +69,7 @@ function PaymentMethodPage() {
           </Box>
           <Box mt="3">
             <Button bg={'brand.500'} type="submit">
-              Continue
+              Continuă
             </Button>
           </Box>
         </form>

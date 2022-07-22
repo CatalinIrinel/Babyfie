@@ -124,10 +124,10 @@ function UserListPage() {
             <Thead bg={'brand.300'}>
               <Tr>
                 <Th>ID</Th>
-                <Th>NAME</Th>
+                <Th>NUME</Th>
                 <Th>EMAIL</Th>
-                <Th>IS ADMIN</Th>
-                <Th>ACTIONS</Th>
+                <Th>ESTE ADMIN</Th>
+                <Th>ACȚIUNI</Th>
               </Tr>
             </Thead>
             <Tbody>
@@ -149,7 +149,7 @@ function UserListPage() {
                         navigate(`/admin/user/${user._id}`);
                       }}
                     >
-                      Edit
+                      Editează
                     </Button>
                     <IconButton
                       bg={'brand.600'}

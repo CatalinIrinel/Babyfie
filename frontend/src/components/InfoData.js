@@ -1,7 +1,6 @@
 export const teamData = {
-  topLine: 'Premium team for premium cribs',
-  headline:
-    'Meet the team behind the amazing cribs that will make your baby happier than ever',
+  topLine: 'Echipă premium pentru pătuțuri premium',
+  headline: 'Cunoaște echipa din spatele acestor pătuțuri uimitoare',
   text: 'Get access to our programming tools that can be used by programmers of any level, also you can get access to plenty tutorials and documentation on different packages',
   catalin: {
     img: '/images/hero2.webp',
