@@ -69,7 +69,7 @@ function Product(props) {
             _hover={{ background: 'brand.400' }}
             disabled
           >
-            Out of Stock
+            Lipsă stoc
           </Button>
         ) : (
           <Button
@@ -78,7 +78,7 @@ function Product(props) {
             _hover={{ background: 'brand.400' }}
             onClick={() => addToCartHandler(product)}
           >
-            Add to cart
+            Adaugă în coș
           </Button>
         )}
       </Box>
