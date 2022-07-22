@@ -10,16 +10,16 @@ export default function CheckoutSteps(props) {
       justifyContent={'space-evenly'}
     >
       <Box w="25%" className={props.step1 ? 'active' : ''}>
-        Sign-In
+        Logare
       </Box>
       <Box w="25%" className={props.step2 ? 'active' : ''}>
-        Shipping
+        Livrare
       </Box>
       <Box w="25%" className={props.step3 ? 'active' : ''}>
-        Payment
+        Metoda de plată
       </Box>
       <Box w="25%" className={props.step4 ? 'active' : ''}>
-        Place Order
+        Plasează comanda
       </Box>
     </Box>
   );

@@ -59,7 +59,7 @@ function Product(props) {
           </Heading>
         </Link>
         <Heading as="h3" fontSize={'1rem'} my={'1rem'}>
-          {product.price} &euro;
+          {product.price} RON
         </Heading>
 
         {product.countInStock === 0 ? (

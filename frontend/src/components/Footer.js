@@ -38,7 +38,7 @@ function Footer() {
               _hover={{ color: 'brand.600' }}
               transition=".3s ease-in-out"
             >
-              Acasa
+              Acasă
             </ListItem>
           </Link>
           <Link to="/our-products">
