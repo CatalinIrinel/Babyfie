@@ -4,11 +4,15 @@ import {
   FormControl,
   FormLabel,
   Heading,
+  IconButton,
   Input,
+  ListItem,
+  UnorderedList,
 } from '@chakra-ui/react';
 import axios from 'axios';
 import React, { useContext, useEffect, useReducer, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { BiTrash } from 'react-icons/bi';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import LoadingBox from '../components/LoadingBox';
@@ -53,15 +57,17 @@ function EditProductPage() {
   const { state } = useContext(Store);
   const { userInfo } = state;
 
-  const [{ loading, error, loadingUpdate }, dispatch] = useReducer(reducer, {
-    loading: true,
-    error: '',
-  });
+  const [{ loading, error, loadingUpload, loadingUpdate }, dispatch] =
+    useReducer(reducer, {
+      loading: true,
+      error: '',
+    });
 
   const [name, setName] = useState('');
   const [slug, setSlug] = useState('');
   const [price, setPrice] = useState('');
   const [image, setImage] = useState('');
+  const [images, setImages] = useState([]);
   const [category, setCategory] = useState('');
   const [countInStock, setCountInStock] = useState('');
   const [brand, setBrand] = useState('');
@@ -76,6 +82,7 @@ function EditProductPage() {
         setSlug(data.slug);
         setPrice(data.price);
         setImage(data.image);
+        setImages(data.images);
         setCategory(data.category);
         setCountInStock(data.countInStock);
         setBrand(data.brand);
@@ -103,6 +110,7 @@ function EditProductPage() {
           slug,
           price,
           image,
+          images,
           category,
           brand,
           countInStock,
@@ -115,14 +123,14 @@ function EditProductPage() {
       dispatch({
         type: 'UPDATE_SUCCESS',
       });
-      toast.success('Product updated successfully');
+      toast.success('Produs editat cu succes');
       navigate('/admin/products');
     } catch (err) {
       toast.error(getError(err));
       dispatch({ type: 'UPDATE_FAIL' });
     }
   };
-  const uploadFileHandler = async (e) => {
+  const uploadFileHandler = async (e, forImages) => {
     const file = e.target.files[0];
     const bodyFormData = new FormData();
     bodyFormData.append('file', file);
@@ -137,12 +145,28 @@ function EditProductPage() {
       });
       dispatch({ type: 'UPLOAD_SUCCESS' });
 
-      toast.success('Image uploaded successfully');
-      setImage(data.secure_url);
+      if (forImages) {
+        setImages([...images, data.secure_url]);
+      } else {
+        setImage(data.secure_url);
+      }
+      toast.success(
+        'Pozele au fost urcate cu succes. Apasati pe Editeaza Produsul pentru a aplica schimbarile'
+      );
     } catch (err) {
       toast.error(getError(err));
       dispatch({ type: 'UPLOAD_FAIL', payload: getError(err) });
     }
+  };
+
+  const deleteFileHandler = async (fileName, f) => {
+    console.log(fileName, f);
+    console.log(images);
+    console.log(images.filter((x) => x !== fileName));
+    setImages(images.filter((x) => x !== fileName));
+    toast.success(
+      'Poza stearsa cu succes. Apasati pe Editeaza Produsul pentru a aplica schimbarile'
+    );
   };
   return (
     <Box
@@ -235,13 +259,32 @@ function EditProductPage() {
             </FormControl>
 
             <FormControl mb="2rem">
-              <FormLabel htmlFor="image">Încarcă poze:</FormLabel>
+              <FormLabel htmlFor="image">Poze aditionale</FormLabel>
+              {images.length === 0 && <MessageBox>Nici o poza</MessageBox>}
+              <UnorderedList listStyleType={'none'}>
+                {images.map((x) => (
+                  <ListItem key={x}>
+                    {x}
+
+                    <IconButton
+                      bg={'brand.600'}
+                      color={'brand.300'}
+                      _hover={'none'}
+                      onClick={() => deleteFileHandler(x)}
+                      icon={<BiTrash />}
+                    />
+                  </ListItem>
+                ))}
+              </UnorderedList>
+            </FormControl>
+
+            <FormControl mb="2rem">
+              <FormLabel htmlFor="image">Încarcă poze aditionale:</FormLabel>
               <Input
                 borderColor={'#000'}
                 w="300px"
-                p={1}
                 type={'file'}
-                onChange={uploadFileHandler}
+                onChange={(e) => uploadFileHandler(e, true)}
               />
             </FormControl>
 
@@ -253,6 +296,7 @@ function EditProductPage() {
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
               />
+              {loadingUpload && <LoadingBox></LoadingBox>}
             </FormControl>
 
             <Button bg={'brand.500'} disabled={loadingUpdate} type="submit">

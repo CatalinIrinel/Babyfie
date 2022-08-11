@@ -4,6 +4,7 @@ import {
   Flex,
   Heading,
   IconButton,
+  Image,
   ListItem,
   Text,
   UnorderedList,
@@ -19,21 +20,6 @@ import { Store } from '../Store';
 import { getError } from '../Utils';
 // import Rating from '../components/Rating';
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-
-const settings = {
-  dots: true,
-  arrows: false,
-  fade: true,
-  infinite: true,
-  autoplay: false,
-  speed: 500,
-  autoplaySpeed: 5000,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-};
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -53,6 +39,7 @@ function ProductPage() {
   const { slug } = params;
   const [color, setColor] = useState('Black');
   const [slider, setSlider] = useState(null);
+  const [selectedImage, setSelectedImage] = useState('');
 
   const top = useBreakpointValue({ base: '90%', md: '50%' });
   const side = useBreakpointValue({ base: '20%', md: '30px' });
@@ -93,6 +80,7 @@ function ProductPage() {
       payload: { ...product, quantity },
     });
   };
+
   return (
     <Box
       minH={'60vh'}
@@ -106,8 +94,14 @@ function ProductPage() {
       ) : error ? (
         <MessageBox status="error">{error}</MessageBox>
       ) : (
-        <Flex maxW="1100px" w="full" flexDirection={['column', 'row']}>
-          <Box w="50%" p="1rem">
+        <Flex
+          maxW="1100px"
+          w="full"
+          h="fit-content"
+          flexDirection={['column', 'row', 'row']}
+          flexWrap={'wrap'}
+        >
+          <Box w={['100%', '50%']} p={['0.3rem', '1rem']}>
             <UnorderedList listStyleType={'none'}>
               {/* <ListItem>
                 <Rating
@@ -135,7 +129,7 @@ function ProductPage() {
                 <Text>{product.description}</Text>
               </ListItem>
 
-              <ListItem mb={'2rem'}>
+              {/* <ListItem mb={'2rem'}>
                 <Box>
                   <Heading fontSize={'1.3rem'} w="fit-content" as="h2" mb={3}>
                     Color: {color}
@@ -209,7 +203,7 @@ function ProductPage() {
                     </ListItem>
                   </UnorderedList>
                 </Box>
-              </ListItem>
+              </ListItem> */}
 
               <ListItem>
                 <Box>
@@ -234,53 +228,64 @@ function ProductPage() {
               </ListItem>
             </UnorderedList>
           </Box>
-          <Box w="50%" p="1rem">
+          <Box
+            w={['100%', '50%']}
+            p={['0.3rem', '1rem']}
+            minH={['50rem', 'fit-content']}
+          >
             <Box
               position={'relative'}
               w={'full'}
               overflow={'hidden'}
               px="0"
               py="0"
+              mb="1rem"
             >
-              <IconButton
-                aria-label="left-arrow"
-                borderRadius="full"
-                bg="brand.500"
-                position={'absolute'}
-                top={top}
-                left={side}
-                transform={'translate(0%,-50%)'}
-                zIndex={'2'}
-                _hover={{ background: 'brand.600', color: '#fff' }}
-                onClick={() => slider?.slickPrev()}
+              <Box
+                h={'400px'}
+                position={'relative'}
+                backgroundPosition={'center'}
+                backgroundRepeat={'no-repeat'}
+                backgroundSize={'contain'}
+                backgroundImage={`url(${selectedImage || product.image})`}
+              />
+            </Box>
+            <Box minH={'100px'}>
+              <UnorderedList
+                listStyleType={'none'}
+                margin={'0'}
+                padding={'0'}
+                minH={'100%'}
               >
-                <BiLeftArrowAlt style={{ width: '30px', height: '30px' }} />
-              </IconButton>
-
-              <IconButton
-                aria-label="right-arrow"
-                borderRadius="full"
-                bg="brand.500"
-                position={'absolute'}
-                top={top}
-                right={side}
-                zIndex={'2'}
-                transform={'translate(0%,-50%)'}
-                _hover={{ background: 'brand.600', color: '#fff' }}
-                onClick={() => slider?.slickNext()}
-              >
-                <BiRightArrowAlt style={{ width: '30px', height: '30px' }} />
-              </IconButton>
-              <Slider {...settings} ref={(slider) => setSlider(slider)}>
-                <Box
-                  h={'500px'}
-                  position={'relative'}
-                  backgroundPosition={'center'}
-                  backgroundRepeat={'no-repeat'}
-                  backgroundSize={'cover'}
-                  backgroundImage={`url(${product.image})`}
-                />
-              </Slider>
+                <ListItem margin="0" padding={'0'} h={'100%'}>
+                  <Box
+                    display={'flex'}
+                    flexWrap={'wrap'}
+                    justifyContent={'center'}
+                    h={'100%'}
+                  >
+                    {[product.image, ...product.images].map((x) => (
+                      <Box key={x} h={'100%'} mb={['0.5rem', '0']}>
+                        <Button
+                          onClick={() => setSelectedImage(x)}
+                          variant={'ghost'}
+                          _hover={{
+                            background: 'transparent',
+                          }}
+                          _focus={{
+                            border: 'none',
+                            boxShadow: 'none',
+                            outline: 'none',
+                          }}
+                          h={'100%'}
+                        >
+                          <Image boxSize={'100px'} src={x} alt={'product'} />
+                        </Button>
+                      </Box>
+                    ))}
+                  </Box>
+                </ListItem>
+              </UnorderedList>
             </Box>
           </Box>
         </Flex>

@@ -135,7 +135,7 @@ function Hero() {
           transitionDuration=".8s"
           _hover={{ background: 'brand.500', color: '#fff' }}
           size="lg"
-          onClick={() => navigate('/products')}
+          onClick={() => navigate('/our-products')}
         >
           Produsele noastre
         </Button>

@@ -23,7 +23,6 @@ function CartPage() {
     cart: { cartItems },
   } = state;
 
-  console.log('Cart has ' + cartItems.length + ' items');
   const updateCartHandler = async (item, quantity) => {
     const { data } = await axios.get(`/api/products/${item._id}`);
 
@@ -87,7 +86,7 @@ function CartPage() {
                           borderTopLeftRadius={'50%'}
                           borderTopRightRadius={'50%'}
                         />
-                        <Link to={`/produs/${item.slug}`}>{item.name}</Link>
+                        <Link to={`/product/${item.slug}`}>{item.name}</Link>
                       </Box>
                       <Spacer />
                       <Box>

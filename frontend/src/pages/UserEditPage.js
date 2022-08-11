@@ -149,7 +149,6 @@ function UserEditPage() {
               borderColor={'#000'}
               type="password"
               onChange={(e) => setPassword(e.target.value)}
-              isRequired
             />
           </FormControl>
           <FormControl mb="2rem">
@@ -158,7 +157,6 @@ function UserEditPage() {
               borderColor={'#000'}
               type="password"
               onChange={(e) => setConfirmPassword(e.target.value)}
-              isRequired
             />
           </FormControl>
 

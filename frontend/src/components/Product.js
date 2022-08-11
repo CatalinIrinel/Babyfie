@@ -38,9 +38,11 @@ function Product(props) {
         <Link to={`/product/${product.slug}`}>
           <Image
             boxSize="300px"
+            w={'350px'}
             src={product.image}
             alt={product.name}
             objectFit={'cover'}
+            objectPosition={'center'}
           />
         </Link>
       </Box>

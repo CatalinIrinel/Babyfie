@@ -42,6 +42,7 @@ const reducer = (state, action) => {
 };
 function CreateProductPage() {
   const navigate = useNavigate();
+
   const [{ error, loadingUpdate }, dispatch] = useReducer(reducer, {
     loading: true,
     error: '',

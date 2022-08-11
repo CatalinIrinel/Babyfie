@@ -49,7 +49,11 @@ function HomePage() {
                 mb="2rem"
                 src={product.image}
                 alt={product.name}
+                objectFit={'cover'}
               />
+              <Heading as={'h3'} fontSize={'1.3rem'} mb="1rem">
+                {product.name}
+              </Heading>
               <Link to={`/product/${product.slug}`}>
                 {' '}
                 <Box className="buttonEffect">Mai multe detalii</Box>

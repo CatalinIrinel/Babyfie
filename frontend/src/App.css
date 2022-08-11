@@ -121,7 +121,7 @@ span.logo {
   font-weight: bold;
   text-transform: uppercase;
   color: #000;
-  width: 10em;
+  width: fit-content;
   height: 4em;
   display: flex;
   align-items: center;

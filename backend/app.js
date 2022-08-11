@@ -8,6 +8,7 @@ import orderRouter from './routes/orderRoutes.js';
 import uploadRouter from './routes/uploadRoutes.js';
 import cors from 'cors';
 import nodemailer from 'nodemailer';
+import stripeRouter from './routes/stripe.js';
 
 dotenv.config();
 //babyfieAdmin Babyf132022
@@ -67,6 +68,7 @@ app.get('/api/keys/paypal', (req, res) => {
 });
 
 //routes
+app.use('/api/stripe', stripeRouter);
 app.use('/api/upload', uploadRouter);
 app.use('/api/products', productRouter);
 app.use('/api/users', userRouter);

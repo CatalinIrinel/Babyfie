@@ -6,7 +6,7 @@ import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { Store } from '../Store';
 import { getError } from '../Utils';
-import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js';
+// import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js';
 import { toast } from 'react-toastify';
 import {
   Box,
@@ -19,6 +19,7 @@ import {
   UnorderedList,
 } from '@chakra-ui/react';
 import { LinkIcon } from '@chakra-ui/icons';
+import { BsCreditCardFill } from 'react-icons/bs';
 
 function reducer(state, action) {
   switch (action.type) {
@@ -68,7 +69,7 @@ function OrderPage() {
       error,
       order,
       successPay,
-      loadingPay,
+      // loadingPay,
       loadingDeliver,
       successDeliver,
     },
@@ -81,45 +82,9 @@ function OrderPage() {
     loadingPay: false,
   });
 
-  const [{ isPending }, paypalDispatch] = usePayPalScriptReducer();
-
-  function createOrder(data, actions) {
-    return actions.order
-      .create({
-        purchase_units: [
-          {
-            amount: { value: order.totalPrice },
-          },
-        ],
-      })
-      .then((orderID) => {
-        return orderID;
-      });
-  }
-
-  function onApprove(data, actions) {
-    return actions.order.capture().then(async function (details) {
-      try {
-        dispatch({ type: 'PAY_REQUEST' });
-        const { data } = await axios.put(
-          `/api/orders/${order._id}/pay`,
-          details,
-          {
-            headers: { authorization: `Bearer ${userInfo.token}` },
-          }
-        );
-        dispatch({ type: 'PAY_SUCCESS', payload: data });
-        toast.success('Order is paid');
-      } catch (err) {
-        dispatch({ type: 'PAY_FAIL', payload: getError(err) });
-        toast.error(getError(err));
-      }
-    });
-  }
-
-  function onError(err) {
-    toast.error(getError(err));
-  }
+  // function onError(err) {
+  //   toast.error(getError(err));
+  // }
 
   useEffect(() => {
     const fetchOrder = async () => {
@@ -150,31 +115,8 @@ function OrderPage() {
       if (successDeliver) {
         dispatch({ type: 'DELIVER_RESET' });
       }
-    } else {
-      const loadPaypalScript = async () => {
-        const { data: clientId } = await axios.get('/api/keys/paypal', {
-          headers: { authorization: `Bearer ${userInfo.token}` },
-        });
-        paypalDispatch({
-          type: 'resetOptions',
-          value: {
-            'client-id': clientId,
-            currency: 'EUR',
-          },
-        });
-        paypalDispatch({ type: 'setLoadingStatus', value: 'pending' });
-      };
-      loadPaypalScript();
     }
-  }, [
-    order,
-    userInfo,
-    orderId,
-    navigate,
-    paypalDispatch,
-    successPay,
-    successDeliver,
-  ]);
+  }, [order, userInfo, orderId, navigate, successPay, successDeliver]);
 
   async function deliverOrderHandler() {
     try {
@@ -194,6 +136,29 @@ function OrderPage() {
     }
   }
 
+  const checkoutSession = async (orderItems) => {
+    console.log(orderItems);
+    dispatch({ type: 'PAY_REQUEST' });
+    const { data } = await axios.put(
+      `/api/orders/${order._id}/pay`,
+      {},
+      {
+        headers: { authorization: `Bearer ${userInfo.token}` },
+      }
+    );
+    dispatch({ type: 'PAY_SUCCESS', payload: data });
+    axios
+      .post('/api/stripe/create-checkout-session', { orderItems })
+      .then((res) => {
+        console.log(res.data.url);
+
+        if (res.data.url) {
+          window.location.href = res.data.url;
+        }
+      })
+      .catch((err) => console.log(err.message));
+  };
+
   return loading ? (
     <LoadingBox></LoadingBox>
   ) : error ? (
@@ -209,8 +174,9 @@ function OrderPage() {
       <Helmet>
         <title>Order - Babyfie</title>
       </Helmet>
-      <Heading as="h1" my="3rem">
-        Comanda {userInfo.name} cu id: {orderId}
+      <Heading as="h1" my="3rem" textAlign={'center'}>
+        Comanda {userInfo.name} cu id-ul comenzii: <br />
+        {orderId}
       </Heading>
       <Flex maxW="1100px" w="100%" justifyContent={'space-between'}>
         <Box w="70%">
@@ -312,15 +278,7 @@ function OrderPage() {
                 <Text>Livrare</Text>
                 <Text>{order.shippingPrice.toFixed(2)} RON</Text>
               </ListItem>
-              <ListItem
-                display={'flex'}
-                justifyContent={'space-between'}
-                mb={'1rem'}
-                borderBottom={'1px solid gray'}
-              >
-                <Text>Cost Livrare</Text>
-                <Text>{order.taxPrice.toFixed(2)} RON</Text>
-              </ListItem>
+
               <ListItem
                 display={'flex'}
                 justifyContent={'space-between'}
@@ -332,7 +290,21 @@ function OrderPage() {
                 </Text>
                 <Text>{order.totalPrice.toFixed(2)} RON</Text>
               </ListItem>
-              {!order.isPaid && (
+              {!order.isPaid && order.paymentMethod === 'Stripe' && (
+                <ListItem>
+                  <Button
+                    type="submit"
+                    bg={'brand.300'}
+                    w={'fit-content'}
+                    _hover={'none'}
+                    onClick={() => checkoutSession(order.orderItems)}
+                  >
+                    <BsCreditCardFill />
+                    &nbsp; Plata cu cardul
+                  </Button>
+                </ListItem>
+              )}
+              {/* {!order.isPaid && (
                 <ListItem>
                   {isPending ? (
                     <LoadingBox />
@@ -347,7 +319,7 @@ function OrderPage() {
                   )}
                   {loadingPay && <LoadingBox></LoadingBox>}
                 </ListItem>
-              )}
+              )} */}
               {userInfo.isAdmin && order.isPaid && !order.isDelivered && (
                 <ListItem>
                   {loadingDeliver && <LoadingBox></LoadingBox>}

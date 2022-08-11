@@ -47,9 +47,8 @@ function PlaceOrderScreen() {
   cart.itemsPrice = round2(
     cart.cartItems.reduce((a, c) => a + c.quantity * c.price, 0)
   );
-  cart.shippingPrice = cart.itemsPrice > 100 ? round2(0) : round2(10);
-  cart.taxPrice = round2(0.15 * cart.itemsPrice);
-  cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
+  cart.shippingPrice = cart.itemsPrice > 1499 ? 100 : 50;
+  cart.totalPrice = cart.itemsPrice + cart.shippingPrice;
 
   const placeOrderHandler = async () => {
     try {
@@ -62,7 +61,6 @@ function PlaceOrderScreen() {
           paymentMethod: cart.paymentMethod,
           itemsPrice: cart.itemsPrice,
           shippingPrice: cart.shippingPrice,
-          taxPrice: cart.taxPrice,
           totalPrice: cart.totalPrice,
         },
         {
@@ -220,15 +218,7 @@ function PlaceOrderScreen() {
               <Text>Livrare</Text>
               <Text>{cart.shippingPrice.toFixed(2)} RON</Text>
             </ListItem>
-            <ListItem
-              display={'flex'}
-              justifyContent={'space-between'}
-              mb={'1rem'}
-              borderBottom={'1px solid gray'}
-            >
-              <Text>Cost Livrare</Text>
-              <Text>{cart.taxPrice.toFixed(2)} RON</Text>
-            </ListItem>
+
             <ListItem
               display={'flex'}
               justifyContent={'space-between'}

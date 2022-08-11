@@ -13,7 +13,7 @@ function PaymentMethodPage() {
   } = state;
 
   const [paymentMethodName, setPaymentMethod] = useState(
-    paymentMethod || 'PayPal'
+    paymentMethod || 'Numerar la livrare'
   );
 
   useEffect(() => {
@@ -48,8 +48,8 @@ function PaymentMethodPage() {
               borderColor={'#000'}
               type="radio"
               id="Cash"
-              value="Cash"
-              checked={paymentMethodName === 'Cash'}
+              value="Numerar la livrare"
+              checked={paymentMethodName === 'Numerar la livrare'}
               onChange={(e) => setPaymentMethod(e.target.value)}
             >
               Numerar la livrare
@@ -64,7 +64,7 @@ function PaymentMethodPage() {
               checked={paymentMethodName === 'Stripe'}
               onChange={(e) => setPaymentMethod(e.target.value)}
             >
-              Stripe
+              Plata cu cardul
             </Radio>
           </Box>
           <Box mt="3">
