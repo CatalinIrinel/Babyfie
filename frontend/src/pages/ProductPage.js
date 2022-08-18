@@ -3,23 +3,24 @@ import {
   Button,
   Flex,
   Heading,
-  IconButton,
+  // IconButton,
   Image,
   ListItem,
   Text,
   UnorderedList,
-  useBreakpointValue,
+  // useBreakpointValue,
 } from '@chakra-ui/react';
 import axios from 'axios';
 import React, { useContext, useEffect, useReducer, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { Store } from '../Store';
 import { getError } from '../Utils';
 // import Rating from '../components/Rating';
-import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
+// import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
+import { FaArrowRight } from 'react-icons/fa';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -37,12 +38,12 @@ const reducer = (state, action) => {
 function ProductPage() {
   const params = useParams();
   const { slug } = params;
-  const [color, setColor] = useState('Black');
-  const [slider, setSlider] = useState(null);
+  // const [color, setColor] = useState('Black');
+  // const [slider, setSlider] = useState(null);
   const [selectedImage, setSelectedImage] = useState('');
 
-  const top = useBreakpointValue({ base: '90%', md: '50%' });
-  const side = useBreakpointValue({ base: '20%', md: '30px' });
+  // const top = useBreakpointValue({ base: '90%', md: '50%' });
+  // const side = useBreakpointValue({ base: '20%', md: '30px' });
 
   const [{ loading, error, product }, dispatch] = useReducer(reducer, {
     loading: true,
@@ -98,11 +99,15 @@ function ProductPage() {
           maxW="1100px"
           w="full"
           h="fit-content"
-          flexDirection={['column', 'row', 'row']}
           flexWrap={'wrap'}
+          justifyContent={'center'}
         >
-          <Box w={['100%', '50%']} p={['0.3rem', '1rem']}>
-            <UnorderedList listStyleType={'none'}>
+          <Box
+            w={[300, 500]}
+            p={['0.3rem', '1rem']}
+            textAlign={['center', 'left']}
+          >
+            <UnorderedList w={'100%'} listStyleType={'none'} m={0}>
               {/* <ListItem>
                 <Rating
                   rating={product.rating}
@@ -205,6 +210,17 @@ function ProductPage() {
                 </Box>
               </ListItem> */}
 
+              <ListItem
+                w={'full'}
+                mb={'2rem'}
+                display={['flex', 'block']}
+                alignItems={['center', 'left']}
+              >
+                <Link to="/about" className="aboutLink">
+                  <FaArrowRight />
+                  Mai multe informații
+                </Link>
+              </ListItem>
               <ListItem>
                 <Box>
                   {product.countInStock > 0 ? (
@@ -221,18 +237,14 @@ function ProductPage() {
                   ) : (
                     <Button type="button" bg={'brand.500'} disabled>
                       {' '}
-                      Nu mai este în stock
+                      Nu mai este în stoc
                     </Button>
                   )}
                 </Box>
               </ListItem>
             </UnorderedList>
           </Box>
-          <Box
-            w={['100%', '50%']}
-            p={['0.3rem', '1rem']}
-            minH={['50rem', 'fit-content']}
-          >
+          <Box w={[300, 500]} p={['0.3rem', '1rem']} minH={'fit-content'}>
             <Box
               position={'relative'}
               w={'full'}
@@ -242,7 +254,7 @@ function ProductPage() {
               mb="1rem"
             >
               <Box
-                h={'400px'}
+                h={['200px', '400px']}
                 position={'relative'}
                 backgroundPosition={'center'}
                 backgroundRepeat={'no-repeat'}
@@ -263,12 +275,14 @@ function ProductPage() {
                     flexWrap={'wrap'}
                     justifyContent={'center'}
                     h={'100%'}
+                    gap={'.6rem'}
                   >
                     {[product.image, ...product.images].map((x) => (
                       <Box key={x} h={'100%'} mb={['0.5rem', '0']}>
                         <Button
                           onClick={() => setSelectedImage(x)}
                           variant={'ghost'}
+                          p={'0'}
                           _hover={{
                             background: 'transparent',
                           }}

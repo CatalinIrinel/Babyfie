@@ -20,7 +20,7 @@ function HomePage() {
         flexWrap={'wrap'}
         flexDirection={'column'}
         py={'6rem'}
-        px={'6rem'}
+        px={['2rem', '6rem']}
       >
         <Box mb={'4rem'} w={'full'} display={'flex'} justifyContent={'center'}>
           <Heading
@@ -35,7 +35,13 @@ function HomePage() {
             Cele mai vândute produse
           </Heading>
         </Box>
-        <Box display="flex" flexWrap={'wrap'} justifyContent={'space-between'}>
+        <Box
+          display="flex"
+          flexWrap={'wrap'}
+          justifyContent={['center', 'space-between']}
+          alignItems={'center'}
+          gap={'1.3rem'}
+        >
           {data.products.map((product) => (
             <Box
               key={product.slug}
@@ -46,7 +52,7 @@ function HomePage() {
               <Image
                 boxSize={'300px'}
                 borderRadius={'full'}
-                mb="2rem"
+                mb="1.2rem"
                 src={product.image}
                 alt={product.name}
                 objectFit={'cover'}

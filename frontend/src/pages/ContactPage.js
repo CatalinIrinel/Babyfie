@@ -114,7 +114,7 @@ function ContactPage() {
           className="glass"
           boxShadow={'10px 10px 40px rgba(0,0,0,0.5)'}
           py={'2rem'}
-          px={'4rem'}
+          px={['1rem', '4rem']}
           borderRadius={'1rem'}
         >
           <form id="formC" onSubmit={sendEmail}>
@@ -173,15 +173,22 @@ function ContactPage() {
                 onChange={(e) => setMessage(e.target.value)}
               />
             </FormControl>
-            <Button
-              boxShadow={'0 0 20px hsl(267, 30%, 57%)'}
-              color={'#fff'}
-              bg={'brand.500'}
-              _hover={'none'}
-              type="submit"
+            <Box
+              w={'full'}
+              display={'flex'}
+              alignItems={'center'}
+              justifyContent={'center'}
             >
-              Trimite Messaj
-            </Button>
+              <Button
+                boxShadow={'0 0 20px hsl(267, 30%, 57%)'}
+                color={'#fff'}
+                bg={'brand.500'}
+                _hover={'none'}
+                type="submit"
+              >
+                Trimite Messaj
+              </Button>
+            </Box>
           </form>
         </Box>
       </Box>

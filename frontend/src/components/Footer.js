@@ -20,8 +20,20 @@ function Footer() {
       position={'relative'}
       bottom={'0'}
     >
-      <Flex bg="brand.200" justifyContent="space-evenly">
-        <UnorderedList listStyleType="none" color="#000" py="1.5rem">
+      <Flex
+        w={'full'}
+        bg="brand.200"
+        justifyContent="space-evenly"
+        flexWrap={'wrap'}
+        h={'fit-content'}
+      >
+        <UnorderedList
+          w={[300, 250]}
+          listStyleType="none"
+          color="#000"
+          py="1.5rem"
+          textAlign={['center', 'left']}
+        >
           <ListItem>
             <Text
               textDecoration="underline"
@@ -67,7 +79,13 @@ function Footer() {
           </Link>
         </UnorderedList>
 
-        <UnorderedList listStyleType="none" color="#000" py="1.5rem">
+        <UnorderedList
+          w={[300, 200]}
+          listStyleType="none"
+          color="#000"
+          py="1.5rem"
+          textAlign={['center', 'left']}
+        >
           <ListItem>
             <Text
               textDecoration="underline"
@@ -94,9 +112,23 @@ function Footer() {
               Istoric Comenzi
             </ListItem>
           </Link>
+          <LinkChak href="https://anpc.ro/">
+            <ListItem
+              _hover={{ color: 'brand.600' }}
+              transition=".3s ease-in-out"
+            >
+              ANPC
+            </ListItem>
+          </LinkChak>
         </UnorderedList>
 
-        <UnorderedList listStyleType="none" color="#000" py="1.5rem">
+        <UnorderedList
+          w={[300, 200]}
+          listStyleType="none"
+          color="#000"
+          py="1.5rem"
+          textAlign={['center', 'left']}
+        >
           <ListItem>
             <Text
               textDecoration="underline"
@@ -148,18 +180,26 @@ function Footer() {
         w="100%"
         bg="brand.100"
         justifyContent="space-between"
+        flexWrap={'wrap'}
         fontSize={['.8rem', '1rem']}
+        gap={['.8rem', 0]}
       >
-        <Box display="flex" alignItems="center" justifyContent="center">
-          <Text w="fit-content" fontSize="3xl" className="logo">
+        <Box
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          w={['100%', 'fit-content']}
+        >
+          <Text w="fit-content" fontSize={['2.5rem', '3xl']} className="logo">
             Babyfie
           </Text>
         </Box>
         <Box
           display="flex"
-          flexDirection={['column', 'row']}
+          flexDirection={'row'}
           alignItems="center"
           justifyContent="center"
+          w={['100%', 'fit-content']}
         >
           <Text>All rights reserved &nbsp;</Text>
           <MdCopyright style={{ margin: 0 }} />
@@ -177,7 +217,8 @@ function Footer() {
         <Box
           display="flex"
           justifyContent="space-evenly"
-          flexDirection={['column', 'row']}
+          flexDirection={'row'}
+          w={['100%', 'fit-content']}
         >
           <Box mb={['.5rem', '0']}>
             <a

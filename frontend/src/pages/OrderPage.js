@@ -188,7 +188,9 @@ function OrderPage() {
               <strong>Nume:</strong> {order.shippingAddress.fullName} <br />
               <strong>Adresă: </strong> {order.shippingAddress.address},{' '}
               {order.shippingAddress.city}, {order.shippingAddress.postalCode},{' '}
-              {order.shippingAddress.country}
+              {order.shippingAddress.country} <br />
+              <strong>Număr de Contact: </strong>{' '}
+              {order.shippingAddress.contact}
             </Text>
             {order.isDelivered ? (
               <MessageBox status="success">

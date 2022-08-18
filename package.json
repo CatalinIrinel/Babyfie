@@ -1,0 +1,21 @@
+{
+  "name": "babyfie",
+  "version": "1.0.0",
+  "description": "ecomm",
+  "main": "index.js",
+  "scripts": {
+    "build": "cd backend && npm install && cd ../frontend && npm install && npm run build",
+    "start": "node backend/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CatalinIrinel/Babyfie.git"
+  },
+  "author": "Istratoae Catalin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CatalinIrinel/Babyfie/issues"
+  },
+  "homepage": "https://github.com/CatalinIrinel/Babyfie#readme"
+}

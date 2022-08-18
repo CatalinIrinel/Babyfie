@@ -77,7 +77,7 @@ function ProfilePage() {
         <Heading as="h1" my="3">
           Profilul utilizatorului
         </Heading>
-        <Box w="md">
+        <Box maxW={'400'} w={'full'}>
           <form onSubmit={submitHandler}>
             <FormControl mb="2rem">
               <FormLabel>Nume:</FormLabel>

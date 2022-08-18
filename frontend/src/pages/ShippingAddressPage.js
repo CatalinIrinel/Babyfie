@@ -32,6 +32,7 @@ export default function ShippingAddressPage() {
     shippingAddress.postalCode || ''
   );
   const [country, setCountry] = useState(shippingAddress.country || '');
+  const [contact, setContact] = useState(shippingAddress.contact || '');
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -43,6 +44,7 @@ export default function ShippingAddressPage() {
         city,
         postalCode,
         country,
+        contact,
       },
     });
     localStorage.setItem(
@@ -53,6 +55,7 @@ export default function ShippingAddressPage() {
         city,
         postalCode,
         country,
+        contact,
       })
     );
     navigate('/payment');
@@ -83,7 +86,17 @@ export default function ShippingAddressPage() {
             />
           </FormControl>
           <FormControl w={['300px', '500px']}>
-            <FormLabel htmlFor="address">Adresa</FormLabel>
+            <FormLabel htmlFor="fullName">Număr de Contact:</FormLabel>
+            <Input
+              type={'tel'}
+              borderColor={'#000'}
+              value={contact}
+              onChange={(e) => setContact(e.target.value)}
+              required
+            />
+          </FormControl>
+          <FormControl w={['300px', '500px']}>
+            <FormLabel htmlFor="address">Adresa:</FormLabel>
             <Input
               borderColor={'#000'}
               value={address}
@@ -92,7 +105,7 @@ export default function ShippingAddressPage() {
             />
           </FormControl>
           <FormControl w={['300px', '500px']}>
-            <FormLabel htmlFor="city">Orașul</FormLabel>
+            <FormLabel htmlFor="city">Orașul:</FormLabel>
             <Input
               borderColor={'#000'}
               value={city}
@@ -101,7 +114,7 @@ export default function ShippingAddressPage() {
             />
           </FormControl>
           <FormControl w={['300px', '500px']}>
-            <FormLabel htmlFor="postalCode">Codul Poștal</FormLabel>
+            <FormLabel htmlFor="postalCode">Codul Poștal:</FormLabel>
             <Input
               borderColor={'#000'}
               value={postalCode}

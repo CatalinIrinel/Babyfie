@@ -108,6 +108,8 @@ function PlaceOrderScreen() {
               <strong>Adresă: </strong> {cart.shippingAddress.address},{' '}
               {cart.shippingAddress.city}, {cart.shippingAddress.postalCode},{' '}
               {cart.shippingAddress.country}
+              <br />
+              <strong>Număr de Contact: </strong> {cart.shippingAddress.contact}
             </Text>
             <Box
               borderRadius={'1rem'}

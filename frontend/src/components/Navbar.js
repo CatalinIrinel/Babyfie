@@ -63,25 +63,8 @@ function Navbar({ toggle }) {
           <Link to="/about">Despre</Link>
           <Link to="/contact">Contact</Link>
         </Box>
-        {/* <Box display={['none', 'flex', 'flex']}>
-          <Flex alignItems="center">
-            <InputGroup>
-              <Input
-                borderColor="#000"
-                variant="flushed"
-                placeholder="Cauta produs..."
-              />{' '}
-              <InputRightElement>
-                <IconButton
-                  variant="unstyled"
-                  aria-label="Search database"
-                  icon={<SearchIcon />}
-                />
-              </InputRightElement>
-            </InputGroup>
-          </Flex>
-        </Box> */}
-        <Box display="flex" alignItems="center">
+
+        <Box display={['none', 'none', 'flex']} alignItems="center">
           <Box marginRight="1rem">
             {' '}
             <Link to="/cart">

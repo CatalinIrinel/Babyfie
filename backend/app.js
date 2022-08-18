@@ -11,7 +11,7 @@ import nodemailer from 'nodemailer';
 import stripeRouter from './routes/stripe.js';
 
 dotenv.config();
-//babyfieAdmin Babyf132022
+
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
@@ -62,11 +62,6 @@ app.post('/send-mail', cors(), async (req, res) => {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-//paypal api
-app.get('/api/keys/paypal', (req, res) => {
-  res.send(process.env.PAYPAL_CLIENT_ID || 'sb');
-});
-
 //routes
 app.use('/api/stripe', stripeRouter);
 app.use('/api/upload', uploadRouter);
@@ -80,6 +75,7 @@ app.use(express.static(path.join(__dirname, '/frontend/build')));
 app.get('*', (req, res) =>
   res.sendFile(path.join(__dirname, '/frontend/build/index.html'))
 );
+
 // error handler
 app.use((err, req, res, next) => {
   res.status(500).send({ message: err.message });
@@ -87,5 +83,5 @@ app.use((err, req, res, next) => {
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
-  console.log(`Serve at http://localhost:${port}`);
+  console.log(`serve is ready`);
 });

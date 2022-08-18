@@ -79,7 +79,7 @@ function CreateProductPage() {
         }
       );
       dispatch({ type: 'CREATE_SUCCESS' });
-      toast.success('Product created successfully');
+      toast.success('Produs creat cu succes');
       navigate('/admin/products');
     } catch (err) {
       toast.error(getError(error));
@@ -104,7 +104,7 @@ function CreateProductPage() {
       });
       dispatch({ type: 'UPLOAD_SUCCESS' });
 
-      toast.success('Image uploaded successfully');
+      toast.success('Imagine adaugata cu succes');
       setImage(data.secure_url);
     } catch (err) {
       toast.error(getError(err));

@@ -2,26 +2,26 @@ const data = {
   products: [
     {
       // _id: '1',
-      name: 'Patut Combi',
+      name: 'Pătuț Combi',
       slug: 'patut-combi',
       image: '/images/combi1.jpg.webp',
     },
     {
       // _id: '2',
-      name: 'Patut Combi + 13',
-      slug: 'patut-combi-13',
+      name: 'Pătuț Combi Maxi',
+      slug: 'patut-combi-maxi',
       image: '/images/combi+13-1.jpg.webp',
     },
     {
       // _id: '3',
-      name: 'Patut Diana fara sertar',
-      slug: 'patut-diana-grilaje-fara-sertar',
+      name: 'Pătuț Gamma cu saltea',
+      slug: 'patut-gamma-saltea',
       image: '/images/grilaje-sertar1.jpg.webp',
     },
     {
       // _id: '4',
-      name: 'Patut Diana cu grilaje',
-      slug: 'patut-diana-grilaje',
+      name: 'Pătuț Delta',
+      slug: 'patut-delta',
       image: '/images/grilaje2.jpg',
     },
   ],
