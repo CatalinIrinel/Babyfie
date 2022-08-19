@@ -67,7 +67,7 @@ function OrderListPage() {
       try {
         dispatch({ type: 'FETCH_REQUEST' });
         const { data } = await axios.get(
-          `http://ecommapi.babyfie.eu/api/orders`,
+          `https://ecommapi.babyfie.eu//api/orders`,
           {
             headers: { Authorization: `Bearer ${userInfo.token}` },
           }
@@ -91,9 +91,12 @@ function OrderListPage() {
     if (window.confirm('Are you sure to delete?')) {
       try {
         dispatch({ type: 'DELETE_REQUEST' });
-        await axios.delete(`/api/orders/${order._id}`, {
-          headers: { Authorization: `Bearer ${userInfo.token}` },
-        });
+        await axios.delete(
+          `https://ecommapi.babyfie.eu//api/orders/${order._id}`,
+          {
+            headers: { Authorization: `Bearer ${userInfo.token}` },
+          }
+        );
         toast.success('order deleted successfully');
         dispatch({ type: 'DELETE_SUCCESS' });
       } catch (err) {

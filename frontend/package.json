@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "homepage": "https://babyfie.eu",
-  "proxy": "https://ecommapi.babyfie.eu",
+  "proxy": "http://ecommapi.babyfie.eu",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

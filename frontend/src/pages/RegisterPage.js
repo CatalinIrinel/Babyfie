@@ -40,7 +40,7 @@ function RegisterPage() {
     }
     try {
       const { data } = await axios.post(
-        'http://ecommapi.babyfie.eu/api/users/signup',
+        'https://ecommapi.babyfie.eu//api/users/signup',
         {
           name,
           email,

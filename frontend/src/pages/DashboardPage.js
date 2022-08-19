@@ -33,7 +33,7 @@ function DashboardPage() {
     const fetchData = async () => {
       try {
         const { data } = await axios.get(
-          `http://ecommapi.babyfie.eu/api/orders/summary`,
+          `https://ecommapi.babyfie.eu//api/orders/summary`,
           {
             headers: { Authorization: `Bearer ${userInfo.token}` },
           }

@@ -82,7 +82,7 @@ function ProductListPage() {
     const fetchData = async () => {
       try {
         const { data } = await axios.get(
-          `http://ecommapi.babyfie.eu/api/products/admin?page=${page}`,
+          `https://ecommapi.babyfie.eu//api/products/admin?page=${page}`,
           {
             headers: { Authorization: `Bearer ${userInfo.token}` },
           }
@@ -102,9 +102,12 @@ function ProductListPage() {
   const deleteHandler = async (product) => {
     if (window.confirm('Are you sure to delete?')) {
       try {
-        await axios.delete(`/api/products/${product._id}`, {
-          headers: { Authorization: `Bearer ${userInfo.token}` },
-        });
+        await axios.delete(
+          `https://ecommapi.babyfie.eu//api/products/${product._id}`,
+          {
+            headers: { Authorization: `Bearer ${userInfo.token}` },
+          }
+        );
         toast.success('product deleted successfully');
         dispatch({ type: 'DELETE_SUCCESS' });
       } catch (err) {

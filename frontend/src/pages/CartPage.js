@@ -25,7 +25,7 @@ function CartPage() {
 
   const updateCartHandler = async (item, quantity) => {
     const { data } = await axios.get(
-      `http://ecommapi.babyfie.eu/api/products/${item._id}`
+      `https://ecommapi.babyfie.eu//api/products/${item._id}`
     );
 
     if (data.countInStock < quantity) {

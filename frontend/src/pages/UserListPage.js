@@ -67,7 +67,7 @@ function UserListPage() {
       try {
         dispatch({ type: 'FETCH_REQUEST' });
         const { data } = await axios.get(
-          `http://ecommapi.babyfie.eu/api/users`,
+          `https://ecommapi.babyfie.eu//api/users`,
           {
             headers: { Authorization: `Bearer ${userInfo.token}` },
           }
@@ -91,9 +91,12 @@ function UserListPage() {
     if (window.confirm('Are you sure to delete?')) {
       try {
         dispatch({ type: 'DELETE_REQUEST' });
-        await axios.delete(`http://ecommapi.babyfie.eu/api/users/${user._id}`, {
-          headers: { Authorization: `Bearer ${userInfo.token}` },
-        });
+        await axios.delete(
+          `https://ecommapi.babyfie.eu//api/users/${user._id}`,
+          {
+            headers: { Authorization: `Bearer ${userInfo.token}` },
+          }
+        );
         toast.success('user deleted successfully');
         dispatch({ type: 'DELETE_SUCCESS' });
       } catch (error) {

@@ -1,6 +1,5 @@
 {
   "name": "backend",
-  "type": "module",
   "version": "1.0.0",
   "description": "Ecomm website for baby cribs created by Peak & Go - Web",
   "main": "index.js",

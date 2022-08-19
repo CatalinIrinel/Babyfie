@@ -56,7 +56,7 @@ function ProductPage() {
       dispatch({ type: 'FETCH_REQUEST' });
       try {
         const result = await axios.get(
-          `http://ecommapi.babyfie.eu/api/products/slug/${slug}`
+          `https://ecommapi.babyfie.eu//api/products/slug/${slug}`
         );
         dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
       } catch (err) {
@@ -72,7 +72,9 @@ function ProductPage() {
   const addToCartHandler = async () => {
     const existingItem = cart.cartItems.find((x) => x._id === product._id);
     const quantity = existingItem ? existingItem.quantity + 1 : 1;
-    const { data } = await axios.get(`/api/products/${product._id}`);
+    const { data } = await axios.get(
+      `https://ecommapi.babyfie.eu//api/products/${product._id}`
+    );
 
     if (data.countInStock < quantity) {
       window.alert('Sorry. Product is out of stock');

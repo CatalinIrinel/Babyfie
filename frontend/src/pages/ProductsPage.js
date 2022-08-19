@@ -30,7 +30,7 @@ function ProductsPage() {
       dispatch({ type: 'FETCH_REQUEST' });
       try {
         const result = await axios.get(
-          'http://ecommapi.babyfie.eu/api/products'
+          'https://ecommapi.babyfie.eu//api/products'
         );
         dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
       } catch (err) {

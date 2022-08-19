@@ -63,7 +63,7 @@ function CreateProductPage() {
     try {
       dispatch({ type: 'CREATE_REQUEST' });
       await axios.post(
-        '/api/products',
+        'https://ecommapi.babyfie.eu//api/products',
         {
           name,
           slug,

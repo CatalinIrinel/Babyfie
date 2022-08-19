@@ -48,7 +48,7 @@ function OrderHistory() {
       dispatch({ type: 'FETCH_REQUEST' });
       try {
         const { data } = await axios.get(
-          `http://ecommapi.babyfie.eu/api/orders/mine`,
+          `https://ecommapi.babyfie.eu//api/orders/mine`,
           {
             headers: { authorization: `Bearer ${userInfo.token}` },
           }

@@ -30,7 +30,7 @@ function LoginPage() {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        'http://ecommapi.babyfie.eu/api/users/signin',
+        'https://ecommapi.babyfie.eu//api/users/signin',
         {
           email,
           password,

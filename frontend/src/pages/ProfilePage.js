@@ -46,7 +46,7 @@ function ProfilePage() {
     if (confirmPassword === password) {
       try {
         const { data } = await axios.put(
-          'http://ecommapi.babyfie.eu/api/users/profile',
+          'https://ecommapi.babyfie.eu//api/users/profile',
           { name, email, password },
           { headers: { authorization: `Bearer ${userInfo.token}` } }
         );

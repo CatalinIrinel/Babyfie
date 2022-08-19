@@ -28,7 +28,12 @@ function ContactPage() {
     e.preventDefault();
     document.getElementById('formC').reset();
     await axios
-      .post('/send-mail', { name, issue, email, message })
+      .post('https://ecommapi.babyfie.eu//send-mail', {
+        name,
+        issue,
+        email,
+        message,
+      })
       .then(toast.succes('Mesajul a fost trimis'));
   };
 

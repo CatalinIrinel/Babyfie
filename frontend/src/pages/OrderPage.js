@@ -91,7 +91,7 @@ function OrderPage() {
       try {
         dispatch({ type: 'FETCH_REQUEST' });
         const { data } = await axios.get(
-          `http://ecommapi.babyfie.eu/api/orders/${orderId}`,
+          `https://ecommapi.babyfie.eu//api/orders/${orderId}`,
           {
             headers: { authorization: `Bearer ${userInfo.token}` },
           }
@@ -125,7 +125,7 @@ function OrderPage() {
     try {
       dispatch({ type: 'DELIVER_REQUEST' });
       const { data } = await axios.put(
-        `/api/orders/${order._id}/deliver`,
+        `https://ecommapi.babyfie.eu//api/orders/${order._id}/deliver`,
         {},
         {
           headers: { authorization: `Bearer ${userInfo.token}` },
