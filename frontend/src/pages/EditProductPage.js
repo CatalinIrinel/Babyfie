@@ -77,7 +77,9 @@ function EditProductPage() {
     const fetchData = async () => {
       try {
         dispatch({ type: 'FETCH_REQUEST' });
-        const { data } = await axios.get(`/api/products/${productId}`);
+        const { data } = await axios.get(
+          `http://ecommpai.babyfie.eu/api/products/${productId}`
+        );
         setName(data.name);
         setSlug(data.slug);
         setPrice(data.price);
@@ -103,7 +105,7 @@ function EditProductPage() {
     try {
       dispatch({ type: 'UPDATE_REQUEST' });
       await axios.put(
-        `/api/products/${productId}`,
+        `http://ecommapi.babyfie.eu/api/products/${productId}`,
         {
           _id: productId,
           name,

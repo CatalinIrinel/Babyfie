@@ -54,7 +54,7 @@ function PlaceOrderScreen() {
     try {
       dispatch({ type: 'CREATE_REQUEST' });
       const { data } = await axios.post(
-        '/api/orders',
+        'http://ecommapi.babyfie.eu/api/orders',
         {
           orderItems: cart.cartItems,
           shippingAddress: cart.shippingAddress,

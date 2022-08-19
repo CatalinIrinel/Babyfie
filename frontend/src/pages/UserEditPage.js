@@ -59,9 +59,12 @@ function UserEditPage() {
     const fetchData = async () => {
       try {
         dispatch({ type: 'FETCH_REQUEST' });
-        const { data } = await axios.get(`/api/users/${userId}`, {
-          headers: { Authorization: `Bearer ${userInfo.token}` },
-        });
+        const { data } = await axios.get(
+          `http://ecommapi.babyfie.eu/api/users/${userId}`,
+          {
+            headers: { Authorization: `Bearer ${userInfo.token}` },
+          }
+        );
         setName(data.name);
         setEmail(data.email);
         setIsAdmin(data.isAdmin);
@@ -83,7 +86,7 @@ function UserEditPage() {
         dispatch({ type: 'UPDATE_REQUEST' });
 
         await axios.put(
-          `/api/users/${userId}`,
+          `http://ecommapi.babyfie.eu/api/users/${userId}`,
           { _id: userId, name, email, isAdmin, password },
           {
             headers: { Authorization: `Bearer ${userInfo.token}` },
