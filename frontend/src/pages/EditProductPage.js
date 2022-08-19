@@ -105,7 +105,7 @@ function EditProductPage() {
     try {
       dispatch({ type: 'UPDATE_REQUEST' });
       await axios.put(
-        `https://ecommapi.babyfie.eu//api/products/${productId}`,
+        `/api/products/${productId}`,
         {
           _id: productId,
           name,

@@ -1,14 +1,14 @@
-// import bcrypt from 'bcryptjs';
-// import express from 'express';
-// import expressAsyncHandler from 'express-async-handler';
-// import User from '../models/userModel.js';
-// import { generateToken, isAdmin, isAuth } from '../utils.js';
+import bcrypt from 'bcryptjs';
+import express from 'express';
+import expressAsyncHandler from 'express-async-handler';
+import User from '../models/userModel.js';
+import { generateToken, isAdmin, isAuth } from '../utils.js';
 
-const bcrypt = require('bcryptjs');
-const express = require('express');
-const expressAsyncHandler = require('express-async-handler');
-const User = require('../models/userModel.js');
-const { generateToken, isAdmin, isAuth } = require('../utils.js');
+// const bcrypt = require('bcryptjs');
+// const express = require('express');
+// const expressAsyncHandler = require('express-async-handler');
+// const User = require('../models/userModel.js');
+// const { generateToken, isAdmin, isAuth } = require('../utils.js');
 
 const userRouter = express.Router();
 
@@ -138,5 +138,5 @@ userRouter.put(
   })
 );
 
-// export default userRouter;
-module.exports = userRouter;
+export default userRouter;
+// module.exports = userRouter;

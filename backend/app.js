@@ -1,26 +1,26 @@
-// import express from 'express';
-// import path from 'path';
-// import mongoose from 'mongoose';
-// import dotenv from 'dotenv';
-// import productRouter from './routes/productRoutes.js';
-// import userRouter from './routes/userRoutes.js';
-// import orderRouter from './routes/orderRoutes.js';
-// import uploadRouter from './routes/uploadRoutes.js';
-// import cors from 'cors';
-// import nodemailer from 'nodemailer';
-// import stripeRouter from './routes/stripe.js';
+import express from 'express';
+import path from 'path';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+import productRouter from './routes/productRoutes.js';
+import userRouter from './routes/userRoutes.js';
+import orderRouter from './routes/orderRoutes.js';
+import uploadRouter from './routes/uploadRoutes.js';
+import cors from 'cors';
+import nodemailer from 'nodemailer';
+import stripeRouter from './routes/stripe.js';
 
-const express = require('express');
-const path = require('path');
-const mongoose = require('mongoose');
-const dotenv = require('dotenv');
-const productRouter = require('./routes/productRoutes.js');
-const userRouter = require('./routes/userRoutes.js');
-const orderRouter = require('./routes/orderRoutes.js');
-const uploadRouter = require('./routes/uploadRoutes.js');
-const cors = require('cors');
-const nodemailer = require('nodemailer');
-const stripeRouter = require('./routes/stripe.js');
+// const express = require('express');
+// const path = require('path');
+// const mongoose = require('mongoose');
+// const dotenv = require('dotenv');
+// const productRouter = require('./routes/productRoutes.js');
+// const userRouter = require('./routes/userRoutes.js');
+// const orderRouter = require('./routes/orderRoutes.js');
+// const uploadRouter = require('./routes/uploadRoutes.js');
+// const cors = require('cors');
+// const nodemailer = require('nodemailer');
+// const stripeRouter = require('./routes/stripe.js');
 
 dotenv.config();
 
@@ -82,7 +82,7 @@ app.use('/api/users', userRouter);
 app.use('/api/orders', orderRouter);
 
 //serve build files as static
-// const __dirname = path.resolve();
+const __dirname = path.resolve();
 app.use(express.static(path.join(__dirname, '/frontend/build')));
 app.get('*', (req, res) =>
   res.sendFile(path.join(__dirname, '/frontend/build/index.html'))

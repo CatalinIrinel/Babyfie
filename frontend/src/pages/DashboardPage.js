@@ -32,12 +32,9 @@ function DashboardPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get(
-          `https://ecommapi.babyfie.eu//api/orders/summary`,
-          {
-            headers: { Authorization: `Bearer ${userInfo.token}` },
-          }
-        );
+        const { data } = await axios.get(`/api/orders/summary`, {
+          headers: { Authorization: `Bearer ${userInfo.token}` },
+        });
         dispatch({ type: 'FETCH_SUCCESS', payload: data });
       } catch (err) {
         dispatch({ type: 'FETCH_FAIL', payload: getError(err) });

@@ -1,8 +1,8 @@
-// import jwt from 'jsonwebtoken';
-// import mg from 'mailgun-js';
+import jwt from 'jsonwebtoken';
+import mg from 'mailgun-js';
 
-const jwt = require('jsonwebtoken');
-const mg = require('mailgun-js');
+// const jwt = require('jsonwebtoken');
+// const mg = require('mailgun-js');
 
 export const generateToken = (user) => {
   return jwt.sign(
@@ -18,7 +18,6 @@ export const generateToken = (user) => {
     }
   );
 };
-
 export const isAuth = (req, res, next) => {
   const authorization = req.headers.authorization;
   if (authorization) {

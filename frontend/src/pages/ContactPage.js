@@ -28,7 +28,7 @@ function ContactPage() {
     e.preventDefault();
     document.getElementById('formC').reset();
     await axios
-      .post('https://ecommapi.babyfie.eu//send-mail', {
+      .post('/send-mail', {
         name,
         issue,
         email,

@@ -81,12 +81,9 @@ function ProductListPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get(
-          `https://ecommapi.babyfie.eu//api/products/admin?page=${page}`,
-          {
-            headers: { Authorization: `Bearer ${userInfo.token}` },
-          }
-        );
+        const { data } = await axios.get(`/api/products/admin?page=${page}`, {
+          headers: { Authorization: `Bearer ${userInfo.token}` },
+        });
         dispatch({ type: 'FETCH_SUCCESS', payload: data });
       } catch (err) {
         dispatch({ type: 'FETCH_FAIL', payload: getError(err) });
@@ -102,12 +99,9 @@ function ProductListPage() {
   const deleteHandler = async (product) => {
     if (window.confirm('Are you sure to delete?')) {
       try {
-        await axios.delete(
-          `https://ecommapi.babyfie.eu//api/products/${product._id}`,
-          {
-            headers: { Authorization: `Bearer ${userInfo.token}` },
-          }
-        );
+        await axios.delete(`/api/products/${product._id}`, {
+          headers: { Authorization: `Bearer ${userInfo.token}` },
+        });
         toast.success('product deleted successfully');
         dispatch({ type: 'DELETE_SUCCESS' });
       } catch (err) {
