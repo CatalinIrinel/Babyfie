@@ -44,7 +44,7 @@ function Navbar({ toggle }) {
       <Flex w="100%" alignItems="center" justifyContent="space-between">
         <Box fontSize="6xl">
           <Link to="/">
-            <h1 className="logo">Babyfie</h1>
+            <p className="logo">Babyfie</p>
           </Link>
         </Box>
         <Box display={['block', 'none', 'none']} onClick={toggle}>

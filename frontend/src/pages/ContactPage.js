@@ -54,7 +54,7 @@ function ContactPage() {
       <Helmet>
         <title>Contact - Babyfie</title>
       </Helmet>
-      <Heading my="3rem" as="h1" fontSize={'2.3rem'}>
+      <Heading my="3rem" as="h1" fontSize={'2.3rem'} textAlign={'center'}>
         Contactează echipa Babyfie
       </Heading>
       <Box

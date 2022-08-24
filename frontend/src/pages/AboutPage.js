@@ -35,7 +35,9 @@ function AboutPage() {
         justifyContent={'flex-start'}
       >
         <Box my="2rem" w={'fit-content'}>
-          <Heading as={'h1'}>Vrei să știi mai mult?</Heading>
+          <Heading as={'h1'} textAlign={'center'}>
+            Vrei să știi mai mult?
+          </Heading>
         </Box>
         <Box w={'100%'}>
           <Box w={'100%'} mb="1.5rem">

@@ -64,10 +64,10 @@ function Sidebar({ isOpen, toggle }) {
                     <ChevronDownIcon />
                   </MenuButton>
                   <MenuList>
-                    <Link to="/profile">
+                    <Link to="/profile" onClick={toggle}>
                       <MenuItem>Profil</MenuItem>
                     </Link>
-                    <Link to="/order-history">
+                    <Link to="/order-history" onClick={toggle}>
                       <MenuItem>Istoric Comenzi</MenuItem>
                     </Link>
                     <MenuDivider />
@@ -91,19 +91,19 @@ function Sidebar({ isOpen, toggle }) {
                     <ChevronDownIcon />
                   </MenuButton>
                   <MenuList>
-                    <Link to="/admin/dashboard">
+                    <Link to="/admin/dashboard" onClick={toggle}>
                       {' '}
                       <MenuItem>Dashboard</MenuItem>
                     </Link>
-                    <Link to="/admin/products">
+                    <Link to="/admin/products" onClick={toggle}>
                       {' '}
                       <MenuItem>Produse</MenuItem>
                     </Link>
-                    <Link to="/admin/orders">
+                    <Link to="/admin/orders" onClick={toggle}>
                       {' '}
                       <MenuItem>Comenzi</MenuItem>
                     </Link>
-                    <Link to="/admin/users">
+                    <Link to="/admin/users" onClick={toggle}>
                       {' '}
                       <MenuItem>Utilizatori</MenuItem>
                     </Link>
@@ -113,7 +113,7 @@ function Sidebar({ isOpen, toggle }) {
             </Box>
             <Box>
               {' '}
-              <Link to="/cart">
+              <Link to="/cart" onClick={toggle}>
                 <Icon as={RiShoppingCartLine} w={10} h={10} color="brand.600" />
                 {cart.cartItems.length > 0 && (
                   <Badge

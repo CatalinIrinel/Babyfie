@@ -54,6 +54,7 @@ function ProductsPage() {
         mb="3rem"
         borderTop={'4px solid hsl(267, 30%, 57%)'}
         borderBottom={'4px solid hsl(267, 30%, 57%)'}
+        textAlign={'center'}
       >
         Produsele <span className="logo">Babyfie</span>
       </Heading>
