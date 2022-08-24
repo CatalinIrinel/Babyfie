@@ -57,6 +57,9 @@ function Navbar({ toggle }) {
           alignItems="center"
           justifyContent="space-evenly"
           fontWeight="bold"
+          fontSize={'1.3rem'}
+          letterSpacing={3}
+          gap={10}
         >
           <Link to="/">Acasă</Link>
           <Link to="/our-products">Produse</Link>
