@@ -69,6 +69,7 @@ function ProductsPage() {
           display="flex"
           justifyContent={'space-evenly'}
           flexWrap={'wrap'}
+          gap={'1.5rem'}
         >
           {products.map((product) => (
             <Product key={product.slug} product={product} />

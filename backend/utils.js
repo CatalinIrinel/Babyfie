@@ -1,9 +1,6 @@
 import jwt from 'jsonwebtoken';
 import mg from 'mailgun-js';
 
-// const jwt = require('jsonwebtoken');
-// const mg = require('mailgun-js');
-
 export const generateToken = (user) => {
   return jwt.sign(
     {

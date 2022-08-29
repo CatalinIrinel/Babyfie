@@ -1,7 +1,7 @@
 {
   "name": "frontend",
-  "homepage": "https://babyfie.eu",
   "proxy": "http://localhost:5000",
+  "homepage": "https://babyfie.eu",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

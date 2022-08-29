@@ -292,20 +292,22 @@ function OrderPage() {
                 </Text>
                 <Text>{order.totalPrice.toFixed(2)} RON</Text>
               </ListItem>
-              {!order.isPaid && order.paymentMethod === 'Stripe' && (
-                <ListItem>
-                  <Button
-                    type="submit"
-                    bg={'brand.300'}
-                    w={'fit-content'}
-                    _hover={'none'}
-                    onClick={() => checkoutSession(order.orderItems)}
-                  >
-                    <BsCreditCardFill />
-                    &nbsp; Plata cu cardul
-                  </Button>
-                </ListItem>
-              )}
+              {!userInfo.isAdmin &&
+                !order.isPaid &&
+                order.paymentMethod === 'Stripe' && (
+                  <ListItem>
+                    <Button
+                      type="submit"
+                      bg={'brand.300'}
+                      w={'fit-content'}
+                      _hover={'none'}
+                      onClick={() => checkoutSession(order.orderItems)}
+                    >
+                      <BsCreditCardFill />
+                      &nbsp; Plata cu cardul
+                    </Button>
+                  </ListItem>
+                )}
               {/* {!order.isPaid && (
                 <ListItem>
                   {isPending ? (

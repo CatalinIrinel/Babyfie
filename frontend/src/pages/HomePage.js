@@ -100,7 +100,11 @@ function HomePage() {
             De ce pătuțurile babyfie?
           </Heading>
         </Box>
-        <Box display="flex" flexWrap={'wrap'} justifyContent={'space-between'}>
+        <Box
+          display="flex"
+          flexWrap={'wrap'}
+          justifyContent={['center', 'space-between']}
+        >
           {data.promise.map((item) => (
             <Box
               maxW={'300px'}

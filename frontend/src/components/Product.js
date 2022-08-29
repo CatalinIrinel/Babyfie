@@ -28,7 +28,6 @@ function Product(props) {
       justifyContent="space-between"
       alignItems={'center'}
       flexDirection={'column'}
-      mb={'4rem'}
     >
       <Box
         borderTopLeftRadius={'50%'}

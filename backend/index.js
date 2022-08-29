@@ -10,18 +10,6 @@ import cors from 'cors';
 import nodemailer from 'nodemailer';
 import stripeRouter from './routes/stripe.js';
 
-// const express = require('express');
-// const path = require('path');
-// const mongoose = require('mongoose');
-// const dotenv = require('dotenv');
-// const productRouter = require('./routes/productRoutes.js');
-// const userRouter = require('./routes/userRoutes.js');
-// const orderRouter = require('./routes/orderRoutes.js');
-// const uploadRouter = require('./routes/uploadRoutes.js');
-// const cors = require('cors');
-// const nodemailer = require('nodemailer');
-// const stripeRouter = require('./routes/stripe.js');
-
 dotenv.config();
 
 mongoose
@@ -70,10 +58,6 @@ app.post('/send-mail', cors(), async (req, res) => {
   await transporter.sendMail(mail);
 });
 
-//form data converted to JSON object
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
 //routes
 app.use('/api/stripe', stripeRouter);
 app.use('/api/upload', uploadRouter);
@@ -81,7 +65,7 @@ app.use('/api/products', productRouter);
 app.use('/api/users', userRouter);
 app.use('/api/orders', orderRouter);
 
-//serve build files as static
+// serve build files as static
 const __dirname = path.resolve();
 app.use(express.static(path.join(__dirname, '/frontend/build')));
 app.get('*', (req, res) =>
