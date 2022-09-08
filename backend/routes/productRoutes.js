@@ -3,11 +3,6 @@ import expressAsyncHandler from 'express-async-handler';
 import Product from '../models/productModel.js';
 import { isAdmin, isAuth } from '../utils.js';
 
-// const express = require('express');
-// const expressAsyncHandler = require('express-async-handler');
-// const Product = require('../models/productModel.js');
-// const { isAdmin, isAuth } = require('../utils.js');
-
 const productRouter = express.Router();
 
 productRouter.get('/', async (req, res) => {
@@ -209,4 +204,3 @@ productRouter.get('/:id', async (req, res) => {
 });
 
 export default productRouter;
-// module.exports = productRouter;

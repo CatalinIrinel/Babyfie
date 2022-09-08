@@ -71,14 +71,22 @@ function Sidebar({ isOpen, toggle }) {
                       <MenuItem>Istoric Comenzi</MenuItem>
                     </Link>
                     <MenuDivider />
-                    <Link to="#signout" onClick={signoutHandler}>
+                    <Link
+                      to="#signout"
+                      onClick={() => {
+                        signoutHandler();
+                        toggle();
+                      }}
+                    >
                       {' '}
                       <MenuItem> Delogare</MenuItem>
                     </Link>
                   </MenuList>
                 </Menu>
               ) : (
-                <Link to="/login">Loghează-te</Link>
+                <Link to="/login" onClick={toggle}>
+                  Loghează-te
+                </Link>
               )}
             </Box>
 

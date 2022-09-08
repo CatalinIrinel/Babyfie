@@ -2,10 +2,6 @@ import express from 'express';
 import Stripe from 'stripe';
 import dotenv from 'dotenv';
 
-// const express = require('express');
-// const Stripe = require('stripe');
-// const dotenv = require('dotenv');
-
 dotenv.config();
 // stripe payments
 const stripe = Stripe(process.env.STRIPE_SK);
@@ -40,4 +36,3 @@ stripeRouter.post('/create-checkout-session', async (req, res) => {
 });
 
 export default stripeRouter;
-// module.exports = stripeRouter;

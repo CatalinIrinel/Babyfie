@@ -4,13 +4,6 @@ import { isAdmin, isAuth } from '../utils.js';
 import { v2 as cloudinary } from 'cloudinary';
 import streamifier from 'streamifier';
 
-// const express = require('express');
-// const multer = require('multer');
-// const { isAdmin, isAuth } = require('../utils.js');
-// const v2 = require('cloudinary');
-// const cloudinary = v2;
-// const streamifier = require('streamifier');
-
 const upload = multer();
 
 const uploadRouter = express.Router();
@@ -45,4 +38,3 @@ uploadRouter.post(
 );
 
 export default uploadRouter;
-// module.exports = uploadRouter;

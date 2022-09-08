@@ -161,6 +161,12 @@ a.policyLink {
   text-decoration: underline;
 }
 
+form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
 @media screen and (max-width: 600px) {
   .glass {
     backdrop-filter: blur(3.1px);

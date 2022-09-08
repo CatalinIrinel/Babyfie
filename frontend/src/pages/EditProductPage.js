@@ -77,9 +77,7 @@ function EditProductPage() {
     const fetchData = async () => {
       try {
         dispatch({ type: 'FETCH_REQUEST' });
-        const { data } = await axios.get(
-          `http://ecommpai.babyfie.eu/api/products/${productId}`
-        );
+        const { data } = await axios.get(`/api/products/${productId}`);
         setName(data.name);
         setSlug(data.slug);
         setPrice(data.price);
@@ -188,10 +186,18 @@ function EditProductPage() {
       ) : error ? (
         <MessageBox status="error">{error}</MessageBox>
       ) : (
-        <Box>
+        <Box
+          marginTop={'3rem'}
+          display={'flex'}
+          justifyContent={'center'}
+          w={'100%'}
+          maxW={'1100px'}
+        >
           <form onSubmit={submitHandler}>
-            <FormControl mb="2rem">
-              <FormLabel htmlFor="name">Nume: </FormLabel>
+            <FormControl mb="2rem" w={'fit-content'}>
+              <FormLabel htmlFor="name" fontWeight={'bold'}>
+                Nume:{' '}
+              </FormLabel>
               <Input
                 borderColor={'#000'}
                 w="300px"
@@ -200,8 +206,10 @@ function EditProductPage() {
               />
             </FormControl>
 
-            <FormControl mb="2rem">
-              <FormLabel htmlFor="Slug">Slug: </FormLabel>
+            <FormControl mb="2rem" w={'fit-content'}>
+              <FormLabel htmlFor="Slug" fontWeight={'bold'}>
+                Slug:{' '}
+              </FormLabel>
               <Input
                 borderColor={'#000'}
                 w="300px"
@@ -210,8 +218,10 @@ function EditProductPage() {
               />
             </FormControl>
 
-            <FormControl mb="2rem">
-              <FormLabel htmlFor="brand">Brand:</FormLabel>
+            <FormControl mb="2rem" w={'fit-content'}>
+              <FormLabel htmlFor="brand" fontWeight={'bold'}>
+                Brand:
+              </FormLabel>
               <Input
                 borderColor={'#000'}
                 w="300px"
@@ -220,8 +230,10 @@ function EditProductPage() {
               />
             </FormControl>
 
-            <FormControl mb="2rem">
-              <FormLabel htmlFor="countInStock">Count In Stock:</FormLabel>
+            <FormControl mb="2rem" w={'fit-content'}>
+              <FormLabel htmlFor="countInStock" fontWeight={'bold'}>
+                Count In Stock:
+              </FormLabel>
               <Input
                 borderColor={'#000'}
                 w="300px"
@@ -230,8 +242,10 @@ function EditProductPage() {
               />
             </FormControl>
 
-            <FormControl mb="2rem">
-              <FormLabel htmlFor="description">Descriere:</FormLabel>
+            <FormControl mb="2rem" w={'fit-content'}>
+              <FormLabel htmlFor="description" fontWeight={'bold'}>
+                Descriere:
+              </FormLabel>
               <Input
                 borderColor={'#000'}
                 w="300px"
@@ -240,8 +254,10 @@ function EditProductPage() {
               />
             </FormControl>
 
-            <FormControl mb="2rem">
-              <FormLabel htmlFor="price">Preț:</FormLabel>
+            <FormControl mb="2rem" w={'fit-content'}>
+              <FormLabel htmlFor="price" fontWeight={'bold'}>
+                Preț:
+              </FormLabel>
               <Input
                 borderColor={'#000'}
                 w="300px"
@@ -250,8 +266,10 @@ function EditProductPage() {
               />
             </FormControl>
 
-            <FormControl mb="2rem">
-              <FormLabel htmlFor="image">Poze:</FormLabel>
+            <FormControl mb="2rem" w={'fit-content'}>
+              <FormLabel htmlFor="image" fontWeight={'bold'}>
+                Poze:
+              </FormLabel>
               <Input
                 borderColor={'#000'}
                 w="300px"
@@ -260,15 +278,18 @@ function EditProductPage() {
               />
             </FormControl>
 
-            <FormControl mb="2rem">
-              <FormLabel htmlFor="image">Poze aditionale</FormLabel>
+            <FormControl mb="2rem" w={'fit-content'}>
+              <FormLabel htmlFor="image" fontWeight={'bold'}>
+                Poze aditionale
+              </FormLabel>
               {images.length === 0 && <MessageBox>Nici o poza</MessageBox>}
               <UnorderedList listStyleType={'none'}>
                 {images.map((x) => (
-                  <ListItem key={x}>
+                  <ListItem key={x} mb={'0.5rem'}>
                     {x}
 
                     <IconButton
+                      marginLeft={'0.5rem'}
                       bg={'brand.600'}
                       color={'brand.300'}
                       _hover={'none'}
@@ -280,8 +301,10 @@ function EditProductPage() {
               </UnorderedList>
             </FormControl>
 
-            <FormControl mb="2rem">
-              <FormLabel htmlFor="image">Încarcă poze aditionale:</FormLabel>
+            <FormControl mb="2rem" w={'fit-content'}>
+              <FormLabel htmlFor="image" fontWeight={'bold'}>
+                Încarcă poze aditionale:
+              </FormLabel>
               <Input
                 borderColor={'#000'}
                 w="300px"
@@ -290,8 +313,10 @@ function EditProductPage() {
               />
             </FormControl>
 
-            <FormControl mb="2rem">
-              <FormLabel htmlFor="category">Categorie:</FormLabel>
+            <FormControl mb="2rem" w={'fit-content'}>
+              <FormLabel htmlFor="category" fontWeight={'bold'}>
+                Categorie:
+              </FormLabel>
               <Input
                 borderColor={'#000'}
                 w="300px"
